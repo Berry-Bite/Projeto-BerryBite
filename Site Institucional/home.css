@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+#div_tela_home {
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+#div_container {
+    border-bottom: 3px solid #32b9cd;
+    display: flex;
+    justify-content: center;
+}
+ 
+
+#ul_navbar {
+    font-family: "Jomhuria", serif;
+    color: #e3b062;
+    list-style: none;
+    display: flex;
+    font-size: 2vw;
+    align-items: center;
+}
+
+#img_logo {
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+#li_home {
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+#li_sobre_nos {
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+#li_servicos {
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+#li_diagrama {
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+#button_contato {
+    width: 3vw;
+    height: 3vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    justify-content: center;
+    align-items: center;
+}
+
+#img_contato {
+    width: 2vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+#button_entrar {
+    width: 5vw;
+    height: 2vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+#button_cadastrese {
+    width: 9vw;
+    height: 2vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+#div_banner {
+
+}
+
+#div_texto {
+    margin-top: 15vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#div_texto p {
+    font-size: 5vw;
+    font-family: "Jomhuria", serif;
+}
+
+#p_frase_principal {
+    color: #FFFFFF;
+}
+
+#p_frase_secundaria {
+    color: #7E7E7E;
+}
+
+#div_calculadora {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#div_frase_calculadora {
+    display: flex;
+    margin-bottom: 1vw;
+    flex-direction: row;
+}
+
+#p_texto_calculadora {
+    font-size: 1vw;
+    color: #BFBFBF;
+}
+
+#p_ganhar {
+    margin-left: 0.3vw;
+    margin-right: 0.3vw;
+    font-size: 1.3vw;
+    color: #27AF45;
+    font-weight: 400;
+}
+
+#button_calculadora {
+    width: 5vw;
+    height: 2vw;
+}
