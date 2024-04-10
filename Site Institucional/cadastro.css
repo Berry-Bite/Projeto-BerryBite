@@ -30,7 +30,7 @@ html, body {
     display: flex;
     position: absolute;
     top: 7vw;
-    left: 17.5vw;
+    left: 10vw;
     height: 70vh;
     max-height: 80vh;
     width: 23.5vw;
@@ -41,7 +41,7 @@ html, body {
     position: absolute;
     max-height: 30vh;
     top: 0vw;
-    left: -2vw;
+    left: -3vw;
     width: 16vw;
     transform: rotate(295deg);
 }
@@ -54,8 +54,8 @@ html, body {
     display: flex;
     max-height: 30vh;
     position: absolute;
-    top: 7vw;
-    left: 4vw;
+    top: 8vw;
+    left: -2vw;
     width: 16vw;
     transform: rotate(20deg);
 }
@@ -68,8 +68,8 @@ html, body {
     display: flex;
     max-height: 30vh;
     position: absolute;
-    top: 24vw;
-    left: 8vw;
+    top: 22vw;
+    left: 2vw;
     transform: rotate(180deg);
     width: 16vw;
 }
@@ -95,8 +95,8 @@ html, body {
     display: flex;
     max-height: 70vh;
     position: absolute;
-    top: -3vw;
-    left: 72vw;
+    top: -2vw;
+    left: 82vw;
 }
 
 #img_morango_direita_1 {
@@ -106,7 +106,7 @@ html, body {
 #div_container {
     display: flex;
     flex-direction: row;
-    width: 65vw;
+    width: 80vw;
     height: 70%;
     background: rgb(253, 1, 14);
     background: linear-gradient(235deg, rgba(253, 1, 14, 0.1) 100%, rgba(161, 161, 161, 1) 100%);
@@ -143,16 +143,17 @@ html, body {
 }
 
 #button_criar_conta {
-    letter-spacing: 0.5vw;
+    letter-spacing: 0.3vw;
     z-index: 2;
     box-shadow: -0.1vw 0.25vw 0.4vw 0.2vw rgba(0, 0, 0, 0.3);
     color: #313056;
-    width: 18vw;
+    width: 15vw;
     height: 3vw;
     font-size: 1.5vw;
     border: 0px;
     border-radius: 2vw;
     background-color: rgb(2555, 255, 255, 0.55);
+    margin-left: 1.5vw;
 }
 
 #div_setas_meio {
@@ -160,7 +161,7 @@ html, body {
     align-items: center;
     position: absolute;
     top: 21vw;
-    left: 39.2vw;
+    left: 31.6vw;
     max-height: 10vh;
 }
 
@@ -196,11 +197,12 @@ html, body {
     margin-top: 4vw;
 }
 
-#p_faca_seu_login {
+#p_faca_seu_cadastro {
     color: #313056;
     font-size: 2.4vw;
     letter-spacing: 0.5vw;
-
+    margin-left: 9vw;
+    margin-top: -3vw;
 }
 
 #div_input_usuario {
@@ -254,7 +256,6 @@ html, body {
     height: 100%;
     align-items: center;
     display: flex;
-
 }
 
 #img_senha {
@@ -270,49 +271,8 @@ html, body {
     border: 0px;
 }
 
-#div_foto_ocultar {
-    align-items: center;
-    display: flex;
-    position: absolute;
-    top: 24.4vw;
-    left: 73vw;
-    height: 9vh;
-    max-height: 9vh;
-}
-
-#button_ocultar {
-    max-height: 9vh;
-    background-color: transparent;
-    border: 0px;
-}
-
 #img_ocultar {
     width: 1.7vw;
-}
-
-#div_frases {
-    margin-top: -2.5vw;
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    font-size: 0.7vw;
-
-}
-
-#input_caixa_lembrar_senha {
-    width: 0.8vw;
-    margin-right: 0.1vw;
-}
-
-#p_lembrar_senha {
-    color: #313056;
-    margin-right: 3vw;
-}
-
-#p_esqueceu_senha {
-    text-decoration: underline;
-    color: #313056;
-    margin-left: 3vw;
 }
 
 #button_cadastrar {
@@ -323,6 +283,6 @@ html, body {
     border-radius: 2vw;
     background-color: #313056;
     letter-spacing: 0.5vw;
-    width: 1vw;
+    width: 16vw;
     height: 2.8vw;
 }
