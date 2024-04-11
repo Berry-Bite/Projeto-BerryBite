@@ -1,0 +1,83 @@
+html, body {
+    font-family: "Jomhuria", serif;
+    height: 100%;
+    margin: 0;
+    background-color: #FBF4E4;
+    
+}
+.fundo{
+    height:100%;
+    width: 100%;
+}
+.bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 2%;
+    padding-right: 2%;
+    font-size: 18pt;
+}
+.bar img{
+    flex-direction: row;
+    height: 10vw;
+    
+}
+.texto{
+    margin-bottom: -2.6vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.container{
+    margin-top: -4vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 24pt;
+}
+
+.container h1{
+    color: #bb2b45;
+    
+}
+.caixa{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(74,231,0);
+    background: linear-gradient(235deg, rgba(74,231,0,1) 0%, rgba(39, 175, 69, 1) 100%);
+    border-radius: 40px;
+    height: 100%;
+    width: 38%;
+    font-size: 15pt;
+}
+.input{
+    margin-top: 0.8vw;
+    display:flex;
+    flex-direction: column;
+    width: 68%;
+    justify-content: center;
+    text-align: left;
+}
+h4 {
+    font-size: 24pt;
+    margin: 10px 0;     /* Define a margem superior e inferior como 10px e a margem esquerda e direita como 0 */
+}
+input{
+    height: 35px;
+    border-radius: 10px;
+}
+button{
+    font-size: 20pt;
+    margin-top: 1vw;
+    margin-bottom: 0.8vw;
+    height: 40px;
+    width: 25%;
+    border-radius: 10px;
+    background-color: #DC375E;
+    font-family: "Jomhuria", serif;
+
+}

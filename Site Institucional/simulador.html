@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jomhuria&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="simulador.css">
+</head>
+
+<body>
+    <div class="fundo">
+        <div class="bar">
+            <div>
+                <img src="/icons/logo-berry.png" alt="logo">
+                <h2>BerryBite</h2>
+            </div>
+            <h2>Voltar para Home</h2>
+        </div>
+        <div class="container">
+            <h1>Calcule seus ganhos!</h1>
+            <div class="caixa">
+                <div class="input">
+                    <h2>Média de Produção por safra em (kg):</h2>
+                    <input type="text" id="inp_producaoSafra">
+                    <h2>Valor/(kg) dos morangos:</h2>
+                    <input type="text" id="inp_valorKg">
+                    <h2>Perdas de safra por variação de temperatura (kg):</h2>
+                    <input type="text" id="inp_perdaTemperatura">
+                    <h2>Perdas de safra por défict de irrigação (kg):</h2>
+                    <input type="text" id="inp_perdaIrrigacao">
+                    <h2>Custo operacional por safra:</h2>
+                    <input type="text" id="inp_custoOperacional">
+                    <h2>Custo de irrigação por safra:</h2>
+                    <input type="text" id="inp_custoIrrigacao">
+                </div>
+                <button onclick="calcular()">Calcular</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
