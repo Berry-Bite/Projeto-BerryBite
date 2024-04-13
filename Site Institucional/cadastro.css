@@ -190,19 +190,16 @@ html, body {
     flex-direction: column;
     opacity: 100%;
     justify-content: space-around;
-    display: flex;
-    flex-direction: column;
     margin-left: 3vw;
     white-space: nowrap;
-    margin-top: 4vw;
 }
 
 #p_faca_seu_cadastro {
     color: #313056;
     font-size: 2.4vw;
     letter-spacing: 0.5vw;
-    margin-left: 9vw;
-    margin-top: -3vw;
+    margin-left: 3vw;
+    margin-top: 1vw;
 }
 
 #div_input_usuario {
@@ -285,4 +282,45 @@ html, body {
     letter-spacing: 0.5vw;
     width: 16vw;
     height: 2.8vw;
+    cursor: pointer;
+}
+
+#div_input_cep{
+    box-shadow: -0.1vw 0.25vw 0.4vw 0.2vw rgba(0, 0, 0, 0.3);
+    height: 3vw;
+    width: 9vw;
+    display: flex;
+    border-radius: 1vw;
+    background: rgb(153,153,153);
+    background: linear-gradient(235deg, rgba(153,153,153,1) 0%, rgba(153,153,153,0.35) 0%, rgba(255,255,255,0.1) 100%);
+}
+#div_input_numero{
+    box-shadow: -0.1vw 0.25vw 0.4vw 0.2vw rgba(0, 0, 0, 0.3);
+    height: 3vw;
+    width: 12vw;
+    display: flex;
+    border-radius: 1vw;
+    background: rgb(153,153,153);
+    background: linear-gradient(235deg, rgba(153,153,153,1) 0%, rgba(153,153,153,0.35) 0%, rgba(255,255,255,0.1) 100%);
+}
+
+#campos01{
+    display: flex;
+    gap: 3vw;
+}
+#campos02{
+    display: flex;
+    gap: 3vw;
+}
+#campos_pequenos{
+    display: flex;
+    gap: 1.5vw;
+}
+#campos03{
+    display: flex;
+    gap: 3vw;
+}
+#campos04{
+    display: flex;
+    gap: 3vw;
 }
