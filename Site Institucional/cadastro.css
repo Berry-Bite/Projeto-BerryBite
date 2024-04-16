@@ -234,6 +234,22 @@ html, body {
     border-bottom-right-radius: 1vw;
     border: 0px;
 }
+#input_cep {
+    font-size: 1.4vw;
+    background-color: rgba(0, 0, 0, 0);
+    border-top-right-radius: 1vw;
+    border-bottom-right-radius: 1vw;
+    border: 0px;
+    width: 5.5vw;
+}
+#input_numero {
+    font-size: 1.4vw;
+    background-color: rgba(0, 0, 0, 0);
+    border-top-right-radius: 1vw;
+    border-bottom-right-radius: 1vw;
+    border: 0px;
+    width: 8.5vw;
+}
 
 #div_input_senha {
     box-shadow: -0.1vw 0.25vw 0.4vw 0.2vw rgba(0, 0, 0, 0.3);
