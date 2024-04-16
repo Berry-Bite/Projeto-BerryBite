@@ -19,11 +19,22 @@ html, body {
 }
 .bar img{
     flex-direction: row;
-    height: 10vw;
+    height: 4.5vw;
+    
     
 }
+.bar h2{
+    margin-top: 18px;
+}
+.logo{
+    display: flex;
+    flex-direction: row;
+}
+.logo h2{
+    margin-top: 18px;
+}
 .texto{
-    margin-bottom: -2.6vw;
+    margin-bottom: -1.6vw;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -37,8 +48,18 @@ html, body {
     text-align: center;
     font-size: 24pt;
 }
+.container img{
+    height: 2vw;
+}
+.container h4{
+    margin: 0px 0; 
+    font-weight:lighter ;
+    color: rgb(74,231,0);
+    color: linear-gradient(235deg, rgba(74,231,0,1) 0%, rgba(39, 175, 69, 1) 100%);    
+}
 
 .container h1{
+    margin: 10px 0; 
     color: #bb2b45;
     
 }
@@ -51,27 +72,27 @@ html, body {
     background: linear-gradient(235deg, rgba(74,231,0,1) 0%, rgba(39, 175, 69, 1) 100%);
     border-radius: 40px;
     height: 100%;
-    width: 38%;
+    width: 40%;
     font-size: 15pt;
 }
 .input{
-    margin-top: 0.8vw;
+    margin-top: 2vw;
     display:flex;
     flex-direction: column;
     width: 68%;
     justify-content: center;
     text-align: left;
 }
-h4 {
+.input h2 {
     font-size: 24pt;
-    margin: 10px 0;     /* Define a margem superior e inferior como 10px e a margem esquerda e direita como 0 */
+    margin: 1px 0;     /* Define a margem superior e inferior como 10px e a margem esquerda e direita como 0 */
 }
 input{
     height: 35px;
     border-radius: 10px;
 }
 button{
-    font-size: 20pt;
+    font-size: 18pt;
     margin-top: 1vw;
     margin-bottom: 0.8vw;
     height: 40px;
