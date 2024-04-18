@@ -143,6 +143,7 @@ html, body {
 }
 
 #button_criar_conta {
+    cursor: pointer;
     letter-spacing: 0.3vw;
     z-index: 2;
     box-shadow: -0.1vw 0.25vw 0.4vw 0.2vw rgba(0, 0, 0, 0.3);
@@ -166,6 +167,7 @@ html, body {
 }
 
 #button_setas {
+    cursor: pointer;
     z-index: 2;
     background: rgb(228,228,228);
     background: linear-gradient(235deg, rgba(228,228,228,1) 100%, rgba(228,228,228,1) 100%, rgba(228,228,228,1) 100%, rgba(255,255,255,1) 100%);
@@ -227,7 +229,7 @@ html, body {
     padding: 1vw;
 }
 
-#input_usuario {
+#div_input_usuario input {
     font-size: 1.4vw;
     background-color: rgba(0, 0, 0, 0);
     border-top-right-radius: 1vw;
@@ -339,4 +341,23 @@ html, body {
 #campos04{
     display: flex;
     gap: 3vw;
+}
+
+#alerta_erro {
+    background: rgb(253, 1, 14);
+    background: linear-gradient(235deg, rgba(253, 1, 14, 0.1) 100%, rgba(161, 161, 161, 1) 100%);
+    border-radius: 1vw;
+    position: absolute;
+    top: 0.8vw;
+    left: 50.8vw;
+    height: 11vh;
+    width: 21vw;
+    border: 0.25vw solid black;
+    color: red;
+    align-items: center;
+    font-size: 1vw;
+    text-align: center;
+    font-weight: bolder;
+    justify-content: center;
+    display: flex;
 }
