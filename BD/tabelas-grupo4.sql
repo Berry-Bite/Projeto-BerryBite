@@ -88,8 +88,7 @@ insert into RegistroSensor(fkSensor, umidade, temperatura, dataRegistro) values
 (2, 37.00, 27.7, default),
 (3, 40.00, 25.8, default);
 
-SELECT concat('A empresa: ', razaoSocial, ' do CNPJ: ', cnpj) AS 'Empresa',
-concat('Localizada em: ', cep, ' | ', numero, ' | ', complemento) AS 'Localização' FROM Matriz; 
+SELECT concat('A empresa: ', razaoSocial, ' do CNPJ: ', cnpj) AS 'Empresa' FROM Matriz; 
 
 SELECT concat('A estufa: ', Estufa.idEstufa) AS 'Estufa',
 concat('Com o nome: ',Estufa.nome) as 'Nome da Estufa',
@@ -102,5 +101,7 @@ SELECT concat('A umidade ', RegistroSensor.umidade, '%') AS 'Umidade da Estufa',
 concat('A temperatura ', RegistroSensor.temperatura, ' ºC') AS 'Temperatuda da Estufa',
 date_format(RegistroSensor.dataRegistro, '%d/%m/%Y - %h:%m:%s %p') AS 'Data da alteração' 
 FROM RegistroSensor JOIN Estufa ON Estufa.idEstufa = RegistroSensor.fkSensor;
+
+
 
 
