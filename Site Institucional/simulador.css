@@ -86,6 +86,7 @@ html, body {
 .input h2 {
     font-size: 24pt;
     margin: 1px 0;     /* Define a margem superior e inferior como 10px e a margem esquerda e direita como 0 */
+    font-weight: lighter;
 }
 input{
     height: 35px;
@@ -102,3 +103,29 @@ button{
     font-family: "Jomhuria", serif;
 
 }
+/* .div_mens {
+    margin-top: 145px;
+    display: block;
+    flex-direction: column;
+    justify-content: center;
+    text-align: start;
+    width: 450px;
+    color: #617750;
+    height: 250px;
+    font-weight: bold;
+    animation: moveToLeft 1s ease-in-out;
+    /* nomeia a animação moveToLeft, quanto tempo vai realizar 
+} */
+
+/* @keyframes moveToLeft {
+    from {
+        margin-right: -64.5%;
+        /* define onde a animação COMEÇA 
+    }*/
+
+    /*to {
+        margin-right: 0%;
+        /* define onde a animação TERMINA 
+    }
+} */
+
