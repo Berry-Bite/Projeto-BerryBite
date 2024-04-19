@@ -73,13 +73,13 @@
                         <div id="div_foto_usuario">
                             <img id="img_usuario" src="icons/icons8-user-32.png">
                         </div>
-                        <input id="input_nome" placeholder="N o m e   d o   U s u á r i o" type="text">
+                        <input autocomplete="off" id="input_nome" placeholder="N o m e   d o   U s u á r i o" type="text">
                     </div>
                     <div id="div_input_usuario">
                         <div id="div_foto_usuario">
                             <img id="img_usuario" src="icons/icons8-user-32.png">
                         </div>
-                        <input id="input_sobrenome" placeholder="S o b r e n o m e" type="text">
+                        <input autocomplete="off" id="input_sobrenome" placeholder="S o b r e n o m e" type="text">
                     </div>
                 </div>
 
@@ -88,13 +88,13 @@
                         <div id="div_foto_usuario">
                             <img id="img_usuario" src="icons/cnpj.png">
                         </div>
-                        <input id="input_email" placeholder="E m a i l" type="text">
+                        <input autocomplete="off" id="input_email" placeholder="E m a i l" type="text">
                     </div>
                     <div id="div_input_usuario">
                         <div id="div_foto_usuario">
                             <img id="img_usuario" src="icons/cnpj.png">
                         </div>
-                        <input id="input_cpf" placeholder="C P F" type="text">
+                        <input autocomplete="off" id="input_cpf" placeholder="C P F" type="text">
                     </div>
                 </div>
 
@@ -103,13 +103,13 @@
                         <div id="div_foto_usuario">
                             <img id="img_usuario" src="icons/telefone.png">
                         </div>
-                        <input id="input_telefone_celular" placeholder="T e l e f o n e   C e l u l a r" type="number">
+                        <input autocomplete="off" id="input_telefone_celular" placeholder="T e l e f o n e   C e l u l a r" type="number">
                     </div>
                     <div id="div_input_usuario">
                         <div id="div_foto_usuario">
                             <img id="img_usuario" src="icons/fazenda.png">
                         </div>
-                        <input id="input_nome_empresa" placeholder="N o m e   d a   E m p r e s a" type="text">
+                        <input autocomplete="off" id="input_nome_empresa" placeholder="N o m e   d a   E m p r e s a" type="text">
                     </div>
                 </div>
 
@@ -118,13 +118,13 @@
                         <div id="div_foto_senha">
                             <img id="img_senha" src="icons/icons8-cadeado-50.png">
                         </div>
-                        <input id="input_senha" placeholder="C r i a r   S e n h a" type="password">
+                        <input autocomplete="off" id="input_senha" placeholder="C r i a r   S e n h a" type="password">
                     </div>
                     <div id="div_input_usuario">
                         <div id="div_foto_usuario">
                             <img id="img_usuario" src="icons/icons8-cadeado-50.png">
                         </div>
-                        <input id="input_confirmar_senha" placeholder="C o n f i r m a r   S e n h a" type="password">
+                        <input autocomplete="off" id="input_confirmar_senha" placeholder="C o n f i r m a r   S e n h a" type="password">
                     </div>
                 </div>
 
@@ -158,33 +158,42 @@
         var nome_empresa = input_nome_empresa.value;
         var senha = input_senha.value;
         var confirmar_senha = input_confirmar_senha.value;
-        var mensagem_erro = "";
+        var mensagem = "";
+        var validado = false
 
-        if (nome.lenght < 3) {
-            mensagem_erro = "A quantidade de caracteres do nome do usuário é insuficiente!";
-        } else if (sobrenome.lenght < 3) {
-            mensagem_erro = "A quantidade de caracteres do sobrenome do usuário é insuficiente!";
-        } else if (email.lenght < 12) {
-            mensagem_erro = "A quantidade de caracteres do email do usuário é insuficiente!";
+        if (nome.length < 3) {
+            mensagem = "A quantidade de caracteres do campo nome do usuário é insuficiente!";
+        } else if (sobrenome.length < 3) {
+            mensagem = "A quantidade de caracteres do campo sobrenome do usuário é insuficiente!";
+        } else if (email.length < 12) {
+            mensagem = "A quantidade de caracteres do campo email do usuário é insuficiente!";
         } else if (email.indexOf("@") < 0 || email.indexOf(".") < 0) {
-            mensagem_erro = "O email não contém @ ou .";
-        } else if (cpf.lenght > 11) {
-            mensagem_erro = "Insira somente números no campo CPF!";
-        } else if (telefone_celular.lenght > 11) {
-            mensagem_erro = "Insira somente números no campo telefone celular!";
-        } else if (telefone_celular.lenght < 11) {
-            mensagem_erro = "Insira o DDD no campo telefone celular!";
+            mensagem = "O email não contém @ ou .";
+        } else if (cpf.length > 11) {
+            mensagem = "Insira somente números no campo CPF!";
+        } else if (cpf.length < 11) {
+            mensagem = "A quantidade de números do campo CPF é insuficiente!";
+        } else if (telefone_celular.length < 9) {
+            mensagem = "A quantidade de números do campo telefone celular é insuficiente!";
+        } else if (telefone_celular.length > 11) {
+            mensagem = "Insira somente números no campo telefone celular!";
+        } else if (telefone_celular.length < 11) {
+            mensagem = "Insira o DDD no campo telefone celular!";
         } else if (nome_empresa.toLowerCase() != empresa1.toLowerCase() && nome_empresa != empresa2 && nome_empresa != empresa3) {
-            mensagem_erro = "Esta empresa não está cadastrada no nosso sistema!";
+            mensagem = "Esta empresa não está cadastrada no nosso sistema!";
         } else if (senha < 6) {
-            mensagem_erro = "A quantidade de caracteres da senha é insuficiente!";
+            mensagem = "A quantidade de caracteres da senha é insuficiente!";
         } else if (senha != confirmar_senha) {
-            mensagem_erro = "As senhas inseridas não são identicas!";
+            mensagem = "As senhas inseridas não são identicas!";
+        } else {
+            validado = true;
+            mensagem = "Cadastro realizado com sucesso!!"
         }
 
-
-        if (mensagem_erro != "") {
-            alerta.innerHTML = `<div id="alerta_erro"><span>${mensagem_erro}</span></div>`;
+        if (validado) {
+            alerta.innerHTML = `<div id="alerta_cadastrado"><span>${mensagem}</span></div>`;
+        } else if (mensagem != "") {
+            alerta.innerHTML = `<div id="alerta_erro"><span>${mensagem}</span></div>`;
         }
     }
 </script>

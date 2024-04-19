@@ -361,3 +361,30 @@ html, body {
     justify-content: center;
     display: flex;
 }
+
+#alerta_erro span {
+    padding: 0.3vw;
+}
+
+#alerta_cadastrado {
+    background: rgb(253, 1, 14);
+    background: linear-gradient(235deg, rgba(253, 1, 14, 0.1) 100%, rgba(161, 161, 161, 1) 100%);
+    border-radius: 1vw;
+    position: absolute;
+    top: 0.8vw;
+    left: 50.8vw;
+    height: 11vh;
+    width: 21vw;
+    border: 0.25vw solid black;
+    color: rgb(22, 182, 22);
+    align-items: center;
+    font-size: 2vw;
+    text-align: center;
+    font-weight: bolder;
+    justify-content: center;
+    display: flex;
+}
+
+#alerta_cadastrado span {
+    padding: 0.3vw;
+}
