@@ -283,6 +283,7 @@ html, body {
 }
 
 #button_ocultar {
+    cursor: pointer;
     max-height: 9vh;
     background-color: transparent;
     border: 0px;
@@ -315,6 +316,7 @@ html, body {
     text-decoration: underline;
     color: #313056;
     margin-left: 3vw;
+    cursor: pointer;
 }
 
 #button_entrar {
@@ -445,4 +447,42 @@ html, body {
     top: 22.6vw;
     left: 55.3vw;
     width: 20vw;
+}
+
+#alerta_cadastrado {
+    background: rgb(253, 1, 14);
+    background: linear-gradient(235deg, rgba(253, 1, 14, 0.1) 100%, rgba(161, 161, 161, 1) 100%);
+    border-radius: 1vw;
+    position: absolute;
+    top: 0.8vw;
+    left: 49.6vw;
+    height: 11vh;
+    width: 30vw;
+    border: 0.2vw solid rgb(255, 255, 255);
+    color: rgb(22, 182, 22);
+    align-items: center;
+    font-size: 1.5vw;
+    text-align: center;
+    font-weight: bolder;
+    justify-content: center;
+    display: flex;
+}
+
+#alerta_esqueceu_senha {
+    background: rgb(253, 1, 14);
+    background: linear-gradient(235deg, rgba(253, 1, 14, 0.1) 100%, rgba(161, 161, 161, 1) 100%);
+    border-radius: 1vw;
+    position: absolute;
+    top: 0.8vw;
+    left: 49.6vw;
+    height: 11vh;
+    width: 30vw;
+    border: 0.2vw solid rgb(255, 255, 255);
+    color: rgb(40, 80, 214);
+    align-items: center;
+    font-size: 1.2vw;
+    text-align: center;
+    font-weight: bolder;
+    justify-content: center;
+    display: flex;
 }

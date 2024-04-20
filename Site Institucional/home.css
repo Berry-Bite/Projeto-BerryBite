@@ -177,20 +177,21 @@ body {
 }
 
 #div_frase_calculadora {
+    font-family: "Jomhuria", serif;
     display: flex;
     margin-bottom: 1vw;
     flex-direction: row;
 }
 
 #p_texto_calculadora {
-    font-size: 1.2vw;
-    color: #BFBFBF;
+    font-size: 2vw;
+    color: #d4d4d4;
 }
 
 #p_ganhar {
     margin-left: 0.3vw;
     margin-right: 0.3vw;
-    font-size: 1.3vw;
+    font-size: 2.2vw;
     color: #27AF45;
     font-weight: 400;
 }
@@ -235,15 +236,17 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-
+    
 }
 
 .div_sobre_nos p {
     flex-direction: column;
     color: #27AF45;
+    font-family: "Jomhuria", serif;
+    font-size: 2vw;
     margin-top: -580px;
     right: 650px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .div_pq_morangos {
@@ -254,7 +257,7 @@ body {
 }
 
 .div_pq_morangos p {
-
+    
     font-family: "Jomhuria", serif;
     font-weight: 400;
     font-style: normal;
@@ -268,13 +271,20 @@ body {
 }
 
 #div_texto_sobre {
-    color: #000000;
+    font-family: "Jomhuria", serif;
+    color: #3d3d3d;
     padding: 20px;
-    font-size: 2vw;
+    font-size: 3vw;
     margin-top: -470px;
     margin-left: 700px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
 
+#div_texto_sobre span {
+    font-family: "Jomhuria", serif;
+    font-size: 3vw;
+    color: #BB2B45;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 #div_box_1 {
@@ -289,6 +299,12 @@ body {
     margin-bottom: 20px;
     text-align: center;
     line-height: 25px;
+}
+
+#div_box_1 h4, #div_box_2 h4, #div_box_3 h4 {
+    font-family: "Jomhuria", serif;
+    font-weight: lighter;
+    font-size: 2vw;
 }
 
 .div_teste_row {
@@ -359,6 +375,15 @@ body {
     font-size: 2vw;
 }
 
+#div_box_1 h5,
+#div_box_2 h5,
+#div_box_3 h5 {
+    font-family: "Jomhuria", serif;
+    font-size: 2vw;
+    font-weight: 600;
+    letter-spacing: 0.06vw;
+}
+
 .div_row_2 {
     gap: 25px;
     display: flex;
@@ -427,7 +452,7 @@ body {
     color: #BB2B45;
     font-size: 3.5vw;
     font-family: "Jomhuria", serif;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .div_frase_bola2 {
@@ -436,7 +461,7 @@ body {
     color: #BB2B45;
     font-size: 3.5vw;
     font-family: "Jomhuria", serif;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .div_img_diagrama img {
@@ -457,10 +482,12 @@ body {
 
 .div_diagrama p {
     flex-direction: column;
+    font-family: "Jomhuria", serif;
+    font-size: 2vw;
     color: #27AF45;
     margin-top: 150px;
     right: 650px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .div_visao {
@@ -468,11 +495,10 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-
+    margin-right: 90px;
 }
 
 .div_visao p {
-
     font-family: "Jomhuria", serif;
     font-weight: 400;
     font-style: normal;
@@ -568,9 +594,11 @@ body {
 .div_oferecemos p {
     flex-direction: column;
     color: #27AF45;
+    font-family: "Jomhuria", serif;
+    font-size: 2vw;
     margin-top: 160px;
     right: 650px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .div_oferecemos {

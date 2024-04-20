@@ -16,12 +16,12 @@
         <div id="div_container">
             <ul id="ul_navbar">
                 <img id="img_logo" src="./icons/logo-berry.png">
-                <li id="li_berry">berry.bite</li>
+                <li id="li_berry"><a href="home.html" style="text-decoration: none; color: #E4E4E4;">berry.bite</a></li>
                 <li id="li_home">Home</li>
 
                 <li onclick="sobre()" id="li_sobre_nos">Sobre Nós</li>
-                <li onclick="servicos()" id="li_servicos">Serviços</li>
                 <li onclick="diagrama()" id="li_servicos">Diagrama</li>
+                <li onclick="servicos()" id="li_servicos">Serviços</li>
 
                 <button onclick="rodape()" id="button_contato" ><img id="img_contato" src="icons/icons8-nova-mensagem-50.png"></button>
 
@@ -63,13 +63,7 @@
                     </h1>
                 </div>
                 <div id="div_texto_sobre">
-                    <p id="p_texto_sobre">A Berry Bite surgiu como uma solução para pequenos agricultores de morango em
-                        estufa, <br> devido à grande porcentagem de perda da fruta em safras. <br> Essa perda se deve à
-                        má
-                        refrigeração da planta e <br> temos como objetivo aumentar a produtividade das safras de
-                        morangos,
-                        reduzindo os déficits de produção em até <span
-                            style="color: #BB2B45; font-size: 2vw;">48,32%.</span></p>
+                    <p id="p_texto_sobre">A Berry Bite surgiu como uma solução para pequenos agricultores de morango em estufa, devido à grande porcentagem de perda da fruta em safras.<br>Essa perda se deve à má refrigeração da planta e <br> temos como objetivo aumentar a produtividade das safras de morangos, reduzindo os déficits de produção em até <span>48,32%.</span></p>
                 </div>
                 <div id="div_box_1"> <!-- Os valores que existem dentro dessa div, vao ser em colunas -->
                     <h4>Diminuição de Gastos</h4>
@@ -191,7 +185,7 @@
     </div>
     <div class="div_visao">
         <h1>
-            <p id="p_visao">O que nós oferecemos?</p>
+            <p id="p_visao" style="margin-bottom: -1.5vw;">O que nós oferecemos?</p>
         </h1>
 
         <div class="caixa_1">
@@ -254,7 +248,7 @@
         window.location.href = "#p_oferecemos"
     }
     function diagrama() {
-        window.location.href = "#p_visao"
+        window.location.href = "#p_diagram"
     }
     function rodape() {
         window.location.href = "#li_contato"
