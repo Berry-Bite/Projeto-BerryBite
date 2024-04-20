@@ -53,9 +53,9 @@ function validar() {
             mensagem = "Login realizado com sucesso!!<br>Direcionando para o site de Dashboard!"
             alerta.innerHTML = `<div id="alerta_cadastrado"><span>${mensagem}</span></div>`;
             
-            // setTimeout(function redirecionar() {
-            //     dashboards();
-            // }, 2000);
+            setTimeout(function redirecionar() {
+                dashboards();
+            }, 2000);
         }
     }
 }
