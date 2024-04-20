@@ -18,14 +18,16 @@
                 <img id="img_logo" src="./icons/logo-berry.png">
                 <li id="li_berry">berry.bite</li>
                 <li id="li_home">Home</li>
-                <li id="li_sobre_nos">Sobre Nós</li>
-                <li id="li_servicos">Serviços</li>
-                <li class="scroll" id="li_servicos">Diagrama</li>
-                <a href="cadastro.html"> <button id="button_contato"><img id="img_contato"
-                            src="icons/icons8-nova-mensagem-50 (1).png"></button></a>
+
+                <li onclick="sobre()" id="li_sobre_nos">Sobre Nós</li>
+                <li onclick="servicos()" id="li_servicos">Serviços</li>
+                <li onclick="diagrama()" id="li_servicos">Diagrama</li>
+
+                <button onclick="rodape()" id="button_contato" ><img id="img_contato" src="icons/icons8-nova-mensagem-50.png"></button>
+
                 <a href="login.html"> <button id="button_entrar">Entrar</button></a>
                 <a href="cadastro.html">
-                <button id="button_cadastrese">Cadastre-se</button>
+                    <button id="button_cadastrese">Cadastre-se</button>
                 </a>
             </ul>
         </div>
@@ -38,10 +40,10 @@
         <div id="div_calculadora">
             <div id="div_frase_calculadora">
                 <p id="p_texto_calculadora">Veja o quanto você pode </p>
-                <p id="p_ganhar">GANHAR</p>
+                <p id="p_ganhar"><u>GANHAR</u></p>
                 <p id="p_texto_calculadora"> com o nosso projeto</p>
             </div>
-           <a href="simulador.html"> <button id="button_calculadora">Calcule seu lucro!</button></a>
+            <a href="simulador.html"> <button id="button_calculadora">Calcule seu lucro!</button></a>
         </div>
     </div>
     <div class="div_social">
@@ -197,7 +199,8 @@
             <h1>Sensor <br>
                 Multifuncional</h1>
             <p>Uso de sensores com diferentes <br> funcionalidades e com <br>interligação em uma plataforma
-                <br>programável.</p>
+                <br>programável.
+            </p>
         </div>
 
         <div class="caixa_2">
@@ -205,7 +208,8 @@
             <h1>Assistência no <br>
                 Acompanhamento</h1>
             <p>Total apoio ao cliente com os <br>ajustes de posicionamento, leitura <br> e conexão do software, entre
-                <br> outros.</p>
+                <br> outros.
+            </p>
         </div>
 
         <div class="caixa_3">
@@ -219,7 +223,8 @@
             <h1>Demonstração em <br>
                 Gráficos</h1>
             <p>Entregaremos facilidade na <br> supervisão dos dados referentes a <br>umidade, temperatura, quantidade
-                <br>e perda.</p>
+                <br>e perda.
+            </p>
         </div>
     </div>
     </div>
@@ -242,20 +247,16 @@
 </html>
 
 <script>
-    // Seleciona a palavra clicável
-    const scroll = document.querySelector('.scroll');
-
-    // Adiciona um evento de clique à palavra
-    scroll.addEventListener('click', () => {
-        // Obtém a posição do topo do elemento alvo (pode ser qualquer elemento na página)
-        const targetElement = document.querySelector('.div_visao');
-        const targetOffset = targetElement.offsetTop;
-
-        // Anima a rolagem até a posição do elemento alvo
-        window.scrollTo({
-            top: targetOffset,
-            behavior: 'smooth' // animação suave
-        });
-    });
-
+    function sobre() {
+        window.location.href = "#p_sobre_nos"
+    }
+    function servicos() {
+        window.location.href = "#p_oferecemos"
+    }
+    function diagrama() {
+        window.location.href = "#p_visao"
+    }
+    function rodape() {
+        window.location.href = "#li_contato"
+    }
 </script>

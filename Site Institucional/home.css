@@ -5,6 +5,7 @@
 
 html,
 body {
+    scroll-behavior: smooth;
     height: 100%;
     width: 100%;
     background-color: #FBF4E4;
@@ -13,7 +14,7 @@ body {
 #div_tela_home {
     background-color: rgba(3, 0, 0, 0.836);
     width: 100vw;
-    height: 100vh;
+    height: 90vh;
     background-image: url(./icons/banner-home.png);
     background-size: cover;
     background-position: center;
@@ -21,14 +22,12 @@ body {
     flex-direction: column;
 }
 
-
 #div_container {
     border-bottom: 3px solid transparent;
     display: flex;
     justify-content: center;
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
 }
-
 
 #ul_navbar {
     font-family: "Jomhuria", serif;
@@ -64,7 +63,6 @@ body {
     text-shadow: 2px 2px 4px rgba(67, 67, 67, 0.671);
 }
 
-
 #li_home {
     margin-left: 1vw;
     margin-right: 1vw;
@@ -73,7 +71,6 @@ body {
     cursor: pointer;
     text-shadow: 2px 2px 4px rgba(67, 67, 67, 0.671);
 }
-
 
 #li_sobre_nos {
     margin-left: 1vw;
@@ -89,14 +86,12 @@ body {
     text-shadow: 2px 2px 4px rgba(67, 67, 67, 0.671);
 }
 
-
 #li_diagrama {
     margin-left: 1vw;
     margin-right: 1vw;
     cursor: pointer;
     text-shadow: 2px 2px 4px rgba(67, 67, 67, 0.671);
 }
-
 
 #button_contato {
     position: absolute;
@@ -113,14 +108,11 @@ body {
     cursor: pointer;
 }
 
-
 #img_contato {
     width: 2vw;
     margin-left: 0vw;
     margin-right: 0vw;
-
 }
-
 
 #button_entrar {
     position: absolute;
@@ -135,10 +127,9 @@ body {
     align-items: center;
     font-family: "Jomhuria", serif;
     color: white;
-    background-image: linear-gradient(#27AF45, #4AE700);
+    background-image: linear-gradient(#117a28be, #46b115b7);
     cursor: pointer;
 }
-
 
 #button_cadastrese {
     position: absolute;
@@ -153,11 +144,9 @@ body {
     align-items: center;
     font-family: "Jomhuria", serif;
     color: white;
-    background-image: linear-gradient(#DC375E, #E77D30);
+    background-image: linear-gradient(#124b8bec, #2472cac7);
     cursor: pointer;
 }
-
-
 
 #div_texto {
     margin-top: 15vw;
@@ -167,22 +156,19 @@ body {
     justify-content: center;
 }
 
-
 #div_texto p {
     font-size: 5vw;
     font-family: "Jomhuria", serif;
 }
 
-
 #p_frase_principal {
+    margin-top: -4vw;
     color: #FFFFFF;
 }
 
-
 #p_frase_secundaria {
-    color: #7E7E7E;
+    color: #d4d4d4;
 }
-
 
 #div_calculadora {
     display: flex;
@@ -190,19 +176,16 @@ body {
     align-items: center;
 }
 
-
 #div_frase_calculadora {
     display: flex;
     margin-bottom: 1vw;
     flex-direction: row;
 }
 
-
 #p_texto_calculadora {
-    font-size: 1vw;
+    font-size: 1.2vw;
     color: #BFBFBF;
 }
-
 
 #p_ganhar {
     margin-left: 0.3vw;
@@ -212,7 +195,6 @@ body {
     font-weight: 400;
 }
 
-
 #button_calculadora {
     width: 13vw;
     height: 3.8vw;
@@ -221,17 +203,15 @@ body {
     align-items: center;
     font-family: "Jomhuria", serif;
     color: white;
-    background-image: linear-gradient(#27AF45, #4AE700);
+    background-image: linear-gradient(#117a28be, #46b115b7);
     cursor: pointer;
 }
-
 
 .div_social .div_container {
     background-color: #FBF4E4;
     width: 100vw;
     height: 750px;
 }
-
 
 .imagem {
     margin: 50px;
@@ -243,14 +223,12 @@ body {
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
 }
 
-
 .div_img_logo img {
     display: flex;
     margin-top: -50px;
     width: 20px;
     height: 20px;
 }
-
 
 .div_sobre_nos {
     display: flex;
@@ -260,7 +238,6 @@ body {
 
 }
 
-
 .div_sobre_nos p {
     flex-direction: column;
     color: #27AF45;
@@ -269,14 +246,12 @@ body {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-
 .div_pq_morangos {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
-
 
 .div_pq_morangos p {
 
@@ -292,8 +267,6 @@ body {
 
 }
 
-
-
 #div_texto_sobre {
     color: #000000;
     padding: 20px;
@@ -303,7 +276,6 @@ body {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
 }
-
 
 #div_box_1 {
     display: flex;
@@ -319,7 +291,6 @@ body {
     line-height: 25px;
 }
 
-
 .div_teste_row {
     gap: 20px;
     display: flex;
@@ -329,7 +300,6 @@ body {
     font-family: "Jomhuria", serif;
     font-size: 2vw;
 }
-
 
 #div_box_2 {
 
@@ -344,7 +314,6 @@ body {
     line-height: 25px;
 }
 
-
 #div_box_3 {
 
     margin-left: 760px;
@@ -357,7 +326,6 @@ body {
     line-height: 25px;
 }
 
-
 .img_1 img {
     width: 20px;
     height: 20px;
@@ -365,7 +333,6 @@ body {
     left: 720px;
     top: 1160px;
 }
-
 
 .img_2 img {
     width: 20px;
@@ -375,7 +342,6 @@ body {
     top: 1255px;
 }
 
-
 .img_3 img {
     width: 20px;
     height: 20px;
@@ -383,8 +349,6 @@ body {
     left: 720px;
     top: 1345px;
 }
-
-
 
 #div_box_1>h5,
 #div_box_2>h5,
@@ -394,7 +358,6 @@ body {
     font-family: "Jomhuria", serif;
     font-size: 2vw;
 }
-
 
 .div_row_2 {
     gap: 25px;
@@ -417,7 +380,6 @@ body {
     font-size: 2vw;
 }
 
-
 .div_bola_1 {
     display: flex;
     border-radius: 50%;
@@ -439,7 +401,6 @@ body {
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
 }
 
-
 .div_bola_2 {
     display: flex;
     flex-direction: column;
@@ -460,7 +421,6 @@ body {
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
 }
 
-
 .div_frase_bola1 {
     margin-top: -200px;
     margin-left: 1200px;
@@ -469,7 +429,6 @@ body {
     font-family: "Jomhuria", serif;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-
 
 .div_frase_bola2 {
     margin-top: 50px;
@@ -480,14 +439,12 @@ body {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-
 .div_img_diagrama img {
     display: flex;
     margin-top: -60px;
     width: 20px;
     height: 20px;
 }
-
 
 .div_diagrama {
     display: flex;
@@ -506,7 +463,6 @@ body {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-
 .div_visao {
     display: flex;
     flex-direction: column;
@@ -514,7 +470,6 @@ body {
     text-align: center;
 
 }
-
 
 .div_visao p {
 
@@ -529,14 +484,12 @@ body {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-
 .div_passos_row {
     margin-top: 50px;
     display: flex;
     gap: 300px;
 
 }
-
 
 .imagem_1 {
     margin-top: 7px;
@@ -547,14 +500,12 @@ body {
 
 }
 
-
 .imagem_2 {
     margin-left: -450px;
     width: 30px;
     height: 30px;
 
 }
-
 
 .imagem_3 {
 
@@ -563,7 +514,6 @@ body {
     height: 30px;
     gap: 12px;
 }
-
 
 .imagem_4 {
     margin-top: -93px;
@@ -574,7 +524,6 @@ body {
 
 }
 
-
 .imagem_5 {
     margin-top: -25px;
     margin-left: 820px;
@@ -582,13 +531,11 @@ body {
     height: 30px;
 }
 
-
 .seta_1 {
     width: 30px;
     margin-top: 73px;
     margin-right: 780px;
 }
-
 
 .seta_2 {
     width: 30px;
@@ -596,13 +543,11 @@ body {
     margin-left: -200px;
 }
 
-
 .seta_3 {
     width: 30px;
     margin-top: 33px;
     margin-right: -500px;
 }
-
 
 .div_img_servicos img {
     display: flex;
@@ -610,7 +555,6 @@ body {
     width: 20px;
     height: 20px;
 }
-
 
 .div_oferecemos {
     display: flex;
@@ -620,7 +564,6 @@ body {
 
 
 }
-
 
 .div_oferecemos p {
     flex-direction: column;
@@ -630,7 +573,6 @@ body {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-
 .div_oferecemos {
     display: flex;
     flex-direction: column;
@@ -638,8 +580,6 @@ body {
     text-align: center;
 
 }
-
-
 
 .div_visao p {
 
@@ -653,7 +593,6 @@ body {
     margin-right: -100px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-
 
 .caixa_1 {
     display: flex;
@@ -672,7 +611,6 @@ body {
     text-align: left;
 }
 
-
 .caixa_1 h1 {
     margin-top: 1vw;
     font-size: 2.5vw;
@@ -681,7 +619,6 @@ body {
     margin-left: -80px;
 }
 
-
 .caixa_1 p {
     margin-left: -100px;
     font-size: 1vw;
@@ -689,7 +626,6 @@ body {
     color: black;
 
 }
-
 
 .caixa_2 {
     display: flex;
@@ -708,7 +644,6 @@ body {
     margin-left: -280px;
 }
 
-
 .caixa_2 h1 {
     margin-top: 1vw;
     font-size: 2.5vw;
@@ -720,14 +655,12 @@ body {
     color: transparent;
 }
 
-
 .caixa_2 p {
     margin-left: -95.5px;
     font-size: 1vw;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: black;
 }
-
 
 .caixa_3 {
     display: flex;
@@ -746,7 +679,6 @@ body {
     margin-left: 300px;
 }
 
-
 .caixa_3 h1 {
     margin-top: 1vw;
     font-size: 2.5vw;
@@ -755,14 +687,12 @@ body {
     margin-left: -130px;
 }
 
-
 .caixa_3 p {
     margin-left: -95.5px;
     font-size: 1vw;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: black;
 }
-
 
 .caixa_4 {
     display: flex;
@@ -781,7 +711,6 @@ body {
     margin-left: 880px;
 }
 
-
 .caixa_4 h1 {
     margin-top: 1vw;
     font-size: 2.5vw;
@@ -793,14 +722,13 @@ body {
     color: transparent;
 }
 
-
-
 .caixa_4 p {
     margin-left: -95.5px;
     font-size: 1vw;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: black;
 }
+
 .footer {
     margin-top: 100px;
     width: 100%;
@@ -823,6 +751,7 @@ body {
     text-shadow: 2px 2px 4px rgba(67, 67, 67, 0.671);
     gap: 12px;
 }
+
 #li_contato{
     position: absolute;
     margin-top: 10px;
@@ -834,11 +763,9 @@ body {
     text-shadow: 2px 2px 4px rgba(67, 67, 67, 0.671);
     gap: 12px;
 }
+
 .icones {
     margin-top: 25px;
     gap: 15px; 
     cursor: pointer;
 }
-
-
-
