@@ -4,36 +4,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Site Institucional/dashboard.css">
-    <title>Site Institucional</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <title>Dashboard</title>
 </head>
 
 <body>
     <div id="div_fundo" class="pagina">
         <!--NavBar/ Header-->
-        <header>
-            <div class="header">
-                <div class="container">
-                    <div class="logo">
-                        <img class='logo-berry' src="/Site Institucional/icons/logo-berry.png" alt="logo-berry">
-                        <span class="spanNome">berry.bite</span>
-                    </div>
-                    <ul class="menu">
-                        <li>Home</li>
-                        <li>Dashboard</li>
-                        <li>Contato</li>
-                    </ul>
-                </div>
+        <div class="header-left">
+
+            <div class="marca">
+                <img src="./icons/logo-berry.png" class="logo-header">
+                <span> <b>Berry.Bite</b></span>
+            </div>
+
+            <div class="container">
+
                 <div class="user">
-                    <span>Bem-vindo(a) usuário</span>
+                    <h3>Bem-vindo(a), <br>usuário!</h3>
                 </div>
-        </header>
-    </div>
-    <div class="content">
+
+                <div class="menu">
+                    <button>Home</button>
+                    <button>Dashboard</button>
+                    <button>Contato</button>
+                    <button>Opções</button> 
+                </div>
+
+                <div class="sair">
+                    <button>Sair</button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--Parte da página a direita, onde ficarão as infos após o login-->
+
+        <div class="parametros">
+        
+        </div>
+
 
     </div>
-    <div class="footer"></div>
-    </div>
+
 </body>
 
 </html>
