@@ -14,7 +14,7 @@ body {
     background-color: rgba(3, 0, 0, 0.836);
     width: 100vw;
     height: 100vh;
-    background-image: url(file:///C:/Users/lf527/Downloads/banner-home.png);
+    background-image: url(./icons/banner-home.png);
     background-size: cover;
     background-position: center;
     display: flex;
