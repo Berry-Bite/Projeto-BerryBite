@@ -414,13 +414,13 @@ html, body {
     border-radius: 1vw;
     position: absolute;
     top: 0.8vw;
-    left: 53.8vw;
+    left: 46.2vw;
     height: 11vh;
-    width: 21vw;
-    border: 0.25vw solid black;
+    width: 30vw;
+    border: 0.2vw solid rgb(255, 255, 255);
     color: rgb(22, 182, 22);
     align-items: center;
-    font-size: 1.4vw;
+    font-size: 1.5vw;
     text-align: center;
     font-weight: bolder;
     justify-content: center;
@@ -429,4 +429,18 @@ html, body {
 
 #alerta_cadastrado span {
     padding: 0.3vw;
+}
+
+#validacao_login {
+    position: absolute;
+    color: red;
+    align-items: center;
+    font-size: 1vw;
+    text-align: center;
+    font-weight: bolder;
+    justify-content: center;
+    display: flex;
+    top: 22.6vw;
+    left: 55.3vw;
+    width: 20vw;
 }

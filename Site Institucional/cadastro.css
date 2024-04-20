@@ -201,10 +201,31 @@ html, body {
     font-size: 2.4vw;
     letter-spacing: 0.5vw;
     margin-left: 3vw;
-    margin-top: 1vw;
+    margin-top: 0.2vw;
+    margin-bottom: -2vw;
 }
 
-#div_input_usuario {
+#div_input_nome, #div_input_sobrenome, #div_input_email, #div_input_cpf, #div_input_telefone_celular, #div_input_nome_empresa, #div_input_senha, #div_input_confirmar_senha {
+    box-shadow: -0.1vw 0.25vw 0.4vw 0.2vw rgba(0, 0, 0, 0.3);
+    height: 3vw;
+    display: flex;
+    flex-direction: row;
+    border-radius: 1vw;
+    background: rgb(153,153,153);
+    background: linear-gradient(235deg, rgba(153,153,153,1) 0%, rgba(153,153,153,0.35) 0%, rgba(255,255,255,0.1) 100%);
+}
+
+#div_input_nome {
+    box-shadow: -0.1vw 0.25vw 0.4vw 0.2vw rgba(0, 0, 0, 0.3);
+    height: 3vw;
+    display: flex;
+    flex-direction: row;
+    border-radius: 1vw;
+    background: rgb(153,153,153);
+    background: linear-gradient(235deg, rgba(153,153,153,1) 0%, rgba(153,153,153,0.35) 0%, rgba(255,255,255,0.1) 100%);
+}
+
+#div_input_sobrenome {
     box-shadow: -0.1vw 0.25vw 0.4vw 0.2vw rgba(0, 0, 0, 0.3);
     height: 3vw;
     display: flex;
@@ -229,28 +250,36 @@ html, body {
     padding: 1vw;
 }
 
-#div_input_usuario input {
+#campos01 div input {
     font-size: 1.4vw;
     background-color: rgba(0, 0, 0, 0);
     border-top-right-radius: 1vw;
     border-bottom-right-radius: 1vw;
     border: 0px;
 }
-#input_cep {
+
+#campos02 div input {
     font-size: 1.4vw;
     background-color: rgba(0, 0, 0, 0);
     border-top-right-radius: 1vw;
     border-bottom-right-radius: 1vw;
     border: 0px;
-    width: 5.5vw;
 }
-#input_numero {
+
+#campos03 div input {
     font-size: 1.4vw;
     background-color: rgba(0, 0, 0, 0);
     border-top-right-radius: 1vw;
     border-bottom-right-radius: 1vw;
     border: 0px;
-    width: 8.5vw;
+}
+
+#campos04 div input {
+    font-size: 1.4vw;
+    background-color: rgba(0, 0, 0, 0);
+    border-top-right-radius: 1vw;
+    border-bottom-right-radius: 1vw;
+    border: 0px;
 }
 
 #div_input_senha {
@@ -303,67 +332,9 @@ html, body {
     cursor: pointer;
 }
 
-#div_input_cep{
-    box-shadow: -0.1vw 0.25vw 0.4vw 0.2vw rgba(0, 0, 0, 0.3);
-    height: 3vw;
-    width: 9vw;
-    display: flex;
-    border-radius: 1vw;
-    background: rgb(153,153,153);
-    background: linear-gradient(235deg, rgba(153,153,153,1) 0%, rgba(153,153,153,0.35) 0%, rgba(255,255,255,0.1) 100%);
-}
-#div_input_numero{
-    box-shadow: -0.1vw 0.25vw 0.4vw 0.2vw rgba(0, 0, 0, 0.3);
-    height: 3vw;
-    width: 12vw;
-    display: flex;
-    border-radius: 1vw;
-    background: rgb(153,153,153);
-    background: linear-gradient(235deg, rgba(153,153,153,1) 0%, rgba(153,153,153,0.35) 0%, rgba(255,255,255,0.1) 100%);
-}
-
-#campos01{
+#campos01, #campos02, #campos03, #campos04{
     display: flex;
     gap: 3vw;
-}
-#campos02{
-    display: flex;
-    gap: 3vw;
-}
-#campos_pequenos{
-    display: flex;
-    gap: 1.5vw;
-}
-#campos03{
-    display: flex;
-    gap: 3vw;
-}
-#campos04{
-    display: flex;
-    gap: 3vw;
-}
-
-#alerta_erro {
-    background: rgb(253, 1, 14);
-    background: linear-gradient(235deg, rgba(253, 1, 14, 0.1) 100%, rgba(161, 161, 161, 1) 100%);
-    border-radius: 1vw;
-    position: absolute;
-    top: 0.8vw;
-    left: 50.8vw;
-    height: 11vh;
-    width: 21vw;
-    border: 0.25vw solid black;
-    color: red;
-    align-items: center;
-    font-size: 1vw;
-    text-align: center;
-    font-weight: bolder;
-    justify-content: center;
-    display: flex;
-}
-
-#alerta_erro span {
-    padding: 0.3vw;
 }
 
 #alerta_cadastrado {
@@ -372,13 +343,13 @@ html, body {
     border-radius: 1vw;
     position: absolute;
     top: 0.8vw;
-    left: 50.8vw;
+    left: 46.2vw;
     height: 11vh;
-    width: 21vw;
-    border: 0.25vw solid black;
+    width: 30vw;
+    border: 0.2vw solid rgb(255, 255, 255);
     color: rgb(22, 182, 22);
     align-items: center;
-    font-size: 2vw;
+    font-size: 1.5vw;
     text-align: center;
     font-weight: bolder;
     justify-content: center;
@@ -387,4 +358,63 @@ html, body {
 
 #alerta_cadastrado span {
     padding: 0.3vw;
+}
+
+#validacao_nome, #validacao_sobrenome, #validacao_email, #validacao_cpf, #validacao_telefone_celular, #validacao_nome_empresa, #validacao_senha, #validacao_confirmar_senha {
+    position: absolute;
+    color: red;
+    align-items: center;
+    font-size: 0.8vw;
+    text-align: center;
+    font-weight: bolder;
+    justify-content: center;
+    display: flex;
+}
+
+#validacao_nome {
+    top: 16.5vw;
+    left: 38.2vw;
+    width: 20vw;
+}
+
+#validacao_sobrenome {
+    top: 16.5vw;
+    left: 64vw;
+    width: 20vw;
+}
+
+#validacao_email {
+    top: 22.5vw;
+    left: 38.2vw;
+    width: 20vw;
+}
+
+#validacao_cpf {
+    top: 22.5vw;
+    left: 63vw;
+    width: 22vw;
+}
+
+#validacao_telefone_celular {
+    top: 28.7vw;
+    left: 36.7vw;
+    width: 24vw;
+}
+
+#validacao_nome_empresa {
+    top: 28.7vw;
+    left: 64vw;
+    width: 20vw;
+}
+
+#validacao_senha {
+    top: 34.7vw;
+    left: 38.2vw;
+    width: 20vw;
+}
+
+#validacao_confirmar_senha {
+    top: 34.7vw;
+    left: 64vw;
+    width: 20vw;
 }
