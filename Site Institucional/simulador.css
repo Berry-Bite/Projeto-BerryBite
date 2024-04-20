@@ -24,14 +24,23 @@ html, body {
     
 }
 .bar h2{
-    margin-top: 18px;
+    margin-top: 2.2vw;
+    cursor: pointer;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: 400;
+    
 }
 .logo{
     display: flex;
     flex-direction: row;
+    cursor: pointer;
+    
+    
 }
 .logo h2{
-    margin-top: 18px;
+    margin-top: 25px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    
 }
 .texto{
     margin-bottom: -1.6vw;
@@ -52,18 +61,27 @@ html, body {
     height: 2vw;
 }
 .container h4{
-    margin: 0px 0; 
-    font-weight:lighter ;
-    color: rgb(74,231,0);
-    color: linear-gradient(235deg, rgba(74,231,0,1) 0%, rgba(39, 175, 69, 1) 100%);    
+    margin-top: 2px;
+    color: #27AF45;
+    font-family: "Jost";
+    font-size: 17px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    
+    
+
 }
 
 .container h1{
-    margin: 10px 0; 
+    margin-top:-18px;
     color: #bb2b45;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 7vw;
+    font-style: normal;
+    font-weight: 400;
     
 }
 .caixa{
+    margin-top:-4vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -87,6 +105,7 @@ html, body {
     font-size: 24pt;
     margin: 1px 0;     /* Define a margem superior e inferior como 10px e a margem esquerda e direita como 0 */
     font-weight: lighter;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 input{
     height: 35px;
@@ -98,8 +117,8 @@ button{
     margin-bottom: 0.8vw;
     height: 40px;
     width: 25%;
-    border-radius: 10px;
-    background-color: #DC375E;
+    border-radius: 15px;
+    background-color: #bb2b45;
     font-family: "Jomhuria", serif;
 
 }
