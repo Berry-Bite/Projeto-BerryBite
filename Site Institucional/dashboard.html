@@ -5,7 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="dashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jomhuria&display=swap" rel="stylesheet">
     <title>Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="icons/logo-berry.png">
 </head>
 
 <body>
@@ -15,30 +19,22 @@
 
             <div class="marca">
                 <img src="./icons/logo-berry.png" class="logo-header">
-                <span> <b>Berry.Bite</b></span>
+                <span>Berry.Bite</span>
             </div>
 
             <div class="container">
 
-                <div class="user">
-                    <h3>Bem-vindo(a), <br>usuário!</h3>
-                </div>
+                <div id="user"></div>
 
                 <div class="menu">
-                    <a href="./dashboard.html">
-                        <button>Paramêtros</button>
-                    </a>
-                    <a href="./estufas.html">
-                        <button></button>
-                    </a>
+                    <button onclick="parametros()">Paramêtros</button>
+                    <button onclick="comparacao()">Comparação</button>
                     <button>Dashboard</button>
                     <button>Contato</button>
                 </div>
 
                 <div class="sair">
-                    <a href="./home.html">
-                        <button>Sair</button>
-                    </a>
+                    <button onclick="sair()">Sair</button>
                 </div>
 
             </div>
@@ -49,7 +45,7 @@
 
         <div class="mural_right">
 
-            <h1>Parametros de análise e alertas</h1>
+            <h1>Parametros de análise e alertas:</h1>
 
             <div class="temperatura">
 
@@ -58,27 +54,27 @@
                 <div class="parametros_temperatura">
 
                     <div class="perigo_menor">
-                        <p>Perigo frio&#10052</p>
+                        <p>Perigo Frio&#10052</p><br>
                         <p>Temperaturas menores que 13°C</p>
                     </div>
 
                     <div class="alerta_menor">
-                        <p>Alerta Frio&#9888</p>
-                        <p>Temperaturas entre<br> 13°C e 16°C</p>
+                        <p>Alerta Frio&#9888</p><br>
+                        <p>Temperaturas entre 13°C e 16°C</p>
                     </div>
 
                     <div class="ideal">
-                        <p>Ideal&#9786</p>
-                        <p> Temperaturas entre <br>16,1°C e 21,9°C</p>
+                        <p>Ideal&#9786</p><br>
+                        <p> Temperaturas entre 16,1°C e 21,9°C</p>
                     </div>
 
                     <div class="alerta_maior">
-                        <p>Alerta Calor&#9888</p>
-                        <p>Temperaturas entre<br> 22°C e 26°C</p>
+                        <p>Alerta Calor&#9888</p><br>
+                        <p>Temperaturas entre 22°C e 26°C</p>
                     </div>
 
                     <div class="perigo_maior">
-                        <p>Perigo calor&#x1F321</p>
+                        <p>Perigo Calor&#x1F321</p><br>
                         <p>Temperaturas maiores que 26°C</p>
                     </div>
 
@@ -92,28 +88,28 @@
                 <div class="parametros_umidade">
 
                     <div class="perigo_menor">
-                        <p>Perigo frio&#10052</p>
-                        <p>Temperaturas menores que 13°C</p>
+                        <p>Perigo Umidade Alta&#10052</p><br>
+                        <p>Umidades menores que 40%</p>
                     </div>
 
                     <div class="alerta_menor">
-                        <p>Alerta Frio&#9888</p>
-                        <p>Temperaturas entre<br> 13°C e 16°C</p>
+                        <p>Alerta Umidade Alta&#9888</p><br>
+                        <p>Umidades entre 40% e 59%</p>
                     </div>
 
                     <div class="ideal">
-                        <p>Ideal&#9786</p>
-                        <p> Temperaturas entre <br>16,1°C e 21,9°C</p>
+                        <p>Ideal&#9786</p><br>
+                        <p>Umidades entre 60% e 75%</p>
                     </div>
 
                     <div class="alerta_maior">
-                        <p>Alerta Calor&#9888</p>
-                        <p>Temperaturas entre<br> 22°C e 26°C</p>
+                        <p>Alerta Umidade Baixa&#9888</p><br>
+                        <p>Umidades entre 76% e 80%</p>
                     </div>
 
                     <div class="perigo_maior">
-                        <p>Perigo calor&#x1F321</p>
-                        <p>Temperaturas maiores que 26°C</p>
+                        <p>Perigo Umidade Baixa&#x1F321</p><br>
+                        <p>Umidades maiores que 80%</p>
                     </div>
 
                 </div>
@@ -129,15 +125,15 @@
                     <div class="info_temperatura">
                         <p>Temperatura externa:</p>
                         <span>&#x1F324</span>
-                        <p>27°C</p>
+                        <p class="porcentagem">27°C</p>
                     </div>
 
                     <div class="info_umidade">
                         <p>Umidade externa:</p>
                         <span>&#x1F4A7</span>
-                        <p>70%</p>
+                        <p class="porcentagem">70%</p>
                     </div>
-                
+
                 </div>
 
             </div>
@@ -149,3 +145,20 @@
 </body>
 
 </html>
+
+<script>
+    var nome = 'Fernanda';
+    user.innerHTML = `<span id="nome">Bem-vindo(a)<br>${nome}</span>`;
+
+    function comparacao() {
+        window.location.href = "./estufas.html";
+    }
+
+    function parametro() {
+        window.location.href = "./dashboad.html";
+    }
+
+    function sair() {
+        window.location.href = "./home.html";
+    }
+</script>
