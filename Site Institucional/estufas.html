@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="./estufas.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>BerryBite| Estufas</title>
 </head>
 
@@ -40,6 +41,79 @@
         </div>
 
     </div>
+    
+    <div class="charts">
+        <div class="tables">
+            <canvas id="Chart_Line" class="linha"></canvas>
+          </div>
+          <div class="tables">
+            <canvas id="Chart_Bar" class="barra"></canvas>
+          </div>
+    </div>
+
 </body>
 
 </html>
+
+<script>
+    const ctx = document.getElementById('Chart_Line');
+  
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+        datasets: [{
+          label: 'Temperatura',
+          data: [30, 29, 28, 25, 22, 23],
+          borderWidth: 3,
+          backgroundColor: '#FF69B4',
+          borderColor: '#FF69B4'
+        }, {
+          label: 'Umidade',
+          data: [80, 82, 80, 85, 80, 83],
+          borderWidth: 3,
+          backgroundColor: '#00BFFF',
+          borderColor: '#00BFFF'
+        }]
+  
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  
+    const ctxBar = document.getElementById('Chart_Bar');
+    new Chart(ctxBar, {
+      type: 'bar',
+      data: {
+        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+        datasets: [{
+          label: 'Temperatura Média',
+          data: [22, 24, 27, 23, 20, 18],
+          borderWidth: 3,
+          backgroundColor: '#FF69B4',
+          borderColor: '#FF69B4'
+        }, {
+          label: 'Umidade Média',
+          data: [90, 89, 93, 87, 88, 82],
+          borderWidth: 3,
+          backgroundColor: '#00BFFF',
+          borderColor: '#00BFFF'
+        }]
+  
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+  
+  
