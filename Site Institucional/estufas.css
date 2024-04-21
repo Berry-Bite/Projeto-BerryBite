@@ -1,8 +1,9 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: antiquewhite;
+    background-color: antiquewhite;overflow-y: hidden;
 }
+
 
 .pagina {
     display: flex;
@@ -28,7 +29,17 @@ body {
     height: 25%;
     width: 100%;
     font-size: 150%;
+}
 
+.marca span {
+    font-family: "Jomhuria", serif;
+    font-size: 200%;
+    font-weight: lighter;
+}
+
+.marca img {
+    height: auto;
+    width: 20%;
 }
 
 img {
@@ -40,18 +51,27 @@ img {
     height: 70%;
 }
 
-.user {
+#user {
+    margin-bottom: -2%;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     height: 20%;
+    margin-bottom: 30%;
+    margin-top: 10%;
+}
 
+#user span {
+    font-family: "Jomhuria", serif;
+    font-size: 300%;
+    margin-top: 2%;
+    font-weight: lighter;
 }
 
 .menu {
-    margin-top: 40px;
+    margin-bottom: -10%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -63,12 +83,15 @@ img {
 }
 
 .menu button {
+    text-align: center;
     border-radius: 3px;
-    border-color: green;
-    background-color: green;
+    border: 0.2vw solid white;
+    background-color: #6BB87A;
     color: white;
     cursor: pointer;
-
+    width: 80%;
+    height: 12%;
+    font-size: 110%;
 }
 
 .sair {
@@ -82,19 +105,82 @@ img {
 
 .sair button {
     border-radius: 3px;
-    border-color: red;
-    background-color: red;
+    border: 0.2vw solid white;
+    background-color: #E64D4C;
     color: white;
     cursor: pointer;
-    
+    width: 60%;
+    height: 30%;
+    font-size: 110%;
 }
 
+
+/*inicio da seleção das estufas*/
+
+
+#estufa_omega{
+    display:none
+    
+}
 .mural-rigth{
-    width: 90%;
+    width: 88%;
     height: 100vh;
 }
 
+.minhas-estufas{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.minhas-estufas button {
+    width: 20%;
+    height: 20%;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.minhas-estufas span{
+    font-size: 30px;
+}
+
+.id-estufa{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 30%;
+    font-size: 30px;
+}
+.box-info{
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.box-info-temp{
+    width: 15%;
+    height: 10%;
+    text-align: center;
+    border-radius: 15px; 
+    background: linear-gradient(45deg,#2ED8B6, #59E0C5);
+}
+
+.box-info-umi{
+    width: 15%;
+    height: 10%;
+    text-align: center;
+    border-radius: 15px; 
+    background: linear-gradient(45deg,#2ED8B6, #59E0C5);
+}
+
 .estufa1{
+    margin-top: 3%;
     padding-left: 30px;
     display: flex;
     flex-direction: row;
@@ -103,18 +189,14 @@ img {
     height: 40%;
 }
 
-.estufa2{
+.voltar{
+    margin-top: 5%;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
-    margin-bottom: 10%;
-    width: 50%;
-    height: 40%;
+    justify-content: center;
+    width: 100%;
+    height: 20%;
+    font-size: 15px;
 }
-/*.grafico_estufa1{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
 
-}

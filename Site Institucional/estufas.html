@@ -7,61 +7,130 @@
   <link rel="stylesheet" href="./estufas.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <title>BerryBite| Estufas</title>
-  <link rel="icon" type="image/x-icon" href="icons/logo-berry.png">
 </head>
 
 <body>
 
-  <div class="pagina">
+  <div id="div_fundo" class="pagina">
+
+    <!--NavBar/ Header-->
     <div class="header-left">
 
       <div class="marca">
-        <img src="./icons/logo-berry.png" class="logo-header">
-        <span> <b>Berry.Bite</b></span>
+          <img src="./icons/logo-berry.png" class="logo-header">
+          <span>Berry.Bite</span>
       </div>
 
       <div class="container">
 
-        <div class="user">
-          <h3>Bem-vindo(a), <br>usuário!</h3>
-        </div>
+          <div id="user"></div>
 
-        <div class="menu">
-          <a href="./dashboard.html">
-            <button>Home</button>
-          </a>
-          <a href="./estufas.html">
-            <button>Estufas</button>
-          </a>
-          <button>Dashboard</button>
-          <button>Contato</button>
-        </div>
+          <div class="menu">
+              <button onclick="parametros()">Paramêtros</button>
+              <button onclick="estufas()">Minhas estufas</button>
+              <button>Dashboard</button>
+              <button>Contato</button>
+          </div>
 
-        <div class="sair">
-          <button>Sair</button>
-        </div>
+          <div class="sair">
+              <button onclick="sair()">Sair</button>
+          </div>
 
       </div>
 
-    </div>
+  </div>
 
+  
+<!-- Parte da página a direita-->
     <div class="mural-rigth">
-      <h1>Estufas</h1>
-      <!--<div class="estufa1"></div> -->
+
+      <div id="select_estufas" class="minhas-estufas">
+      <h1>Fazenda Colheita Feliz</h1>
+        <button onclick="ativar1()" type="submit" aria-label="estufa omega">
+          <img src="./icons/estufa.png" alt="estufa" ><br><br><span >Estufa Omega</span>
+        </button>
+
+        <button onclick="ativar2()" type="submit" aria-label="estufa omega">
+          <img src="./icons/estufa.png" alt="estufa" ><br><br><span >Estufa Violet</span>
+        </button>
+
+      </div>
+
+      <div id="estufa_omega">
+
+        <div class= "id-estufa">
+          <h2>Estufa Omega</h2>
+        </div>
+        <!--<div class="estufa1"></div> -->
+
+        <div class="box-info">
+
+          <div class="box-info-temp">
+            <div class="text-temp">
+              <h3>Temperatura atual:</h3>
+              <p>21.7°C</p>
+            </div>
+          </div>
+
+          <div class="box-info-umi">
+            <div class="text-umi">
+              <h3>Umidade atual:</h3>
+              <p>56,9%</p>
+            </div>
+          </div>
+
+        </div>
 
         <div class="estufa1">
           <canvas id="chart_temp"></canvas>
           <canvas id="chart_umi"></canvas>
         </div>
 
-        <div class="estufa2">
-          <canvas id="chart_unique"></canvas>
-        </div>
-        
+        <div class="voltar">
+        <button onclick="inicio()">Voltar</button>
+      </div>
 
-      
+      </div>
+
+ <!--Estufa Violet-->
+      <div id="estufa_violet">
+
+        <div class= "id-estufa">
+          <h2>Estufa Violet</h2>
+        </div>
+     
+
+        <div class="box-info">
+
+          <div class="box-info-temp">
+            <div class="text-temp">
+              <h3>Temperatura atual:</h3>
+              <p>22°C</p>
+            </div>
+          </div>
+
+          <div class="box-info-umi">
+            <div class="text-umi">
+              <h3>Umidade atual:</h3>
+              <p>69,7%</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="estufa1">
+          <canvas id="chart_temp_violet"></canvas>
+          <canvas id="chart_umi_violet"></canvas>
+        </div>
+
+        <div class="voltar">
+        <button onclick="inicio()">Voltar</button>
+      </div>
+
+      </div>
 
     </div>
+
   </div>
 
 
@@ -72,30 +141,67 @@
 </html>
 
 <script>
+  var nome = 'Fernanda';
+    user.innerHTML = `<span id="nome">Bem-vindo(a)<br>${nome}</span>`;
+
+    function estufas() {
+        window.location.href = "./estufas.html";
+    }
+
+    function parametros() {
+        window.location.href = "./dashboard.html";
+    }
+
+    function sair() {
+        window.location.href = "./home.html";
+    }
+  
+  function ativar1(){
+    estufa_omega.style.display= "block"; 
+    estufa_violet.style.display= "none";
+    select_estufas.style.display= "none";
+  }
+  function ativar2(){
+    estufa_omega.style.display= "none"; 
+    estufa_violet.style.display= "block";
+    select_estufas.style.display= "none";
+  }
+  function inicio(){
+    estufa_omega.style.display= "none"; 
+    estufa_violet.style.display= "none";
+    select_estufas.style.display= "block";
+  }
   const ctxTemperatura = document.getElementById('chart_temp');
-  const ctxUmidade= document.getElementById('chart_umi');
-  const ctxUnique = document.getElementById('chart_unique');
+  const ctxUmidade = document.getElementById('chart_umi');
+
 
   new Chart(ctxTemperatura, {
     type: 'line',
     data: {
-      labels: ['12:00', '12:10', '12:20', '12:30', '12:40', '12:50','13:00'],
+      labels: ['12:00', '12:10', '12:20', '12:30', '12:40', '12:50', '13:00'],
       datasets: [{
         label: 'Temperatura',
-        data: [18, 19, 18, 19, 20, 21, 22],
+        data: [18.7, 19.3, 18.5, 19.9, 20.1, 21.3, 21.7],
         borderWidth: 1
       },
-      {label: 'Perigo frio',
-      data: [13,13,13,13,13,13,13],
-      borderWidth: 1},
-      {label: 'Alerta frio',
-      data: [16,16,16,16,16,16,16],
-      borderWidth: 1},
-      {label: 'Alerta calor',
-        data: [22,22,22,22,22,22,22],
-        borderWidth: 1},
-        {label: 'Perigo calor',
-        data: [26,26,26,26,26,26,26],
+      {
+        label: 'Perigo frio',
+        data: [13, 13, 13, 13, 13, 13, 13],
+        borderWidth: 1
+      },
+      {
+        label: 'Alerta frio',
+        data: [16, 16, 16, 16, 16, 16, 16],
+        borderWidth: 1
+      },
+      {
+        label: 'Alerta calor',
+        data: [22, 22, 22, 22, 22, 22, 22],
+        borderWidth: 1
+      },
+      {
+        label: 'Perigo calor',
+        data: [26, 26, 26, 26, 26, 26, 26],
         borderWidth: 1
       }]
     },
@@ -111,26 +217,32 @@
   new Chart(ctxUmidade, {
     type: 'line',
     data: {
-      labels: ['12:00', '12:10', '12:20', '12:30', '12:40', '12:50','13:00'],
+      labels: ['12:00', '12:10', '12:20', '12:30', '12:40', '12:50', '13:00'],
       datasets: [{
         label: 'Umidade',
-        data: [88.1,84.6,82.3,73.7,73.1,74.2,69.5],
+        data: [55.4,56.1,56,56.7,57,57.3,56.9],
         borderWidth: 1
       },
-      {label: 'Perigo baixa Umidade',
-        data: [40,40,40,40,40,40,40],
-        borderWidth: 1},
+      {
+        label: 'Perigo baixa Umidade',
+        data: [40, 40, 40, 40, 40, 40, 40],
+        borderWidth: 1
+      },
       {
         label: 'Umidade abaixo',
-        data: [60,60,60,60,60,60,60],
+        data: [60, 60, 60, 60, 60, 60, 60],
         borderWidth: 1
       },
-        {label: 'Umidade acima',
-        data: [75,75,75,75,75,75,75],
-        borderWidth: 1},
-        {label: 'Perigo alta Umidade',
-        data: [80,80,80,80,80,80,80],
-        borderWidth: 1}]
+      {
+        label: 'Umidade acima',
+        data: [75, 75, 75, 75, 75, 75, 75],
+        borderWidth: 1
+      },
+      {
+        label: 'Perigo alta Umidade',
+        data: [80, 80, 80, 80, 80, 80, 80],
+        borderWidth: 1
+      }]
     },
     options: {
       scales: {
@@ -141,22 +253,93 @@
     }
   });
 
-  new Chart(ctxUnique, {
-    type: 'bar',
+  //dados da estufa violet
+
+  const ctxTemperatura_violet = document.getElementById('chart_temp_violet');
+  const ctxUmidade_violet = document.getElementById('chart_umi_violet');
+
+
+  new Chart(ctxTemperatura_violet, {
+    type: 'line',
     data: {
-      labels: ['12:00', '12:10', '12:20', '12:30', '12:40', '12:50','13:00'],
+      labels: ['12:00', '12:10', '12:20', '12:30', '12:40', '12:50', '13:00'], //panoramas, eixo x
       datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
+        label: 'Temperatura',
+        data: [18.7, 19.3, 18.5, 19.9, 20.1, 21.3, 21.7], //valores de temperaturas registrados;
+        borderWidth: 1
+      },
+      //parâmetros de alerta
+      {
+        label: 'Perigo frio',
+        data: [13, 13, 13, 13, 13, 13, 13],
+        borderWidth: 1
+      },
+      {
+        label: 'Alerta frio',
+        data: [16, 16, 16, 16, 16, 16, 16],
+        borderWidth: 1
+      },
+      {
+        label: 'Alerta calor',
+        data: [22, 22, 22, 22, 22, 22, 22],
+        borderWidth: 1
+      },
+      {
+        label: 'Perigo calor',
+        data: [26, 26, 26, 26, 26, 26, 26],
         borderWidth: 1
       }]
-        },
+    },
     options: {
       scales: {
         y: {
-          beginAtZero: true
+          beginAtZero: false
         }
       }
     }
   });
+
+  new Chart(ctxUmidade_violet, {
+    type: 'line',
+    data: {
+      labels: ['12:00', '12:10', '12:20', '12:30', '12:40', '12:50', '13:00'],
+      datasets: [{
+        //dados coletados
+        label: 'Umidade',
+        data: [88.1, 84.6, 82.3, 73.7, 73.1, 74.2, 69.5],
+        borderWidth: 1
+      },
+      //parâmetros de alerta
+      {
+        label: 'Perigo baixa Umidade',
+        data: [40, 40, 40, 40, 40, 40, 40],
+        borderWidth: 1
+      },
+      {
+        label: 'Umidade abaixo',
+        data: [60, 60, 60, 60, 60, 60, 60],
+        borderWidth: 1
+      },
+      {
+        label: 'Umidade acima',
+        data: [75, 75, 75, 75, 75, 75, 75],
+        borderWidth: 1
+      },
+      {
+        label: 'Perigo alta Umidade',
+        data: [80, 80, 80, 80, 80, 80, 80],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: false
+        }
+      }
+    }
+  });
+
+
+
 </script>
