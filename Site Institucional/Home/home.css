@@ -15,7 +15,7 @@ body {
     background-color: rgba(3, 0, 0, 0.836);
     width: 100vw;
     height: 90vh;
-    background-image: url(./icons/banner-home.png);
+    background-image: url(../icons/banner-home.png);
     background-size: cover;
     background-position: center;
     display: flex;
@@ -243,7 +243,7 @@ body {
     flex-direction: column;
     color: #27AF45;
     font-family: "Jomhuria", serif;
-    font-size: 2vw;
+    font-size: 3vw;
     margin-top: -580px;
     right: 650px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
@@ -483,7 +483,7 @@ body {
 .div_diagrama p {
     flex-direction: column;
     font-family: "Jomhuria", serif;
-    font-size: 2vw;
+    font-size: 3vw;
     color: #27AF45;
     margin-top: 150px;
     right: 650px;
@@ -595,7 +595,7 @@ body {
     flex-direction: column;
     color: #27AF45;
     font-family: "Jomhuria", serif;
-    font-size: 2vw;
+    font-size: 3vw;
     margin-top: 160px;
     right: 650px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
