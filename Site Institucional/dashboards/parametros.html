@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="parametros.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jomhuria&display=swap" rel="stylesheet">
-    <title>Berry.Bite | Dashboard</title>
-    <link rel="icon" type="image/x-icon" href="icons/logo-berry.png">
+    <title>Berry.Bite | Parâmetros</title>
+    <link rel="icon" type="image/x-icon" href="../icons/logo-berry.png">
 </head>
 
 <body>
@@ -18,7 +18,7 @@
         <div class="header-left">
 
             <div class="marca">
-                <img src="./icons/logo-berry.png" class="logo-header">
+                <img src="../icons/logo-berry.png" class="logo-header">
                 <span>Berry.Bite</span>
             </div>
 
@@ -27,9 +27,9 @@
                 <div id="user"></div>
 
                 <div class="menu">
-                    <button style="background-color: #7AB8CC;" onclick="parametros()">Paramêtros</button>
                     <button onclick="estufas()">Estufas</button>
-                    <button>Dashboard</button>
+                    <button style="background-color: #7AB8CC;" onclick="parametros()">Paramêtros</button>
+                    <button>Comparação</button>
                     <button>Contato</button>
                 </div>
 
@@ -159,14 +159,14 @@
     user.innerHTML = `<span id="nome">Bem-vindo(a)<br>${nome}</span>`;
 
     function estufas() {
-        window.location.href = "./estufas.html";
+        window.location.href = "estufas.html";
     }
 
     function parametros() {
-        window.location.href = "./dashboard.html";
+        window.location.href = "parametros.html";
     }
 
     function sair() {
-        window.location.href = "./home.html";
+        window.location.href = "../Home/home.html";
     }
 </script>
