@@ -30,7 +30,7 @@ html, body {
     display: flex;
     position: absolute;
     top: 7vw;
-    left: 10vw;
+    left: 17.5vw;
     height: 70vh;
     max-height: 80vh;
     width: 23.5vw;
@@ -41,7 +41,7 @@ html, body {
     position: absolute;
     max-height: 30vh;
     top: 0vw;
-    left: -3vw;
+    left: -2vw;
     width: 16vw;
     transform: rotate(295deg);
 }
@@ -54,8 +54,8 @@ html, body {
     display: flex;
     max-height: 30vh;
     position: absolute;
-    top: 8vw;
-    left: -2vw;
+    top: 7vw;
+    left: 4vw;
     width: 16vw;
     transform: rotate(20deg);
 }
@@ -68,8 +68,8 @@ html, body {
     display: flex;
     max-height: 30vh;
     position: absolute;
-    top: 22vw;
-    left: 2vw;
+    top: 24vw;
+    left: 8vw;
     transform: rotate(180deg);
     width: 16vw;
 }
@@ -95,8 +95,8 @@ html, body {
     display: flex;
     max-height: 70vh;
     position: absolute;
-    top: -2vw;
-    left: 82vw;
+    top: -3vw;
+    left: 72vw;
 }
 
 #img_morango_direita_1 {
@@ -106,7 +106,7 @@ html, body {
 #div_container {
     display: flex;
     flex-direction: row;
-    width: 80vw;
+    width: 65vw;
     height: 70%;
     background: rgb(253, 1, 14);
     background: linear-gradient(235deg, rgba(253, 1, 14, 0.1) 100%, rgba(161, 161, 161, 1) 100%);
@@ -138,23 +138,18 @@ html, body {
     font-weight: 600;
 }
 
-#span_nov {
-    text-decoration: underline;
-}
-
 #button_criar_conta {
-    cursor: pointer;
-    letter-spacing: 0.3vw;
     z-index: 2;
     box-shadow: -0.1vw 0.25vw 0.4vw 0.2vw rgba(0, 0, 0, 0.3);
     color: #313056;
     width: 15vw;
+    letter-spacing: 0.3vw;
     height: 3vw;
     font-size: 1.5vw;
     border: 0px;
     border-radius: 2vw;
     background-color: rgb(2555, 255, 255, 0.55);
-    margin-left: 1.5vw;
+    cursor: pointer;
 }
 
 #div_setas_meio {
@@ -162,12 +157,11 @@ html, body {
     align-items: center;
     position: absolute;
     top: 21vw;
-    left: 31.6vw;
+    left: 39.2vw;
     max-height: 10vh;
 }
 
 #button_setas {
-    cursor: pointer;
     z-index: 2;
     background: rgb(228,228,228);
     background: linear-gradient(235deg, rgba(228,228,228,1) 100%, rgba(228,228,228,1) 100%, rgba(228,228,228,1) 100%, rgba(255,255,255,1) 100%);
@@ -178,12 +172,12 @@ html, body {
     height: 3.5vw;
     transform: rotate(90deg);
     border: 0px;
+    cursor: pointer;
 }
 
 #img_setas {
     width: 80%;
     margin-top: 0.15vw;
-
 }
 
 #div_lado_direito {
@@ -192,40 +186,20 @@ html, body {
     flex-direction: column;
     opacity: 100%;
     justify-content: space-around;
-    margin-left: 3vw;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10vw;
     white-space: nowrap;
+    margin-top: 4vw;
 }
 
-#p_faca_seu_cadastro {
+#p_faca_seu_login {
     color: #313056;
     font-size: 2.4vw;
     letter-spacing: 0.5vw;
-    margin-left: 3vw;
-    margin-top: 0.2vw;
-    margin-bottom: -2vw;
 }
 
-#div_input_nome, #div_input_sobrenome, #div_input_email, #div_input_cpf, #div_input_telefone_celular, #div_input_nome_empresa, #div_input_senha, #div_input_confirmar_senha {
-    box-shadow: -0.1vw 0.25vw 0.4vw 0.2vw rgba(0, 0, 0, 0.3);
-    height: 3vw;
-    display: flex;
-    flex-direction: row;
-    border-radius: 1vw;
-    background: rgb(153,153,153);
-    background: linear-gradient(235deg, rgba(153,153,153,1) 0%, rgba(153,153,153,0.35) 0%, rgba(255,255,255,0.1) 100%);
-}
-
-#div_input_nome {
-    box-shadow: -0.1vw 0.25vw 0.4vw 0.2vw rgba(0, 0, 0, 0.3);
-    height: 3vw;
-    display: flex;
-    flex-direction: row;
-    border-radius: 1vw;
-    background: rgb(153,153,153);
-    background: linear-gradient(235deg, rgba(153,153,153,1) 0%, rgba(153,153,153,0.35) 0%, rgba(255,255,255,0.1) 100%);
-}
-
-#div_input_sobrenome {
+#div_input_usuario {
     box-shadow: -0.1vw 0.25vw 0.4vw 0.2vw rgba(0, 0, 0, 0.3);
     height: 3vw;
     display: flex;
@@ -250,31 +224,7 @@ html, body {
     padding: 1vw;
 }
 
-#campos01 div input {
-    font-size: 1.4vw;
-    background-color: rgba(0, 0, 0, 0);
-    border-top-right-radius: 1vw;
-    border-bottom-right-radius: 1vw;
-    border: 0px;
-}
-
-#campos02 div input {
-    font-size: 1.4vw;
-    background-color: rgba(0, 0, 0, 0);
-    border-top-right-radius: 1vw;
-    border-bottom-right-radius: 1vw;
-    border: 0px;
-}
-
-#campos03 div input {
-    font-size: 1.4vw;
-    background-color: rgba(0, 0, 0, 0);
-    border-top-right-radius: 1vw;
-    border-bottom-right-radius: 1vw;
-    border: 0px;
-}
-
-#campos04 div input {
+#input_usuario {
     font-size: 1.4vw;
     background-color: rgba(0, 0, 0, 0);
     border-top-right-radius: 1vw;
@@ -300,6 +250,7 @@ html, body {
     height: 100%;
     align-items: center;
     display: flex;
+
 }
 
 #img_senha {
@@ -315,11 +266,53 @@ html, body {
     border: 0px;
 }
 
+#div_foto_ocultar {
+    align-items: center;
+    display: flex;
+    position: absolute;
+    top: 26.4vw;
+    left: 73vw;
+    height: 9vh;
+    max-height: 9vh;
+}
+
+#button_ocultar {
+    cursor: pointer;
+    max-height: 9vh;
+    background-color: transparent;
+    border: 0px;
+}
+
 #img_ocultar {
     width: 1.7vw;
 }
 
-#button_cadastrar {
+#div_frases {
+    margin-top: -3.5vw;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    font-size: 0.7vw;
+}
+
+#input_caixa_lembrar_senha {
+    width: 0.8vw;
+    margin-right: 0.1vw;
+}
+
+#p_lembrar_senha {
+    color: #313056;
+    margin-right: 3vw;
+}
+
+#p_esqueceu_senha {
+    text-decoration: underline;
+    color: #313056;
+    margin-left: 3vw;
+    cursor: pointer;
+}
+
+#button_entrar {
     box-shadow: -0.1vw 0.25vw 0.4vw 0.2vw rgba(0, 0, 0, 0.3);
     margin-top: -1.5vw;
     color: #FFFFFF;
@@ -327,14 +320,45 @@ html, body {
     border-radius: 2vw;
     background-color: #313056;
     letter-spacing: 0.5vw;
-    width: 16vw;
+    width: 13vw;
     height: 2.8vw;
     cursor: pointer;
 }
 
-#campos01, #campos02, #campos03, #campos04{
+#p_conectar_com {
+    color: #000000;
+    font-size: 0.7VW;
+    margin-top: -2.5vw;
+    margin-bottom: -2.5vw;
+}
+
+#div_botoes_login {
+    align-items: center;
     display: flex;
-    gap: 3vw;
+    flex-direction: row;
+}
+
+#alerta_erro {
+    background: rgb(253, 1, 14);
+    background: linear-gradient(235deg, rgba(253, 1, 14, 0.1) 100%, rgba(161, 161, 161, 1) 100%);
+    border-radius: 1vw;
+    position: absolute;
+    top: 0.8vw;
+    left: 53.8vw;
+    height: 11vh;
+    width: 21vw;
+    border: 0.25vw solid black;
+    color: red;
+    align-items: center;
+    font-size: 1.4vw;
+    text-align: center;
+    font-weight: bolder;
+    justify-content: center;
+    display: flex;
+}
+
+#alerta_erro span {
+    padding: 0.3vw;
 }
 
 #alerta_cadastrado {
@@ -360,61 +384,54 @@ html, body {
     padding: 0.3vw;
 }
 
-#validacao_nome, #validacao_sobrenome, #validacao_email, #validacao_cpf, #validacao_telefone_celular, #validacao_nome_empresa, #validacao_senha, #validacao_confirmar_senha {
+#validacao_login {
     position: absolute;
     color: red;
     align-items: center;
-    font-size: 0.8vw;
+    font-size: 1vw;
+    text-align: center;
+    font-weight: bolder;
+    justify-content: center;
+    display: flex;
+    top: 24.4vw;
+    left: 55.3vw;
+    width: 20vw;
+}
+
+#alerta_cadastrado {
+    background: rgb(253, 1, 14);
+    background: linear-gradient(235deg, rgba(253, 1, 14, 0.1) 100%, rgba(161, 161, 161, 1) 100%);
+    border-radius: 1vw;
+    position: absolute;
+    top: 0.8vw;
+    left: 49.6vw;
+    height: 11vh;
+    width: 30vw;
+    border: 0.2vw solid rgb(255, 255, 255);
+    color: rgb(22, 182, 22);
+    align-items: center;
+    font-size: 1.5vw;
     text-align: center;
     font-weight: bolder;
     justify-content: center;
     display: flex;
 }
 
-#validacao_nome {
-    top: 16.5vw;
-    left: 38.2vw;
-    width: 20vw;
-}
-
-#validacao_sobrenome {
-    top: 16.5vw;
-    left: 64vw;
-    width: 20vw;
-}
-
-#validacao_email {
-    top: 22.5vw;
-    left: 38.2vw;
-    width: 20vw;
-}
-
-#validacao_cpf {
-    top: 22.5vw;
-    left: 63vw;
-    width: 22vw;
-}
-
-#validacao_telefone_celular {
-    top: 28.7vw;
-    left: 36.7vw;
-    width: 24vw;
-}
-
-#validacao_nome_empresa {
-    top: 28.7vw;
-    left: 64vw;
-    width: 20vw;
-}
-
-#validacao_senha {
-    top: 34.7vw;
-    left: 38.2vw;
-    width: 20vw;
-}
-
-#validacao_confirmar_senha {
-    top: 34.7vw;
-    left: 64vw;
-    width: 20vw;
+#alerta_esqueceu_senha {
+    background: rgb(253, 1, 14);
+    background: linear-gradient(235deg, rgba(253, 1, 14, 0.1) 100%, rgba(161, 161, 161, 1) 100%);
+    border-radius: 1vw;
+    position: absolute;
+    top: 0.8vw;
+    left: 49.6vw;
+    height: 11vh;
+    width: 30vw;
+    border: 0.2vw solid rgb(255, 255, 255);
+    color: rgb(40, 80, 214);
+    align-items: center;
+    font-size: 1.2vw;
+    text-align: center;
+    font-weight: bolder;
+    justify-content: center;
+    display: flex;
 }
