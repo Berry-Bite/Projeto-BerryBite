@@ -1,7 +1,8 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: antiquewhite;overflow-y: hidden;
+    background-color: antiquewhite;
+    overflow-y: hidden;
 }
 
 
@@ -34,7 +35,7 @@ body {
 .marca span {
     font-family: "Jomhuria", serif;
     font-size: 200%;
-    
+    font-weight: lighter;
 }
 
 .marca img {
@@ -119,13 +120,14 @@ img {
 .mural_right{ 
     flex-direction: column;
     display: flex;
+    padding-left: 5%;
     align-items: center;
 }
 
 .mural_right h1 {
-    font-family: "Jomhuria", serif;
     color: #BB2B45;
-    font-size: 370%;
+    font-family: "Jomhuria", serif;
+    font-size: 300%;
     margin-top: 0%;
     margin-left: 20%;
     margin-bottom: -2%;
@@ -147,7 +149,7 @@ img {
 }
 
 .parametros_temperatura {
-    width: 100%;
+    width: 120%;
     height: 100%;
     display: flex;
     flex-direction: row;
@@ -160,7 +162,7 @@ img {
     flex-direction: column;
     align-items: center;
     background-color:  #00739A;
-    width: 20%;
+    width: 36%;
     height: 80%;
     font-size: 180%;
     text-align: center;
@@ -175,6 +177,7 @@ img {
     font-family: "Jomhuria", serif;
     font-weight: 100;
     font-size: 94%;
+    white-space: nowrap;
     margin: 0%;
 }
 
@@ -182,7 +185,7 @@ img {
     background-color: #5EB7D1;
     display: flex;
     flex-direction: column;
-    width: 20%;
+    width: 36%;
     font-size: 180%;
     height: 80%;
     text-align: center;
@@ -193,7 +196,8 @@ img {
 .alerta_menor p {
     font-family: "Jomhuria", serif;
     font-weight: 100;
-    font-size: 94%;
+    white-space: nowrap;
+    font-size: 120%;
     margin: 0%;
 }
 
@@ -201,7 +205,7 @@ img {
     background-color: #6BB87A;
     display: flex;
     flex-direction: column;
-    width: 20%;
+    width: 36%;
     height: 80%;
     font-size: 180%;
     text-align: center;
@@ -212,7 +216,8 @@ img {
 .ideal p {
     font-family: "Jomhuria", serif;
     font-weight: 100;
-    font-size: 94%;
+    white-space: nowrap;
+    font-size: 120%;
     margin: 0%;
 }
 
@@ -221,7 +226,7 @@ img {
     flex-direction: column;
     align-items: center;
     background-color: #E6C84C;
-    width: 20%;
+    width: 36%;
     font-size: 180%;
     height: 80%;
     text-align: center;
@@ -232,7 +237,8 @@ img {
 .alerta_maior p {
     font-family: "Jomhuria", serif;
     font-weight: 100;
-    font-size: 94%;
+    white-space: nowrap;
+    font-size: 120%;
     margin: 0%;
 }
 
@@ -244,7 +250,7 @@ img {
     flex-direction: column;
     align-items: center;
     background-color: #BB2B45;
-    width: 20%;
+    width: 36%;
     height: 80%;
     text-align: center;
     border-top-right-radius: 10%;
@@ -257,7 +263,8 @@ img {
 .perigo_maior p {
     font-family: "Jomhuria", serif;
     font-weight: 100;
-    font-size: 94%;
+    white-space: nowrap;
+    font-size: 120%;
     margin: 0%;
 }
 
@@ -276,7 +283,7 @@ img {
 
 .parametros_umidade {
     height: 100%;
-    width: 100%;
+    width: 120%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -295,12 +302,12 @@ img {
     margin-top: 0%;
     margin-bottom: -1%;
     font-weight: lighter;
-    margin-top: 10%;
+    margin-top: 12%;
 }
 
 .previsao_tempo{
     height: 80%;
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -313,7 +320,7 @@ img {
     flex-direction: column;
     align-items: center;
     background-color: #7AB8CC;
-    width: 80%;
+    width: 90%;
     height: 100%;
     margin-right: 10%;
     text-align: center;
@@ -349,7 +356,7 @@ img {
     margin-left: 10%;
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 90%;
     height: 100%;
     text-align: center;
     border: 0.2vw solid black;
