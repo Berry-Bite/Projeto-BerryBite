@@ -33,7 +33,7 @@ body {
 
 .marca span {
     font-family: "Jomhuria", serif;
-    font-size: 200%;
+    font-size: 90%;
     font-weight: lighter;
 }
 
@@ -65,9 +65,9 @@ img {
 
 #user span {
     font-family: "Jomhuria", serif;
-    font-size: 300%;
+    font-size: 200%;
     margin-top: 2%;
-    font-weight: lighter;
+    
 }
 
 .menu {
@@ -106,7 +106,7 @@ img {
 .sair button {
     border-radius: 3px;
     border: 0.2vw solid white;
-    background-color: #E64D4C;
+    background-color: #BB2B45;;
     color: white;
     cursor: pointer;
     width: 60%;
@@ -134,6 +134,8 @@ img {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    font-size: larger;
+
 }
 
 .minhas-estufas button {
@@ -141,10 +143,12 @@ img {
     height: 20%;
     border-radius: 20px;
     cursor: pointer;
+    background-color: #BB2B45;
 }
 
 .minhas-estufas span{
     font-size: 30px;
+    font-family: "Jomhuria", serif;
 }
 
 .id-estufa{
@@ -161,6 +165,7 @@ img {
     margin-top: 20px;
     display: flex;
     justify-content: space-around;
+    
 }
 
 .box-info-temp{
@@ -168,7 +173,7 @@ img {
     height: 10%;
     text-align: center;
     border-radius: 15px; 
-    background: linear-gradient(45deg,#2ED8B6, #59E0C5);
+    background-color: #BB2B45;
 }
 
 .box-info-umi{
@@ -176,7 +181,7 @@ img {
     height: 10%;
     text-align: center;
     border-radius: 15px; 
-    background: linear-gradient(45deg,#2ED8B6, #59E0C5);
+   background-color: #BB2B45;
 }
 
 .estufa1{

@@ -34,7 +34,7 @@ body {
 .marca span {
     font-family: "Jomhuria", serif;
     font-size: 200%;
-    font-weight: lighter;
+    
 }
 
 .marca img {
@@ -89,7 +89,7 @@ img {
     background-color: #6BB87A;
     color: white;
     cursor: pointer;
-    width: 80%;
+    width: 85%;
     height: 12%;
     font-size: 110%;
 }
@@ -106,7 +106,7 @@ img {
 .sair button {
     border-radius: 3px;
     border: 0.2vw solid white;
-    background-color: #E64D4C;
+    background-color: #BB2B45;
     color: white;
     cursor: pointer;
     width: 60%;
@@ -124,7 +124,8 @@ img {
 
 .mural_right h1 {
     font-family: "Jomhuria", serif;
-    font-size: 300%;
+    color: #BB2B45;
+    font-size: 370%;
     margin-top: 0%;
     margin-left: 20%;
     margin-bottom: -2%;
@@ -242,7 +243,7 @@ img {
     font-size: 180%;
     flex-direction: column;
     align-items: center;
-    background-color: #E64D4C;
+    background-color: #BB2B45;
     width: 20%;
     height: 80%;
     text-align: center;
