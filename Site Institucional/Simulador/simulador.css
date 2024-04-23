@@ -65,10 +65,9 @@ html, body {
     color: #27AF45;
     font-family: "Jost";
     font-size: 17px;
+    font-weight: lighter;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     
-    
-
 }
 
 .container h1{
@@ -80,6 +79,50 @@ html, body {
     font-weight: 400;
     
 }
+
+.container_center {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#div_mens{
+    margin-top: -150px;
+    display: none;
+    flex-direction: column;
+    background-color: transparent;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    padding-top: 100px;
+    width: 550px;
+    color: black;
+    height: 305px;
+    border-radius: 40px;
+    animation: moveToLeft 1s ease-in-out;
+    /* nomeia a animação moveToLeft, quanto tempo vai realizar  */
+}
+
+@keyframes moveToLeft {
+    from {
+        margin-right: -69.9%;
+         /* define onde a animação COMEÇA  */
+         opacity: 0%;
+    }
+
+    to {
+        margin-right: 0%;
+         /* define onde a animação TERMINA  */
+         opacity: 80%;
+    }
+}
+
+.container .div_mens{
+    flex-direction: row;
+    justify-content: left;
+}
+
 .caixa{
     margin-top:-4vw;
     display: flex;
@@ -90,7 +133,7 @@ html, body {
     background: linear-gradient(235deg, rgba(74,231,0,1) 0%, rgba(39, 175, 69, 1) 100%);
     border-radius: 40px;
     height: 100%;
-    width: 40%;
+    width: 550px;
     font-size: 15pt;
 }
 .input{
@@ -101,15 +144,29 @@ html, body {
     justify-content: center;
     text-align: left;
 }
+.input #select_regiao {
+    border: solid;
+    border-radius: 10px;
+    border-width: 2px;
+    height: 35px;
+    text-align: center;
+    border-color: #bb2b45;
+}
+.input option{
+    border: solid;
+    border-radius: 10px;
+    background-color: #bb2b45;
+}
 .input h2 {
     font-size: 24pt;
-    margin: 1px 0;     /* Define a margem superior e inferior como 10px e a margem esquerda e direita como 0 */
+    margin: 10px 0;     /* Define a margem superior e inferior como 10px e a margem esquerda e direita como 0 */
     font-weight: lighter;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
 }
 input{
     height: 35px;
     border-radius: 10px;
+    text-align: center;
 }
 button{
     font-size: 18pt;
@@ -118,33 +175,120 @@ button{
     height: 40px;
     width: 25%;
     border-radius: 15px;
-    background-color: #bb2b45;
+    background-color: #053a07;
     font-family: "Jomhuria", serif;
+    color: white;
 
 }
-/* .div_mens {
-    margin-top: 145px;
-    display: block;
+#div_dados{
+    margin-top: 10vw;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+   justify-content: space-around;
+}
+#div_textoDados{
+    margin-top: 10vw;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 5vw; 
+}
+#div_dados #div_textoDados h3{
+    margin: 8px 0;
+    font-size: 24pt;
+    font-weight: lighter;
+}
+#div_dados #div_textoDados h2{
+    margin: 8px 0;
+    font-size: 30pt;
+    color: #008000;
+    font-weight: lighter;
+}
+#div_dados #div_textoDados h1{
+    margin: 8px 0;
+    font-size: 37pt;
+    color: #008000;
+    font-weight: lighter;
+}
+#div_dados #div_textoDados h4{
+    margin: 8px 0;
+    font-size: 20pt;
+    color: #204b83;
+    font-weight: lighter;
+}
+#div_imgDados{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+#div_imgDados img{
+    height: 10vw;
+}
+#simulador{
+    text-align: center;
+}
+#simulador a{
+    text-decoration: none;
+    font-size: 20pt;
+    color: #bb2b45;
+    font-size: 30pt;
+}
+
+input{
+    border: solid;
+    border-width: 2px;
+    border-color: #bb2b45;
+}
+#contato{
+    padding-top: 2vw;
+    display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+}
+.entre_em_contato{
+    display: flex;
+    flex-direction: column;
+    font-size: 40pt;
+    color: #27AF45;
+}
+.inp_nome_email{ 
+    display: flex;
+    flex-direction: row;
+}
+#inp_nome{
+    width: 20vw;
+
+}
+#inp_email{
+    margin-left: 2px;
+    width: 30vw;
+}
+.inp_mens{
+    margin-top: 2vw;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10vw;
+}
+.inp_mens #inp_mens{
+    height: 15vw;
+    width:50vw ;
     text-align: start;
-    width: 450px;
-    color: #617750;
-    height: 250px;
-    font-weight: bold;
-    animation: moveToLeft 1s ease-in-out;
-    /* nomeia a animação moveToLeft, quanto tempo vai realizar 
-} */
+}
+textarea{
+    border: solid;
+    border-color: #bb2b45;
+    border-width: 2px;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+}
 
-/* @keyframes moveToLeft {
-    from {
-        margin-right: -64.5%;
-        /* define onde a animação COMEÇA 
-    }*/
-
-    /*to {
-        margin-right: 0%;
-        /* define onde a animação TERMINA 
-    }
-} */
-
+.inp_mens button{
+    align-self: center;
+}
