@@ -21,7 +21,7 @@ function cadastrar() {
 }
 
 function dashboards() {
-    window.location.href = 'dashboard.html'
+    window.location.href = '../dashboards/estufas.html'
 }
 
 var tentativas = 3;

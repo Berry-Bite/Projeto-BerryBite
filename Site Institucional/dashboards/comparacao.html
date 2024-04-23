@@ -33,7 +33,7 @@
                     <button onclick="estufas()">Estufas</button>
                     <button onclick="parametros()">Paramêtros</button>
                     <button style="background-color: #7AB8CC;">Comparação</button>
-                    <button>Contato</button>
+                    <button onclick="contato()">Contato</button>
                 </div>
 
                 <div class="sair">
@@ -80,6 +80,10 @@
 
     function sair() {
         window.location.href = "../Home/home.html";
+    }
+
+    function contato() {
+        window.location.href = "./contato.html";
     }
 
     const ctx = document.getElementById('myChart');
