@@ -108,7 +108,8 @@ img {
 .sair button {
     border-radius: 3px;
     border: 0.2vw solid white;
-    background-color: #BB2B45;;
+    background-color: #BB2B45;
+    ;
     color: white;
     cursor: pointer;
     width: 60%;
@@ -119,96 +120,95 @@ img {
 
 
 
-#contato{
+#contato {
     padding-top: 2vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-left: 15%;
-}
-.entre_em_contato{
-    display: flex;
-    flex-direction: column;
-    font-family: "Jomhuria", serif;
-    font-size: 40pt;
-    margin-left: 15%;
+    margin-left: 24%;
+    text-align: center;
 }
 
-.entre_em_contato h1 {
+#entre_em_contato {
+    font-family: "Jomhuria", serif;
+    font-size: 500%;
     font-weight: lighter;
-    font-size: 200%;
     white-space: nowrap;
     margin-top: -5%;
 }
 
-.inp_nome_email{ 
+#select_assunto {
     display: flex;
     flex-direction: row;
-    width: 88%;
-    height: 20%;
-    margin-left: 15%;
-    margin-top: -5%;
+    width: 60%;
+    height: 7%;
+    margin-top: 0%;
+    margin-bottom: 20%;
+    border-radius: 0.6vw;
+    font-size: 220%;
+    font-family: "Jomhuria", serif;
 }
 
-#inp_nome{
-    border-radius: 1.5vw;
-    font-size: 200%;
+#select_assunto option {
+    font-size: 100%;
     border: 0.1vw solid black;
     width: 260%;
     text-align: center;
     height: 28%;
-    margin-right: 5%;
     font-family: "Jomhuria", serif;
-    
 }
 
-#inp_email{
-    text-align: center;
+#div_mensagem {
+    width: 100%;
+    height: 30%;
+    font-size: 100%;
+    margin-bottom: 10%;
+}
+
+#input_mensagem {
+    padding: 2%;
     border: 0.1vw solid black;
     border-radius: 1.5vw;
-    margin-left: 5%;
-    width: 260%;
-    font-size: 200%;
-    height: 28%;
+    font-size: 220%;
+    resize: none;
+    width: 96%;
+    height: 96%;
     font-family: "Jomhuria", serif;
-
-}
-
-.inp_mens {
+    text-align: start;
     display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 88%;
-    height: 40%;
-    margin-left: 15%;
-    margin-top: -5%;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 
-#inp_mens{
-    border: 0.1vw solid black;
-    border-radius: 1.5vw;
-    width: 90%;
-    font-size: 200%;
-    height: 80%;
-    text-align: center;
-    font-family: "Jomhuria", serif;
-}
-
-.inp_mens button{
+#button_enviar {
     align-self: center;
     border: 0.1vw solid black;
     background-color: #6BB87A;
-    width: 20%;
-    border-radius: 3vw;
-    height: 20%;
+    width: 30%;
+    border-radius: 0.5vw;
+    height: 8%;
     color: white;
     cursor: pointer;
-    font-size: 200%;
+    font-size: 220%;
     font-family: "Jomhuria", serif;
     margin-top: 10%;
 }
 
-.inp_mens button:hover {
+#button_enviar:hover {
     background-color: #00739A;
+}
+
+#validacao_mensagem {
+    font-family: "Jomhuria", serif;
+    position: absolute;
+    align-items: center;
+    white-space: nowrap;
+    font-size: 1.9vw;
+    text-align: center;
+    font-weight: lighter;
+    justify-content: center;
+    display: flex;
+    top: 80vh;
+    left: 39vw;
 }

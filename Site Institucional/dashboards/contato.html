@@ -43,19 +43,26 @@
         </div>
 
     <section id="contato">
-        <div class="entre_em_contato">
-            <h1>Entre em contato conosco</h1>
+        <h1 id="entre_em_contato">Entre em contato conosco</h1>
+        <select id="select_assunto">
+            <option value="#">Escolha o assunto</option>
+            <option value="temperatura">Temperatura</option>
+            <option value="umidade">Umidade</option>
+            <option value="sensor">Sensor</option>
+            <option value="graficos">Gráficos</option>
+            <option value="manutencao">Manutenção</option>
+            <option value="estufa">Estufa</option>
+            <option value="atualizacao_cadastral">Atualização cadastral</option>
+        </select>
+        <div id="div_mensagem">
+            <textarea id="input_mensagem" placeholder="Digite a sua mensagem aqui..."></textarea>
         </div>
-        <div class="inp_nome_email">
-            <input type="text" id="inp_nome" placeholder="Nome">
-            <input type="text" id="inp_email" placeholder="E-mail">
-        </div>
-        <div class="inp_mens">
-            <input id="inp_mens" placeholder="Mensagem"></input><br>
-            <button onclick="enviar()">Enviar</button>
-        </div>
+        <button id="button_enviar" onclick="enviar()">Enviar</button>
     </section>
 </div>
+
+<div id="validacao_mensagem"></div>
+
 </body>
 
 </html>
@@ -86,6 +93,20 @@
 
     function inicio() {
         window.location.href = "./estufas.html";
+    }
+
+    function enviar() {
+        if (input_mensagem.value == "") {
+            validacao_mensagem.innerHTML = 'Por favor, escreva uma descrição da sua mensagem no campo mensagem!';
+            validacao_mensagem.style = "color: red;"
+        } else if (select_assunto.value == "#") {
+            validacao_mensagem.innerHTML = 'Por favor, escolha um assunto acima!';
+            validacao_mensagem.style = "color: red; left: 47.5vw"
+        } else {
+            input_mensagem.style = "border: 0.3vw solid #6BB87A";
+            validacao_mensagem.innerHTML = 'Mensagem enviada, enviaremos uma resposta via email em até 3 dias!';
+            validacao_mensagem.style = "color: #6BB87A; left: 40vw"
+        }
     }
 
 </script>
