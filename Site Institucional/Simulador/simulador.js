@@ -31,14 +31,14 @@ function calcular() {
            
             texto += `<br> Na sua região, o fungo Oídio e a praga Frankiellis podem atacar até 35% da sua estufa, o que pode resultar em perdas aproximadas de <br> <span style="color: red;"> R$ ${(totalGanho * 0.35).toFixed(2)}</span>`
            
-            texto += `<br>Com a <img src="../icons/logoEscrito.png" alt="logo" height="10px"> você evita e diminui as suas perdas em até 30% fazendo com que você fique com  até <span style="color: green";> R$ ${totalGanho * 0.65}</span> `
+            texto += `<br>Com a <img src="../icons/logoEscrito.png" alt="logo" height="10px"> você evita e diminui as suas perdas em até 30% fazendo com que você fique com  até <span style="color: green";> R$ ${(totalGanho * 0.65).toFixed(2)}</span> `
 
         }
         if(regiao == "sudeste"){
             
             texto += `<br> Na sua região, o fungo Oídio e a praga Ácaro-Rajado podem atacar até 40% da sua estufa, o que pode resultar em perdas aproximadas de <br> <span style="color: red;">R$ ${(totalGanho * 0.375).toFixed(2)}</span>`
            
-            texto += `<br>Com a <img src="../icons/logoEscrito1.png" alt="logo" height="15px" > você diminui as suas perdas em até 50% fazendo com que você fique com até <span style="color: green";>R$ ${totalGanho * 0.875} `
+            texto += `<br>Com a <img src="../icons/logoEscrito1.png" alt="logo" height="15px" > você diminui as suas perdas em até 50% fazendo com que você fique com até <span style="color: green";>R$ ${(totalGanho * 0.875).toFixed(2)} `
             
         }
         texto += `<br><a href="#div_dados">De onde estes dados vieram?</a>`
