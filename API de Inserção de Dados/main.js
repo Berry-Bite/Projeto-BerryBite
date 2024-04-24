@@ -29,11 +29,11 @@ const serial = async (
         {
             // altere!
             // Credenciais do banco de dados
-            host: 'localhost', // ou ip
-            user: 'insercao', // ou usuário
-            password: 'senha',
+            host: '10.18.36.207', // ou ip
+            user: 'aluno', // ou usuário
+            password: 'Sptech#2024',
             database: 'BerryBite',
-            port: 3306 // ou 3307
+            port: 3307 // ou 3307
         }
     ).promise();
 
