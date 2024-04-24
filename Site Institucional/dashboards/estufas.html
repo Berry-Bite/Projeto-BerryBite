@@ -20,42 +20,42 @@
     <div class="header_left">
 
       <div class="marca">
-          <img src="../icons/logo-berry.png" class="logo_header">
-          <span>Berry.Bite</span>
+        <img src="../icons/logo-berry.png" class="logo_header">
+        <span>Berry.Bite</span>
       </div>
 
       <div class="container">
 
-          <div id="user"></div>
+        <div id="user"></div>
 
-          <div class="menu">
-            <button style="background-color: #7AB8CC;" onclick="estufas()">Estufas</button>
-            <button onclick="parametros()">Paramêtros</button>
-              <button onclick="comparacao()">Comparação</button>
-              <button onclick="contato()">Contato</button>
-          </div>
+        <div class="menu">
+          <button style="background-color: #7AB8CC;" onclick="estufas()">Estufas</button>
+          <button onclick="comparacao()">Comparação</button>
+          <button onclick="parametros()">Paramêtros</button>
+          <button onclick="contato()">Contato</button>
+        </div>
 
-          <div class="sair">
-              <button onclick="sair()">Sair</button>
-          </div>
+        <div class="sair">
+          <button onclick="sair()">Sair</button>
+        </div>
 
       </div>
 
-  </div>
+    </div>
 
-  
+
     <!-- Parte da página a direita-->
     <div class="mural_rigth">
 
       <div id="select_estufas" class="minhas_estufas">
-        <h1>Fazenda Colheita Feliz</h1>
-        
+        <h1>Gráficos: Fazenda Colheita Feliz</h1>
+
         <button onclick="estufa_omega()" type="submit" aria-label="estufa omega">
-          <img src="../icons/estufa.png" alt="estufa" ><br><br><span>Estufa Omega</span>
+          <img src="../icons/estufa.png" alt="estufa"><br><br><span>Estufa Omega</span>
         </button>
 
-        <button onclick="ativar2()" type="submit" aria-label="estufa omega">
-          <img src="../icons/estufa.png" alt="estufa" ><br><br><span>Estufa Violet</span>
+        <button onclick="estufa_violet()" type="submit" aria-label="estufa omega">
+          <img src="../icons/estufa.png" alt="estufa"><br><br><span>Estufa Violet</span>
         </button>
 
       </div>
@@ -73,33 +73,38 @@
 
 <script>
   var nome = 'Fernanda';
-    user.innerHTML = `<span id="nome">Bem-vindo(a)<br>${nome}</span>`;
+  user.innerHTML = `<span id="nome">Bem-vindo(a)<br>${nome}</span>`;
 
-    function estufas() {
-        window.location.href = "./estufas.html";
-    }
-
-    function parametros() {
-        window.location.href = "./parametros.html";
-    }
-
-    function sair() {
-        window.location.href = "../Home/home.html";
-    }
-      
-    function estufa_omega(){
-      window.location.href = "estufa-omega.html";
-    }
-
-  function inicio(){
+  function estufas() {
     window.location.href = "./estufas.html";
   }
 
-  function comparacao(){
+  function parametros() {
+    window.location.href = "./parametros.html";
+  }
+
+  function sair() {
+    window.location.href = "../Home/home.html";
+  }
+
+  function estufa_omega() {
+    window.location.href = "estufa-omega.html";
+  }
+
+  function estufa_violet() {
+    window.location.href = "estufa-violet.html";
+
+  }
+
+  function inicio() {
+    window.location.href = "./estufas.html";
+  }
+
+  function comparacao() {
     window.location.href = "./comparacao.html";
   }
 
-  function contato(){
+  function contato() {
     window.location.href = "./contato.html";
   }
 </script>

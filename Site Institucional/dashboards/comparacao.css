@@ -3,6 +3,7 @@ body {
     padding: 0;
     background-color: antiquewhite;
     overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 
@@ -118,11 +119,6 @@ img {
 
 /*inicio da seleção das estufas*/
 
-
-#estufa_omega{
-    display:none
-}
-
 .minhas_estufas button img {
     width: 30%;
     height: auto;
@@ -133,8 +129,75 @@ img {
     height: 100vh;
 }
 
-.minhas_estufas{
+.id_comp{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     width: 100%;
+    height: 30%;
+    font-size: 30px;
+    margin-bottom: -14%;
+}
+
+.id_comp h2 {
+    font-size: 260%;
+    margin-top: -3%;
+    font-weight: lighter;
+    font-family: "Jomhuria", serif;
+}
+
+
+.grafico{
+    padding-top: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+}   
+
+
+
+/*inicio da seleção das estufas*/
+
+#estufas {
+    margin-left: 12%;
+    width: 88%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+}
+
+#estufa_omega, #estufa_violet{
+    display:none
+}
+
+.mural_rigth{
+    width: 88%;
+    height: 100vh;
+}
+
+.mural_right h1 {
+    font-size: 500%;
+    font-family: "Jomhuria", serif;
+    margin-left: 22%;
+    font-weight: lighter;
+    margin-bottom: -5%;
+    margin-top: 0%;
+}
+
+
+
+
+
+
+.estufa_omega button img {
+    width: 35%;
+    height: auto;
+}
+
+.estufa_omega{
+    width: 40%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -143,88 +206,58 @@ img {
     font-size: larger;
 }
 
-.minhas_estufas h1 {
-    font-size: 500%;
-    font-family: "Jomhuria", serif;
-    font-weight: lighter;
-    margin-bottom: -5%;
-    margin-top: 0%;
-}
-
-.minhas_estufas button {
-    width: 20%;
-    height: 20%;
+.estufa_omega button {
+    width: 55%;
+    height: 30%;
     border-radius: 20px;
     cursor: pointer;
     background-color: #7AB8CC;
 }
 
-.minhas_estufas button:hover {
+.estufa_omega button:hover {
     background-color: #6BB87A;
 }
 
-.minhas_estufas span{
+.estufa_omega span{
     font-size: 380%;
     font-family: "Jomhuria", serif;
 }
 
-.id_estufa{
+
+
+.estufa_violet button img {
+    width: 35%;
+    height: auto;
+}
+
+.estufa_violet{
+    width: 40%;
+    height: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 30%;
-    font-size: 30px;
+    font-size: larger;
 }
 
-.id_estufa h2 {
+.estufa_violet button {
+    width: 55%;
+    height: 30%;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: #7AB8CC;
+}
+
+.estufa_violet button:hover {
+    background-color: #6BB87A;
+}
+
+.estufa_violet span{
     font-size: 380%;
     font-family: "Jomhuria", serif;
 }
 
-.box_info{
-    width: 100%;
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-around;
-}
 
-#box_info_temp{
-    width: 15%;
-    height: 10%;
-    text-align: center;
-    border-radius: 15px;
-}
-
-#box_info_umi{
-    width: 15%;
-    height: 10%;
-    text-align: center;
-    border-radius: 15px;
-}
-
-.estufa1_temperatura{
-    margin-top: 3%;
-    padding-left: 30px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 40%;
-    padding-left: 30%;
-    height: 30%;
-}
-
-.estufa1_umidade{
-    margin-top: 3%;
-    padding-left: 30px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 40%;
-    padding-left: 30%;
-    height: 30%;
-}
 
 .voltar{
     margin-top: 5%;

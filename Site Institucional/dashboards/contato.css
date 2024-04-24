@@ -117,39 +117,98 @@ img {
 }
 
 
-/*inicio da seleção das estufas*/
 
-.minhas_estufas button img {
-    width: 30%;
-    height: auto;
+
+#contato{
+    padding-top: 2vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15%;
+}
+.entre_em_contato{
+    display: flex;
+    flex-direction: column;
+    font-family: "Jomhuria", serif;
+    font-size: 40pt;
+    margin-left: 15%;
 }
 
-.mural_rigth{
-    width: 88%;
-    height: 100vh;
+.entre_em_contato h1 {
+    font-weight: lighter;
+    font-size: 200%;
+    white-space: nowrap;
+    margin-top: -5%;
 }
 
-.id_comp{
+.inp_nome_email{ 
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 30%;
-    font-size: 30px;
-    margin-bottom: -14%;
+    width: 88%;
+    height: 20%;
+    margin-left: 15%;
+    margin-top: -5%;
 }
 
-.id_comp h2 {
-    font-size: 320%;
-    margin-top: -3%;
-    font-weight: lighter;
+#inp_nome{
+    border-radius: 1.5vw;
+    font-size: 200%;
+    border: 0.1vw solid black;
+    width: 260%;
+    text-align: center;
+    height: 28%;
+    margin-right: 5%;
+    font-family: "Jomhuria", serif;
+    
+}
+
+#inp_email{
+    text-align: center;
+    border: 0.1vw solid black;
+    border-radius: 1.5vw;
+    margin-left: 5%;
+    width: 260%;
+    font-size: 200%;
+    height: 28%;
+    font-family: "Jomhuria", serif;
+
+}
+
+.inp_mens {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 88%;
+    height: 40%;
+    margin-left: 15%;
+    margin-top: -5%;
+}
+
+#inp_mens{
+    border: 0.1vw solid black;
+    border-radius: 1.5vw;
+    width: 90%;
+    font-size: 200%;
+    height: 80%;
+    text-align: center;
     font-family: "Jomhuria", serif;
 }
 
+.inp_mens button{
+    align-self: center;
+    border: 0.1vw solid black;
+    background-color: #6BB87A;
+    width: 20%;
+    border-radius: 3vw;
+    height: 20%;
+    color: white;
+    cursor: pointer;
+    font-size: 200%;
+    font-family: "Jomhuria", serif;
+    margin-top: 10%;
+}
 
-.grafico{
-    padding-top: 100px;
-    padding-left: 50px;
-    padding-right: 50px;
-}   
+.inp_mens button:hover {
+    background-color: #00739A;
+}
