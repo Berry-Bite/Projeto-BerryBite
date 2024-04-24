@@ -393,6 +393,7 @@ html, body {
     font-weight: bolder;
     justify-content: center;
     display: flex;
+    white-space: nowrap;
     top: 24.4vw;
     left: 55.3vw;
     width: 20vw;

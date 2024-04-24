@@ -42,7 +42,11 @@ function validar() {
             console.log(tentativas);
             div_input_usuario.style = "border: 0.12vw solid red";
             div_input_senha.style = "border: 0.12vw solid red";
-            validacao_login.innerHTML = 'Login inválido, digite novamente!';
+            if (tentativas != 1) {
+                validacao_login.innerHTML = 'Login inválido, você tem mais ' + (tentativas - 1) + " tentativas!";
+            } else {
+                validacao_login.innerHTML = 'Login inválido, esta é sua última tentativa!';
+            }
             tentativas--;
         }
         
