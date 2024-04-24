@@ -347,7 +347,7 @@ body {
     height: 20px;
     position: absolute;
     left: 720px;
-    top: 1160px;
+    top: 1435px;
 }
 
 .img_2 img {
@@ -447,7 +447,7 @@ body {
 }
 
 .div_frase_bola1 {
-    margin-top: -200px;
+    margin-top: -230px;
     margin-left: 1200px;
     color: #BB2B45;
     font-size: 3.5vw;
@@ -456,7 +456,7 @@ body {
 }
 
 .div_frase_bola2 {
-    margin-top: 50px;
+    margin-top: 30px;
     margin-left: 1200px;
     color: #BB2B45;
     font-size: 3.5vw;
@@ -485,7 +485,7 @@ body {
     font-family: "Jomhuria", serif;
     font-size: 3vw;
     color: #27AF45;
-    margin-top: 150px;
+    margin-top: 250px;
     right: 650px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
@@ -522,8 +522,7 @@ body {
     margin-left: -1200px;
     width: 30px;
     height: 30px;
-    gap: 12px;
-
+    gap: 12px; 
 }
 
 .imagem_2 {
@@ -542,8 +541,8 @@ body {
 }
 
 .imagem_4 {
-    margin-top: -93px;
-    margin-left: 280px;
+    margin-top: -30px;
+    margin-left: 260px;
     width: 30px;
     height: 30px;
     gap: 12px;
@@ -551,8 +550,14 @@ body {
 }
 
 .imagem_5 {
-    margin-top: -25px;
+    margin-top: -75px;
     margin-left: 820px;
+    width: 30px;
+    height: 30px;
+}
+.imagem_6{
+    margin-top: -75px;
+    margin-left: 1200px;
     width: 30px;
     height: 30px;
 }
@@ -571,9 +576,16 @@ body {
 
 .seta_3 {
     width: 30px;
-    margin-top: 33px;
-    margin-right: -500px;
+    margin-top: 20px;
+    margin-right: -400px;
 }
+
+.P_1 h1{
+    color: #097a22;
+}
+
+
+
 
 .div_img_servicos img {
     display: flex;
