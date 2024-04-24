@@ -3,7 +3,7 @@ html, body {
     height: 100%;
     margin: 0;
     background-color: #FBF4E4;
-    
+    scroll-behavior: smooth;
 }
 .fundo{
     height:100%;
@@ -155,7 +155,7 @@ html, body {
 .input option{
     border: solid;
     border-radius: 10px;
-    background-color: #bb2b45;
+    background-color: #17fa0f;
 }
 .input h2 {
     font-size: 24pt;
@@ -178,7 +178,7 @@ button{
     background-color: #053a07;
     font-family: "Jomhuria", serif;
     color: white;
-
+    cursor: pointer;
 }
 #div_dados{
     margin-top: 10vw;
@@ -280,6 +280,7 @@ input{
     width:50vw ;
     text-align: start;
 }
+
 textarea{
     border: solid;
     border-color: #bb2b45;

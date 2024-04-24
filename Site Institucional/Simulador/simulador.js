@@ -19,7 +19,7 @@ function calcular() {
     if(regiao == "outro"){
         alert("A Berry.Bite ainda não chegou na sua região, mas fique tranquilo(a), logo estaremos ai!😉")
     }
-    if(regiao == "#"){
+    else if(regiao == "#"){
         alert("Selecione uma região!")
 
     }else{
