@@ -125,14 +125,13 @@ img {
 }
 
 .mural_right h1 {
-    color: #BB2B45;
     font-family: "Jomhuria", serif;
-    font-size: 300%;
+    font-size: 400%;
     margin-top: 0%;
-    margin-left: 20%;
-    margin-bottom: -2%;
+    white-space: nowrap;
+    margin-left: 38%;
+    margin-bottom: -5%;
     font-weight: lighter;
-    text-decoration: underline;
 }
 
 .temperatura{

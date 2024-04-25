@@ -6,8 +6,8 @@ function calcular() {
 
     var kiloPorHectare = 20000 * plantacao
     var despesasPorKilo = 8.5 * kiloPorHectare
-    var lucroPorKilo = valorMorango * kiloPorHectare
-    var totalGanho = lucroPorKilo - despesasPorKilo
+    var lucroPorKilo = 0;
+    var totalGanho = 0;
     
     var texto = " "
    
@@ -25,20 +25,32 @@ function calcular() {
     }else{
         div_mens.style.display = `unset`;
 
-        texto += `Atualmente você ganha <span style="color:#204b83;">R$ ${totalGanho.toFixed(2)} </span>, mas tenha cuidado, pois há uma alta probabilidade de enfrentar grandes perdas!<br> <span style="color:red;">&#9888</span>`
-    
+        
         if(regiao == "sul"){
-           
-            texto += `<br> Na sua região, o fungo Oídio e a praga Frankiellis podem atacar até 35% da sua estufa, o que pode resultar em perdas aproximadas de <br> <span style="color: red;"> R$ ${(totalGanho * 0.35).toFixed(2)}</span>`
-           
-            texto += `<br>Com a <img src="../icons/logoEscrito.png" alt="logo" height="10px"> você evita e diminui as suas perdas em até 30% fazendo com que você fique com  até <span style="color: green";> R$ ${(totalGanho * 0.65).toFixed(2)}</span> `
+            
+            kiloPorHectare *= 0.65;
+            lucroPorKilo = valorMorango * kiloPorHectare;
+            totalGanho = lucroPorKilo - despesasPorKilo;
+            totalGanhoComPerdas = totalGanho - (totalGanho * 0.35) 
 
+            texto += `Atualmente você ganha <span style="color:#204b83;">R$ ${(totalGanho * 0.70).toFixed(2)} </span>, mas tenha cuidado, pois há uma alta probabilidade de enfrentar grandes perdas!<br> <span style="color:red;">&#9888</span>`
+            
+            texto += `<br> Na sua região, o fungo Oídio e a praga Frankiellis podem atacar até 35% da sua estufa, o que pode resultar em perdas aproximadas de <br> <span style="color: red;"> R$ ${(totalGanho * 0.35).toFixed(2)}</span>`
+            
+            texto += `<br>Com a <img src="../icons/logoEscrito.png" alt="logo" height="10px"> você evita e diminui as suas perdas em até % fazendo com que você fique com  até <span style="color: green";> R$ ${(totalGanho * 0.825).toFixed(2)}</span> `
+            
         }
         if(regiao == "sudeste"){
             
+            kiloPorHectare *= 0.60;
+            lucroPorKilo = valorMorango * kiloPorHectare;
+            totalGanho = lucroPorKilo - despesasPorKilo
+            
+            texto += `Atualmente você ganha <span style="color:#204b83;">R$ ${(totalGanho * 0.70).toFixed(2)} </span>, mas tenha cuidado, pois há uma alta probabilidade de enfrentar grandes perdas!<br> <span style="color:red;">&#9888</span>`
+            
             texto += `<br> Na sua região, o fungo Oídio e a praga Ácaro-Rajado podem atacar até 40% da sua estufa, o que pode resultar em perdas aproximadas de <br> <span style="color: red;">R$ ${(totalGanho * 0.375).toFixed(2)}</span>`
-           
-            texto += `<br>Com a <img src="../icons/logoEscrito1.png" alt="logo" height="15px" > você diminui as suas perdas em até 50% fazendo com que você fique com até <span style="color: green";>R$ ${(totalGanho * 0.875).toFixed(2)} `
+            
+            texto += `<br>Com a <img src="../icons/logoEscrito1.png" alt="logo" height="15px" > você diminui as suas perdas em até 50% fazendo com que você fique com até <span style="color: green";>R$ ${(totalGanho * 0.885).toFixed(2)} `
             
         }
         texto += `<br><a href="#div_dados">De onde estes dados vieram?</a>`
