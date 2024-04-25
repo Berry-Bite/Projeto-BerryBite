@@ -53,6 +53,20 @@ temperatura float,
 dataRegistro datetime default current_timestamp,
 fkSensor int, constraint fkSensorRegistroSensor foreign key (fkSensor) references Sensor(idSensor));
 
+create table ContatoSimulador(
+idContatoSimulador int primary key auto_increment,
+nome varchar(45),
+email varchar(45),
+mensagem varchar(500));
+
+create table ContatoDashboard (
+idDashboard int primary key auto_increment,
+mensagem varchar(500),
+fkUsuario int,
+constraint fkDashboardUsuario foreign key (fkUsuario) references Usuario(idUsuario),
+fkFazenda int,
+constraint fkDashboardFazenda foreign key (fkFazenda) references Fazenda(idFazenda));
+
 insert into Matriz values
 (default, 'Eder Morangos', '52.555.878/0001-28','(11)9455-1050'),
 (default, 'Murilo Berrys', '26.166.266/0001-45','(11)9143-9544'),
@@ -87,6 +101,11 @@ insert into RegistroSensor(fkSensor, umidade, temperatura, dataRegistro) values
 (1, 45.00, 22.00, default),
 (2, 37.00, 27.7, default),
 (3, 40.00, 25.8, default);
+
+insert into ContatoSimulador values
+(1, 'Fernanda Caramico','fernada.caramico@gmail.com','Olá, me interessei pelo o que vocês podem oferecer, poderiam me retornar?'),
+(2, 'João Pedro de Paula','JP@hotmail.com','Bom Dia!, gostei muito do que vocês estão oferecendo!'),
+(3, 'Marise Santana','marise.santana@gmail.com','Me interessei pelo projeto de vocês, favor retornar para podermos dar continuidade na negociação');
 
 SELECT concat('A empresa: ', razaoSocial, ' do CNPJ: ', cnpj) AS 'Empresa' FROM Matriz; 
 
