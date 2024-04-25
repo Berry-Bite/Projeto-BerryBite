@@ -99,9 +99,11 @@
         if (input_mensagem.value == "") {
             validacao_mensagem.innerHTML = 'Por favor, escreva uma descrição da sua mensagem no campo mensagem!';
             validacao_mensagem.style = "color: red;"
+            input_mensagem.style = "border: 0.2vw solid red";
         } else if (select_assunto.value == "#") {
             validacao_mensagem.innerHTML = 'Por favor, escolha um assunto acima!';
             validacao_mensagem.style = "color: red; left: 47.5vw"
+            input_mensagem.style = "border: 0.2vw solid red";
         } else {
             input_mensagem.style = "border: 0.3vw solid #6BB87A";
             validacao_mensagem.innerHTML = 'Mensagem enviada, enviaremos uma resposta via email em até 3 dias!';

@@ -67,8 +67,10 @@ function validar() {
 function ocultar() {
     if(input_senha.type == "password") {
         input_senha.type = "text";
+        button_ocultar.innerHTML = '<img id="img_ocultar" src="../icons/icons8-invisible-32.png">';
     } else {
         input_senha.type = "password";
+        button_ocultar.innerHTML = '<img id="img_ocultar" src="../icons/olhoAberto.png">';
     }
 }
 

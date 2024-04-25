@@ -1,6 +1,6 @@
 var empresa1 = "Murilo Berrys";
 var empresa2 = "Eder Morangos";
-var empresa3 = "Lucas Morangoango";
+var empresa3 = "Caramico Berrys";
 
 function login() {
     window.location.href = "login.html";
@@ -97,7 +97,7 @@ function validar() {
         validacao_telefone_celular.innerHTML = "";
     }
 
-    if (nome_empresa.toLowerCase() != empresa1.toLowerCase() && nome_empresa != empresa2 && nome_empresa != empresa3) {
+    if (nome_empresa.toLowerCase() != empresa1.toLowerCase() && nome_empresa.toLowerCase() != empresa2.toLowerCase() && nome_empresa.toLowerCase() != empresa3.toLowerCase()) {
         div_input_nome_empresa.style = "border: 0.12vw solid red";
         validacao_nome_empresa.innerHTML = "Esta empresa não está cadastrada no nosso sistema";
         validado = false;

@@ -33,7 +33,7 @@ function calcular() {
             totalGanho = lucroPorKilo - despesasPorKilo;
             totalGanhoComPerdas = totalGanho - (totalGanho * 0.35) 
 
-            texto += `Atualmente você ganha <span style="color:#204b83;">R$ ${(totalGanho * 0.70).toFixed(2)} </span>, mas tenha cuidado, pois há uma alta probabilidade de enfrentar grandes perdas!<br> <span style="color:red;">&#9888</span>`
+            texto += `Atualmente você ganha <span style="color:#204b83;">R$ ${(totalGanho * 0.70).toFixed(2)}</span>, mas tenha cuidado, pois há uma alta probabilidade de enfrentar grandes perdas!<br> <span style="color:red;">&#9888</span>`
             
             texto += `<br> Na sua região, o fungo Oídio e a praga Frankiellis podem atacar até 35% da sua estufa, o que pode resultar em perdas aproximadas de <br> <span style="color: red;"> R$ ${(totalGanho * 0.35).toFixed(2)}</span>`
             
@@ -50,7 +50,7 @@ function calcular() {
             
             texto += `<br> Na sua região, o fungo Oídio e a praga Ácaro-Rajado podem atacar até 40% da sua estufa, o que pode resultar em perdas aproximadas de <br> <span style="color: red;">R$ ${(totalGanho * 0.375).toFixed(2)}</span>`
             
-            texto += `<br>Com a <img src="../icons/logoEscrito1.png" alt="logo" height="15px" > você diminui as suas perdas em até 50% fazendo com que você fique com até <span style="color: green";>R$ ${(totalGanho * 0.885).toFixed(2)} `
+            texto += `<br>Com a <img src="../icons/logoEscrito1.png" alt="logo" height="15px" > você diminui as suas perdas em até 50% fazendo com que você fique com até <span style="color: green";>R$ ${(totalGanho * 0.885).toFixed(2)}</span>`
             
         }
         texto += `<br><a href="#div_dados">De onde estes dados vieram?</a>`
