@@ -31,7 +31,7 @@
         <div class="menu">
           <button style="background-color: #7AB8CC;" onclick="estufas()">Estufas</button>
           <button onclick="comparacao()">Comparação</button>
-          <button onclick="parametros()">Paramêtros</button>
+          <button onclick="parametros()">Parâmetros</button>
           <button onclick="contato()">Contato</button>
           <button onclick="cadastrar()">Cadastrar</button>
         </div>
@@ -44,32 +44,128 @@
 
     </div>
 
-
     <!-- Parte da página a direita-->
-    <div class="mural_rigth">
 
-      <div id="select_estufas" class="minhas_estufas">
-        <h1>Gráficos: Fazenda Colheita Feliz</h1>
+  <div class="mural_right">
 
-        <button onclick="estufa_omega()" type="submit" aria-label="estufa omega">
-          <img src="../icons/estufa.png" alt="estufa"><br><br><span>Estufa Omega</span>
-        </button>
+    <div class="temperatura">
 
-        <button onclick="estufa_violet()" type="submit" aria-label="estufa omega">
-          <img src="../icons/estufa.png" alt="estufa"><br><br><span>Estufa Violet</span>
-        </button>
+        <h2>Parâmetros de Temperatura:</h2>
 
-      </div>
+        <div class="parametros_temperatura">
+
+            <div class="perigo_menor">
+                <p>Perigo: Frio</p>
+                <p>&#10052</p>
+                <p>Menores que 13°C</p>
+            </div>
+
+            <div class="alerta_menor">
+                <p>Alerta: Frio</p>
+                <p>&#9888</p>
+                <p>Entre 13°C e 16°C</p>
+            </div>
+
+            <div class="ideal">
+                <p>Ideal</p>
+                <p>&#9786</p>
+                <p>Entre 16,1°C e 21,9°C</p>
+            </div>
+
+            <div class="alerta_maior">
+                <p>Alerta: Calor</p>
+                <p>&#9888</p>
+                <p>Entre 22°C e 26°C</p>
+            </div>
+
+            <div class="perigo_maior">
+                <p>Perigo: Calor</p>
+                <p>&#x1F321</p>
+                <p>Maiores que 26°C</p>
+            </div>
+
+        </div>
 
     </div>
-    <div class="alerta_erro">
-      <h1>!</h1>
+    <div class="umidade">
+
+      <h2>Parâmetros de Umidade:</h2>
+
+      <div class="parametros_umidade">
+
+          <div class="perigo_menor">
+              <p>Perigo: Baixa</p>
+              <p><b>&#127787</b></p>
+              <p>Menores que 40%</p>
+          </div>
+
+          <div class="alerta_menor">
+              <p>Alerta: Baixa</p>
+              <p>&#9888</p>
+              <p>Entre 40% e 59%</p>
+          </div>
+
+          <div class="ideal">
+              <p>Ideal</p>
+              <p>&#9786</p>
+              <p>Entre 60% e 75%</p>
+          </div>
+
+          <div class="alerta_maior">
+              <p>Alerta: Alta</p>
+              <p>&#9888</p>
+              <p>Entre 76% e 80%</p>
+          </div>
+
+          <div class="perigo_maior">
+              <p>Perigo: Alta</p>
+              <p>&#127782</p>
+              <p>Maiores que 80%</p>
+          </div>
+      </div>
+    </div> 
+
+    <!-- início das estufas -->
+
+    <div id="select_estufas" class="minhas_estufas">
+
+      <button onclick="estufa_omega()" type="submit" aria-label="estufa omega">
+        <!-- <img src="../icons/estufa.png" alt="estufa"> -->
+        <br><br>
+        <span>Estufa Omega</span>
+        <p>30°C</p>
+        <div class="alert-red"></div>
+      </button>
+      <button onclick="estufa_omega()" type="submit" aria-label="estufa omega">
+        <!-- <img src="../icons/estufa.png" alt="estufa"> -->
+        <br><br>
+        <span>Estufa Omega</span>
+        <p>39%</p>
+        <div class="alert-blue"></div>
+      </button>
+
+      <button onclick="estufa_violet()" type="submit" aria-label="estufa omega">
+        <!-- <img src="../icons/estufa.png" alt="estufa"> -->
+        <br><br>
+        <span>Estufa Violet</span>
+        <p>20°C</p>
+        <div class="alert-green"></div>
+      </button>
+      <button onclick="estufa_violet()" type="submit" aria-label="estufa omega">
+        <!-- <img src="../icons/estufa.png" alt="estufa"> -->
+        <br><br>
+        <span>Estufa Violet</span>
+        <p>65%</p>
+        <div class="alert-green"></div>
+      </button>
+
     </div>
 
   </div>
 
-
-
+    <!-- <div class="alerta_erro">
+      <h1>!</h1>
+    </div> -->
 
 </body>
 
