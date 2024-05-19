@@ -34,6 +34,7 @@
                     <button onclick="comparacao()">Comparação</button>
                     <button onclick="parametros()">Paramêtros</button>
                     <button onclick="contato()">Contato</button>
+                    <button onclick="cadastrar()">Cadastrar</button>
                 </div>
 
                 <div class="sair">
@@ -185,7 +186,7 @@
         box_info_temp.style = "background-color: #BB2B45;";
         temperatura_atual.style = "color: white; margin-top: -70%; font-weight: 300; text-decoration: underline;";
     }
-    
+
     if (umi_atual >= 60 && umi_atual <= 75) {
         erro_umi = false;
         box_info_umi.style = "background-color: #6BB87A;";
@@ -199,7 +200,7 @@
         box_info_umi.style = "background-color: #BB2B45;";
         umidade_atual.style = "color: white; margin-top: -70%; font-weight: 300; text-decoration: underline;";
     }
-    
+
     if (erro_temp && erro_umi) {
         if (temp_atual > 26) {
             mensagem_erro_temp = "Temperatura acima de 26ºC: <br><b>" + temp_atual + "ºC</b>";
@@ -208,7 +209,7 @@
         } else {
             mensagem_erro_temp = "Erro ao tentar encontrar dados da temperatura";
         }
-        
+
         if (umi_atual > 80) {
             mensagem_erro_umi = "Umidade acima de 80%: <br><b>" + umi_atual + "%</b>";
         } else if (umi_atual < 40) {
@@ -224,14 +225,14 @@
     } else if (erro_umi) {
         alert("Umidade em risco!");
     }
-    
+
     var bola = false;
     var velocidade_alerta = 300;
     function ciente_erro() {
         div_erro.innerHTML = ``;
         alertar_bola();
     }
-    
+
     function alertar_bola() {
         setTimeout(function alertar() {
             if (erro_temp && erro_umi) {
@@ -242,7 +243,7 @@
             }
         }, velocidade_alerta);
     }
-    
+
     function alerta_bola() {
         if (bola) {
             bola = false;
@@ -266,9 +267,13 @@
     function parametros() {
         window.location.href = "./parametros.html";
     }
-        
+
     function contato() {
         window.location.href = "./contato.html";
+    }
+
+    function cadastrar() {
+        window.location.href = "./cadastroFunc.html";
     }
 
     function sair() {

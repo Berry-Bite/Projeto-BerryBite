@@ -17,51 +17,52 @@
 
         <!--NavBar/ Header-->
         <div class="header_left">
-    
-          <div class="marca">
-            <img src="../icons/logo-berry.png" class="logo_header">
-            <span>Berry.Bite</span>
-          </div>
-    
-          <div class="container">
-    
-            <div id="user"></div>
-    
-            <div class="menu">
-              <button onclick="estufas()">Estufas</button>
-              <button onclick="comparacao()">Comparação</button>
-              <button onclick="parametros()">Paramêtros</button>
-              <button style="background-color: #7AB8CC;" onclick="contato()">Contato</button>
+
+            <div class="marca">
+                <img src="../icons/logo-berry.png" class="logo_header">
+                <span>Berry.Bite</span>
             </div>
-    
-            <div class="sair">
-              <button onclick="sair()">Sair</button>
+
+            <div class="container">
+
+                <div id="user"></div>
+
+                <div class="menu">
+                    <button onclick="estufas()">Estufas</button>
+                    <button onclick="comparacao()">Comparação</button>
+                    <button onclick="parametros()">Paramêtros</button>
+                    <button style="background-color: #7AB8CC;" onclick="contato()">Contato</button>
+                    <button onclick="cadastrar()">Cadastrar</button>
+                </div>
+
+                <div class="sair">
+                    <button onclick="sair()">Sair</button>
+                </div>
+
             </div>
-    
-          </div>
-    
+
         </div>
 
-    <section id="contato">
-        <h1 id="entre_em_contato">Entre em contato conosco</h1>
-        <select id="select_assunto">
-            <option value="#">Escolha o assunto</option>
-            <option value="temperatura">Temperatura</option>
-            <option value="umidade">Umidade</option>
-            <option value="sensor">Sensor</option>
-            <option value="graficos">Gráficos</option>
-            <option value="manutencao">Manutenção</option>
-            <option value="estufa">Estufa</option>
-            <option value="atualizacao_cadastral">Atualização cadastral</option>
-        </select>
-        <div id="div_mensagem">
-            <textarea id="input_mensagem" placeholder="Digite a sua mensagem aqui..."></textarea>
-        </div>
-        <button id="button_enviar" onclick="enviar()">Enviar</button>
-    </section>
-</div>
+        <section id="contato">
+            <h1 id="entre_em_contato">Entre em contato conosco</h1>
+            <select id="select_assunto">
+                <option value="#">Escolha o assunto</option>
+                <option value="temperatura">Temperatura</option>
+                <option value="umidade">Umidade</option>
+                <option value="sensor">Sensor</option>
+                <option value="graficos">Gráficos</option>
+                <option value="manutencao">Manutenção</option>
+                <option value="estufa">Estufa</option>
+                <option value="atualizacao_cadastral">Atualização cadastral</option>
+            </select>
+            <div id="div_mensagem">
+                <textarea id="input_mensagem" placeholder="Digite a sua mensagem aqui..."></textarea>
+            </div>
+            <button id="button_enviar" onclick="enviar()">Enviar</button>
+        </section>
+    </div>
 
-<div id="validacao_mensagem"></div>
+    <div id="validacao_mensagem"></div>
 
 </body>
 
@@ -89,6 +90,10 @@
 
     function contato() {
         window.location.href = "./contato.html";
+    }
+
+    function cadastrar() {
+        window.location.href = "./cadastroFunc.html";
     }
 
     function inicio() {
