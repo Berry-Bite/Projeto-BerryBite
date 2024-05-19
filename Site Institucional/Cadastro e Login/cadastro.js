@@ -8,17 +8,15 @@ function login() {
 
 function validar() {
     var nome = input_nome.value;
-    var sobrenome = input_sobrenome.value;
-    var email = input_email.value;
-    var cpf = input_cpf.value;
-    var telefone_celular = input_telefone_celular.value;
-    var nome_empresa = input_nome_empresa.value;
+    var cep = input_cep.value;
+    var cnpj = input_cnpj.value;
+    var numero = input_numero.value;
+    var telefone_fixo = input_telefone_fixo.value;
     var senha = input_senha.value;
     var confirmar_senha = input_confirmar_senha.value;
     var mensagem = "";
     var validado = true;
     var telefone_errado = true;
-    var email_validado = 0;
     var telefone_validado = 0;
     var senha_validada = 0;
 
@@ -31,79 +29,58 @@ function validar() {
         validacao_nome.innerHTML = "";
     }
 
-    if (sobrenome.length < 3) {
-        div_input_sobrenome.style = "border: 0.12vw solid red";
-        validacao_sobrenome.innerHTML = "O sobrenome precisa ter pelo menos 3 letras";
+    if (cep.length != 9) {
+        div_input_cep.style = "border: 0.12vw solid red";
+        validacao_cep.innerHTML = "O cep precisa ter 9 caracteres, incluindo o hífen (-)";
         validado = false;
     } else {
-        div_input_sobrenome.style = "";
-        validacao_sobrenome.innerHTML = "";
+        div_input_cep.style = "";
+        validacao_cep.innerHTML = "";
     }
 
-    if (email.length < 10) {
-        div_input_email.style = "border: 0.12vw solid red";
-        validacao_email.innerHTML = "O email precisa ter pelo menos 10 letras";
+    if (cnpj.length != 18 || cnpj.indexOf(".") < 0 || cnpj.indexOf("/") < 0 || cnpj.indexOf("-") < 0) {
+        div_input_cnpj.style = "border: 0.12vw solid red";
+        validacao_cnpj.innerHTML = 'O cnpj precisa ter 18 caracteres, ".", "/" e "-" ';
         validado = false;
     } else {
-        email_validado++;
+        div_input_cnpj.style = "";
+        validacao_cnpj.innerHTML = "";
     }
 
-    if (email.indexOf("@") < 0 || email.indexOf(".") < 0) {
-        div_input_email.style = "border: 0.12vw solid red";
-        validacao_email.innerHTML = 'O email precisa ter "@" e "."';
+    if (numero.length < 1) {
+        div_input_numero.style = "border: 0.12vw solid red";
+        validacao_numero.innerHTML = `O seu número precisa ser válido`;
         validado = false;
     } else {
-        email_validado++;
+        div_input_numero.style = "";
+        validacao_numero.innerHTML = "";
     }
 
-    if (email_validado == 2) {
-        div_input_email.style = "";
-        validacao_email.innerHTML = "";
-    }
-
-    if (cpf.length != 11) {
-        div_input_cpf.style = "border: 0.12vw solid red";
-        validacao_cpf.innerHTML = `O CPF precisa ter 11 números e não pode ter "." ou "-"`;
-        validado = false;
-    } else {
-        div_input_cpf.style = "";
-        validacao_cpf.innerHTML = "";
-    }
-
-    for (var contador = 0; contador < telefone_celular.length; contador++) {
-        if (telefone_celular[contador] != "0" || telefone_celular[contador] != "1" || telefone_celular[contador] != "2" || telefone_celular[contador] != "3" || telefone_celular[contador] != "4" || telefone_celular[contador] != "5" || telefone_celular[contador] != "6" || telefone_celular[contador] != "7" || telefone_celular[contador] != "8" || telefone_celular[contador] != "9") {
+    for (var contador = 0; contador < telefone_fixo.length; contador++) {
+        if (telefone_fixo[contador] != "0" || telefone_fixo[contador] != "1" || telefone_fixo[contador] != "2" || telefone_fixo[contador] != "3" || telefone_fixo[contador] != "4" || telefone_fixo[contador] != "5" || telefone_fixo[contador] != "6" || telefone_fixo[contador] != "7" || telefone_fixo[contador] != "8" || telefone_fixo[contador] != "9") {
             telefone_errado = false
         }
     }
 
     if (telefone_errado) {
-        div_input_telefone_celular.style = "border: 0.12vw solid red";
-        validacao_telefone_celular.innerHTML = "O telefone celular só pode ter números";
+        div_input_telefone_fixo.style = "border: 0.12vw solid red";
+        validacao_telefone_fixo.innerHTML = "O telefone fixo só pode ter números";
         validado = false;
     } else {
         telefone_validado++;
     }
 
-    if (telefone_celular.length != 11) {
-        div_input_telefone_celular.style = "border: 0.12vw solid red";
-        validacao_telefone_celular.innerHTML = "O telefone celular só pode ter 11 números e precisa ter o DDD";
+    if (telefone_fixo.length != 10) {
+        div_input_telefone_fixo.style = "border: 0.12vw solid red";
+        validacao_telefone_fixo.innerHTML = "O telefone fixo só pode ter 10 números, incluindo o DDD";
         validado = false;
     } else {
         telefone_validado++;
     }
 
     if (telefone_validado == 2) {
-        div_input_telefone_celular.style = "";
-        validacao_telefone_celular.innerHTML = "";
-    }
-
-    if (nome_empresa.toLowerCase() != empresa1.toLowerCase() && nome_empresa.toLowerCase() != empresa2.toLowerCase() && nome_empresa.toLowerCase() != empresa3.toLowerCase()) {
-        div_input_nome_empresa.style = "border: 0.12vw solid red";
-        validacao_nome_empresa.innerHTML = "Esta empresa não está cadastrada no nosso sistema";
-        validado = false;
-    } else {
-        div_input_nome_empresa.style = "";
-        validacao_nome_empresa.innerHTML = "";
+        div_input_telefone_fixo.style = "";
+        validacao_telefone_fixo.innerHTML = "";
     }
 
     if (senha < 6) {
