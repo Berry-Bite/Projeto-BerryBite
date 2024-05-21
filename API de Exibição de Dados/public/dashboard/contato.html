@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berry Bite | Contato</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jomhuria&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./contato.css">
+    <link rel="icon" type="image/x-icon" href="../icons/logo-berry.png">
+</head>
+
+<body>
+    <div id="div_fundo" class="pagina">
+
+        <!--NavBar/ Header-->
+        <div class="header_left">
+
+            <div class="marca">
+                <img src="../icons/logo-berry.png" class="logo_header">
+                <span>Berry.Bite</span>
+            </div>
+
+            <div class="container">
+
+                <div id="user"></div>
+
+                <div class="menu">
+                    <button onclick="estufas()">Estufas</button>
+                    <button onclick="comparacao()">Comparação</button>
+                    <button onclick="parametros()">Parâmetros</button>
+                    <button style="background-color: #7AB8CC;" onclick="contato()">Contato</button>
+                    <button onclick="cadastrar()">Cadastrar</button>
+                </div>
+
+                <div class="sair">
+                    <button onclick="sair()">Sair</button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <section id="contato">
+            <h1 id="entre_em_contato">Entre em contato conosco</h1>
+            <select id="select_assunto">
+                <option value="#">Escolha o assunto</option>
+                <option value="temperatura">Temperatura</option>
+                <option value="umidade">Umidade</option>
+                <option value="sensor">Sensor</option>
+                <option value="graficos">Gráficos</option>
+                <option value="manutencao">Manutenção</option>
+                <option value="estufa">Estufa</option>
+                <option value="atualizacao_cadastral">Atualização cadastral</option>
+            </select>
+            <div id="div_mensagem">
+                <textarea id="input_mensagem" placeholder="Digite a sua mensagem aqui..."></textarea>
+            </div>
+            <button id="button_enviar" onclick="enviar()">Enviar</button>
+        </section>
+    </div>
+
+    <div id="validacao_mensagem"></div>
+
+</body>
+
+</html>
+
+<script>
+    var nome = 'Fernanda';
+    user.innerHTML = `<span id="nome">Bem-vindo(a)<br>${nome}</span>`;
+
+    function estufas() {
+        window.location.href = "./estufas.html";
+    }
+
+    function parametros() {
+        window.location.href = "./parametros.html";
+    }
+
+    function sair() {
+        window.location.href = "../Home/home.html";
+    }
+
+    function comparacao() {
+        window.location.href = "./comparacao.html";
+    }
+
+    function contato() {
+        window.location.href = "./contato.html";
+    }
+
+    function cadastrar() {
+        window.location.href = "./cadastroFunc.html";
+    }
+
+    function inicio() {
+        window.location.href = "./estufas.html";
+    }
+
+    function enviar() {
+        if (input_mensagem.value == "") {
+            validacao_mensagem.innerHTML = 'Por favor, escreva uma descrição da sua mensagem no campo mensagem!';
+            validacao_mensagem.style = "color: red;"
+            input_mensagem.style = "border: 0.2vw solid red";
+        } else if (select_assunto.value == "#") {
+            validacao_mensagem.innerHTML = 'Por favor, escolha um assunto acima!';
+            validacao_mensagem.style = "color: red; left: 47.5vw"
+            input_mensagem.style = "border: 0.2vw solid red";
+        } else {
+            input_mensagem.style = "border: 0.3vw solid #6BB87A";
+            validacao_mensagem.innerHTML = 'Mensagem enviada, enviaremos uma resposta via email em até 3 dias!';
+            validacao_mensagem.style = "color: #6BB87A; left: 40vw"
+        }
+    }
+
+</script>
