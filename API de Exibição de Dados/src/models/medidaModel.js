@@ -29,6 +29,31 @@ function buscarMedidasEmTempoReal(idAquario) {
     return database.executar(instrucaoSql);
 }
 
+// TENTATIVAS DE ALTERAÇÃO
+
+function buscarUltimasMedidas(idAquario, limite_linhas) {
+
+    var instrucaoSql = `SELECT RegistroSensor.umidade AS 'umidade',
+        RegistroSensor.temperatura AS 'temperatura',
+        date_format(RegistroSensor.dataRegistro, '%d/%m/%Y - %h:%m:%s %p') AS 'data' 
+                 FROM RegistroSensor`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}   
+
+function buscarMedidasEmTempoReal(idAquario) {
+
+    var instrucaoSql = `SELECT RegistroSensor.umidade AS 'umidade',
+    RegistroSensor.temperatura AS 'temperatura',
+    date_format(RegistroSensor.dataRegistro, '%d/%m/%Y - %h:%m:%s %p') AS 'data' 
+             FROM RegistroSensor WHERE fk_aquario = ${idAquario} 
+                    ORDER BY id DESC LIMIT 1`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal

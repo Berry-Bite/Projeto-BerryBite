@@ -6,7 +6,8 @@ create table Matriz(
 idMatriz int primary key auto_increment,
 razaoSocial varchar(50),
 cnpj char(18), constraint checkCnpj check (cnpj like '__.___.___/____-__'), 
-telefoneFixo char(13));
+telefoneFixo char(13),
+senha varchar(15));
 
 create table Fazenda(
 idFazenda int primary key auto_increment,
@@ -25,6 +26,13 @@ telCelular char(12),
 senha varchar(15),
 fkMatriz int,
  constraint fkFazendaUsuario foreign key (fkFazendaUsuario) references Fazenda(idFazenda));
+
+create table Endereco(
+idEndereco int primary key,
+cep char(9),
+numero varchar(10),
+complemento varchar(45),
+fkFazenda int);
 
 create table Estufa(
 idEstufa int primary key auto_increment,
@@ -68,9 +76,9 @@ fkFazenda int,
 constraint fkDashboardFazenda foreign key (fkFazenda) references Fazenda(idFazenda));
 
 insert into Matriz values
-(default, 'Eder Morangos', '52.555.878/0001-28','(11)9455-1050'),
-(default, 'Murilo Berrys', '26.166.266/0001-45','(11)9143-9544'),
-(default, 'Lucas Morango Ango', '90.900.899/0001-10','(21)0168-0981');
+(default, 'Eder Morangos', '52.555.878/0001-28','(11)9455-1050',1234),
+(default, 'Murilo Berrys', '26.166.266/0001-45','(11)9143-9544',1234),
+(default, 'Lucas Morango Ango', '90.900.899/0001-10','(21)0168-0981',1234);
 
 insert into Fazenda values
 (default,'Fazenda Morangos', 1, 1),
@@ -122,5 +130,8 @@ date_format(RegistroSensor.dataRegistro, '%d/%m/%Y - %h:%m:%s %p') AS 'Data da a
 FROM RegistroSensor JOIN Estufa ON Estufa.idEstufa = RegistroSensor.fkSensor;
 
 
+select idMatriz from matriz order by idMatriz desc limit 1;
 
-
+select * from Matriz;
+select * from Fazenda;
+select * from Endereco;

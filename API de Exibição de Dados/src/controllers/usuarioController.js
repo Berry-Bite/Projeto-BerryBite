@@ -1,8 +1,8 @@
 var usuarioModel = require("../models/usuarioModel");
 var aquarioModel = require("../models/aquarioModel");
 
-function autenticar(req, res) {
-    var email = req.body.emailServer;
+function autenticarUsuario(req, res) {
+    var cnpj = req.body.cnpjServer;
     var senha = req.body.senhaServer;
 
     if (email == undefined) {
@@ -11,7 +11,7 @@ function autenticar(req, res) {
         res.status(400).send("Sua senha está indefinida!");
     } else {
 
-        usuarioModel.autenticar(email, senha)
+        usuarioModel.autenticarUsuario(cnpj, senha)
             .then(
                 function (resultadoAutenticar) {
                     console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
@@ -28,7 +28,7 @@ function autenticar(req, res) {
                                         email: resultadoAutenticar[0].email,
                                         nome: resultadoAutenticar[0].nome,
                                         senha: resultadoAutenticar[0].senha,
-                                        aquarios: resultadoAquarios
+                                        // aquarios: resultadoAquarios
                                     });
                                 } else {
                                     res.status(204).json({ aquarios: [] });
@@ -51,37 +51,33 @@ function autenticar(req, res) {
 
 }
 
-function cadastrar(req, res) {
+function cadastrarMatriz(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nome = req.body.nomeServer;
-    // var email = req.body.emailServer;
-    var cep = req.body.cepServer;
     var cnpj = req.body.cnpjServer;
-    var numero = req.body.numeroServer;
-    var telefoneFixo = req.body.telefoneFixoServer;
+    var nomeFazenda = req.body.nomeFazendaServer;
     var senha = req.body.senhaServer;
-    // var empresaId = req.body.empresaServer;
 
     // Faça as validações dos valores
     if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
     } else if (cep == undefined) {
         res.status(400).send("Seu cep está undefined!");
-    } else if(cnpj == undefined){
+    } else if (cnpj == undefined) {
         res.status(400).send("Seu cnpj está undefined!")
-    } else if(numero == undefined){
+    } else if (numero == undefined) {
         res.status(400).send("Seu numero está undefined!")
-    } else if(telefoneFixo == undefined){
+    } else if (telefoneFixo == undefined) {
         res.status(400).send("Seu telefoneFixo está undefined!")
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
-    
-    // else if (empresaId == undefined) {
-    //     res.status(400).send("Sua empresa está undefined!");
+
+        // else if (empresaId == undefined) {
+        //     res.status(400).send("Sua empresa está undefined!");
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome,cep,cnpj,numero,telefoneFixo, senha)
+        usuarioModel.cadastrarMatriz(nome, cep, cnpj, numero, nomeFazenda, complemento, senha)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -99,7 +95,93 @@ function cadastrar(req, res) {
     }
 }
 
+function varMatriz(req, res) {
+
+
+    // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+    usuarioModel.verMatriz(cnpj, senha)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+
+}
+
+function cadastrarFazenda(req, res) {
+    var nomeFazenda = req.body.nomeFazendaServer;
+    var cep = req.body.cepServer;
+    var numero = req.body.numeroServer;
+    var complemento = req.body.complementoServer;
+    var idMatriz = req.body.idMatrizServer;
+
+    // Faça as validações dos valores
+    if (nomeFazenda == undefined) {
+        res.status(400).send("Seu nomeFazenda está undefined!");
+    } else if (cep == undefined) {
+        res.status(400).send("Seu cep está undefined!");
+    } else if (cnpj == undefined) {
+        res.status(400).send("Seu cnpj está undefined!")
+    } else if (numero == undefined) {
+        res.status(400).send("Seu numero está undefined!")
+    } else if (idMatriz == undefined) {
+        res.status(400).send("Seu idMatriz está undefined!")
+    } else {
+
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.cadastrarFazenda(cep, numero, complemento)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+
+function varFazenda(req, res) {
+
+
+
+    // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+    usuarioModel.verFazenda(cnpj, senha)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    cadastrarEmpresa,
+    capturarId,
 }
