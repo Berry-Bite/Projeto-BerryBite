@@ -15,50 +15,43 @@ function cadastrarUsuario(nome,cnpj,telefoneFixo,senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():",nome,cnpj,telefoneFixo,senha);
     
     var instrucaoSql = `
-        INSERT INTO Matriz (razaoSocial, cnpj, telefoneFixo, senha) VALUES ('${nome}', '${cnpj}', '${telefoneFixo}', '${senha}');
+        INSERT INTO Matriz (razaoSocial, cnpj, telefoneFixo, senha) VALUES ('${nome}', '${cnpj}', '${telefoneFixo}', '${senha}')
     `;
         console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
+
     
 }
-
-
-
-
-
-
 
 // MATRIZ
 function cadastrarMatriz(razaoSocial, cnpj, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():",razaoSocial, cnpj, senha);
     
     var instrucaoSql = `
-        INSERT INTO Matriz (razaoSocial, cnpj, senha) VALUES ('${razaoSocial}', '${cnpj}', '${senha}');
+        INSERT INTO Matriz (razaoSocial, cnpj, senha) VALUES ('${razaoSocial}', '${cnpj}', '${senha}')
     `;
         console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
-    
+
 }
 
 function verMatriz(cnpj, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():",nome, cnpj);
     
     var instrucaoSql = `
-        SELECT idMatriz, razaoSocial, cnpj, senha FROM Matriz WHERE cnpj = '${cnpj} AND senha = '${senha}''
+        SELECT idMatriz, razaoSocial, cnpj, senha FROM Matriz WHERE cnpj = '${cnpj}'
     `;
         console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
     
 }
 
-
-
 // FAZENDA
 function cadastrarFazenda(idMatriz, nome) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrarFazenda():",idMatriz, nome);
     
     var instrucaoSql = `
-        INSERT INTO Fazenda (nome, fkMatriz) VALUES ('${nome}', '${idMatriz}');
+        INSERT INTO Fazenda (nome, fkMatriz) VALUES ('${nome}', '${idMatriz}')
     `;
         console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -75,15 +68,6 @@ function verFazenda(nome, idMatriz) {
     return database.executar(instrucaoSql);
     
 }
-
-
-
-
-
-
-
-
-
 
 // ENDERECO
 function cadastrarEndereco(cep, numero, complemento, idFazenda) {

@@ -55,29 +55,20 @@ function cadastrarMatriz(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nome = req.body.nomeServer;
     var cnpj = req.body.cnpjServer;
-    var nomeFazenda = req.body.nomeFazendaServer;
     var senha = req.body.senhaServer;
 
     // Faça as validações dos valores
     if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
-    } else if (cep == undefined) {
-        res.status(400).send("Seu cep está undefined!");
     } else if (cnpj == undefined) {
         res.status(400).send("Seu cnpj está undefined!")
-    } else if (numero == undefined) {
-        res.status(400).send("Seu numero está undefined!")
-    } else if (telefoneFixo == undefined) {
-        res.status(400).send("Seu telefoneFixo está undefined!")
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
 
-        // else if (empresaId == undefined) {
-        //     res.status(400).send("Sua empresa está undefined!");
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrarMatriz(nome, cep, cnpj, numero, nomeFazenda, complemento, senha)
+        usuarioModel.cadastrarMatriz(nome, cnpj, senha)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -95,11 +86,12 @@ function cadastrarMatriz(req, res) {
     }
 }
 
-function varMatriz(req, res) {
+function verMatriz(req, res) {
 
+    var cnpj = req.query.cnpj
 
     // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-    usuarioModel.verMatriz(cnpj, senha)
+    usuarioModel.verMatriz(cnpj)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -119,26 +111,17 @@ function varMatriz(req, res) {
 
 function cadastrarFazenda(req, res) {
     var nomeFazenda = req.body.nomeFazendaServer;
-    var cep = req.body.cepServer;
-    var numero = req.body.numeroServer;
-    var complemento = req.body.complementoServer;
-    var idMatriz = req.body.idMatrizServer;
+    var idMatriz = req.body.matrizServer;
 
     // Faça as validações dos valores
     if (nomeFazenda == undefined) {
         res.status(400).send("Seu nomeFazenda está undefined!");
-    } else if (cep == undefined) {
-        res.status(400).send("Seu cep está undefined!");
-    } else if (cnpj == undefined) {
-        res.status(400).send("Seu cnpj está undefined!")
-    } else if (numero == undefined) {
-        res.status(400).send("Seu numero está undefined!")
     } else if (idMatriz == undefined) {
-        res.status(400).send("Seu idMatriz está undefined!")
+        res.status(400).send("Seu cep está undefined!");
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrarFazenda(cep, numero, complemento)
+        usuarioModel.cadastrarFazenda(nomeFazenda, idMatri)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -157,12 +140,12 @@ function cadastrarFazenda(req, res) {
 }
 
 
-function varFazenda(req, res) {
+function verFazenda(req, res) {
 
-
+var nomeFazenda = req.query.nomeFazenda
 
     // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-    usuarioModel.verFazenda(cnpj, senha)
+    usuarioModel.verFazenda(nomeFazenda)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -179,9 +162,49 @@ function varFazenda(req, res) {
         );
 }
 
+function cadastrarEndereco(req, res) {
+   
+   var idmatriz = req.body.matrizServer
+   var cep = req.body.cepServer
+   var numero = req.body.numeroServer
+   var complemento = req.body.complementoServer
+    // Faça as validações dos valores
+    if (matriz == undefined) {
+        res.status(400).send("Sua matriz está undefined!");
+    } else if (idMatriz == undefined) {
+        res.status(400).send("Seu cep está undefined!");
+    }else if (numero == undefined) {
+        res.status(400).send("Seu cep está undefined!");
+    } else if (complemento == undefined) {
+        res.status(400).send("Seu cep está undefined!");
+    }else {
+
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.cadastrarEndereco(idMatriz, cep, numero, complemento)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+
 module.exports = {
     autenticar,
     cadastrar,
     cadastrarEmpresa,
-    capturarId,
+    verFazenda,
+    cadastrarFazenda, 
+    verFazenda,
+    cadastrarEndereco
 }
