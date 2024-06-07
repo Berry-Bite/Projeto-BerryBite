@@ -28,7 +28,7 @@ fkMatriz int,
  constraint fkFazendaUsuario foreign key (fkFazendaUsuario) references Fazenda(idFazenda));
 
 create table Endereco(
-idEndereco int primary key,
+idEndereco int primary key AUTO_INCREMENT,
 cep char(9),
 numero varchar(10),
 complemento varchar(45),
@@ -133,5 +133,6 @@ FROM RegistroSensor JOIN Estufa ON Estufa.idEstufa = RegistroSensor.fkSensor;
 select idMatriz from matriz order by idMatriz desc limit 1;
 
 select * from Matriz;
+
 select * from Fazenda;
 select * from Endereco;

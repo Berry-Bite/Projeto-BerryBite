@@ -201,7 +201,7 @@ html, body {
     margin-bottom: -2vw;
 }
 
-#div_input_nome, #div_input_cep, #div_input_cnpj, #div_input_numero, #div_input_telefone_fixo, #div_input_complemento, #div_input_senha, #div_input_confirmar_senha {
+#div_input_nome, #div_input_cep, #div_input_cnpj, #div_input_numero, #div_input_nome_fazenda, #div_input_complemento, #div_input_senha, #div_input_confirmar_senha {
     box-shadow: -0.1vw 0.25vw 0.4vw 0.2vw rgba(0, 0, 0, 0.3);
     height: 3vw;
     display: flex;
@@ -356,7 +356,7 @@ html, body {
     padding: 0.3vw;
 }
 
-#validacao_nome, #validacao_cep, #validacao_cnpj, #validacao_numero, #validacao_telefone_fixo, #validacao_senha, #validacao_confirmar_senha {
+#validacao_nome, #validacao_cep, #validacao_cnpj, #validacao_numero, #validacao_nome_fazenda, #validacao_senha, #validacao_confirmar_senha {
     position: absolute;
     color: red;
     align-items: center;
@@ -391,7 +391,7 @@ html, body {
     width: 22vw;
 }
 
-#validacao_telefone_fixo {
+#validacao_nome_fazenda {
     top: 28.7vw;
     left: 36.7vw;
     width: 24vw;

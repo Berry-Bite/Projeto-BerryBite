@@ -68,7 +68,7 @@ function entrar() {
             console.log("FORM LOGIN: ", cnpjVar);
             console.log("FORM SENHA: ", senhaVar);
         
-            fetch("/usuarios/autenticar", {
+            fetch("/usuarios/autenticarEmpresa", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -86,14 +86,14 @@ function entrar() {
                     resposta.json().then(json => {
                         console.log(json);
                         console.log(JSON.stringify(json));
-                        sessionStorage.EMAIL_USUARIO = json.razaoSocial;
-                        sessionStorage.NOME_USUARIO = json.cnpj;
+                        sessionStorage.CNPJ_USUARIO =json.cnpj ;
+                        sessionStorage.NOME_USUARIO = json.razaoSocial;
                         sessionStorage.ID_USUARIO = json.idMatriz;
                         // sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
         
-                        // setTimeout(function () {
-                        //     window.location = "./dashboard/cards.html";
-                        // }, 1000); // apenas para exibir o loading
+                        setTimeout(function () {
+                            window.location = "./dashboard/estufas.html";
+                        }, 1000); // apenas para exibir o loading
         
                     });
         

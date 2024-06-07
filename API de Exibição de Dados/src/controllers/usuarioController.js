@@ -1,7 +1,7 @@
 var usuarioModel = require("../models/usuarioModel");
 var aquarioModel = require("../models/aquarioModel");
 
-function autenticarUsuario(req, res) {
+function autenticarEmpresa(req, res) {
     var cnpj = req.body.cnpjServer;
     var senha = req.body.senhaServer;
 
@@ -11,7 +11,7 @@ function autenticarUsuario(req, res) {
         res.status(400).send("Sua senha está indefinida!");
     } else {
 
-        usuarioModel.autenticarUsuario(cnpj, senha)
+        usuarioModel.autenticarEmpresa(cnpj, senha)
             .then(
                 function (resultadoAutenticar) {
                     console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
@@ -20,18 +20,18 @@ function autenticarUsuario(req, res) {
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
 
-                        aquarioModel.buscarAquariosPorEmpresa(resultadoAutenticar[0].empresaId)
+                        aquarioModel.buscarAquariosPorEmpresa(resultadoAutenticar[0].idMatriz)
                             .then((resultadoAquarios) => {
                                 if (resultadoAquarios.length > 0) {
                                     res.json({
-                                        id: resultadoAutenticar[0].id,
-                                        email: resultadoAutenticar[0].email,
-                                        nome: resultadoAutenticar[0].nome,
+                                        id: resultadoAutenticar[0].idMatriz,
+                                        cnpj: resultadoAutenticar[0].cnpj,
+                                        nome: resultadoAutenticar[0].razaoSocial,
                                         senha: resultadoAutenticar[0].senha,
                                         // aquarios: resultadoAquarios
                                     });
                                 } else {
-                                    res.status(204).json({ aquarios: [] });
+                                    // res.status(204).json({ aquarios: [] });
                                 }
                             })
                     } else if (resultadoAutenticar.length == 0) {
@@ -53,12 +53,12 @@ function autenticarUsuario(req, res) {
 
 function cadastrarMatriz(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var nome = req.body.nomeServer;
+    var razaoSocial = req.body.nomeServer;
     var cnpj = req.body.cnpjServer;
     var senha = req.body.senhaServer;
 
     // Faça as validações dos valores
-    if (nome == undefined) {
+    if (razaoSocial == undefined) {
         res.status(400).send("Seu nome está undefined!");
     } else if (cnpj == undefined) {
         res.status(400).send("Seu cnpj está undefined!")
@@ -68,7 +68,7 @@ function cadastrarMatriz(req, res) {
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrarMatriz(nome, cnpj, senha)
+        usuarioModel.cadastrarMatriz(razaoSocial, cnpj, senha)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -86,28 +86,7 @@ function cadastrarMatriz(req, res) {
     }
 }
 
-function verMatriz(req, res) {
 
-    var cnpj = req.query.cnpj
-
-    // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-    usuarioModel.verMatriz(cnpj)
-        .then(
-            function (resultado) {
-                res.json(resultado);
-            }
-        ).catch(
-            function (erro) {
-                console.log(erro);
-                console.log(
-                    "\nHouve um erro ao realizar o cadastro! Erro: ",
-                    erro.sqlMessage
-                );
-                res.status(500).json(erro.sqlMessage);
-            }
-        );
-
-}
 
 function cadastrarFazenda(req, res) {
     var nomeFazenda = req.body.nomeFazendaServer;
@@ -121,7 +100,7 @@ function cadastrarFazenda(req, res) {
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrarFazenda(nomeFazenda, idMatri)
+        usuarioModel.cadastrarFazenda(idMatriz, nomeFazenda)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -140,36 +119,16 @@ function cadastrarFazenda(req, res) {
 }
 
 
-function verFazenda(req, res) {
 
-var nomeFazenda = req.query.nomeFazenda
-
-    // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-    usuarioModel.verFazenda(nomeFazenda)
-        .then(
-            function (resultado) {
-                res.json(resultado);
-            }
-        ).catch(
-            function (erro) {
-                console.log(erro);
-                console.log(
-                    "\nHouve um erro ao realizar o cadastro! Erro: ",
-                    erro.sqlMessage
-                );
-                res.status(500).json(erro.sqlMessage);
-            }
-        );
-}
 
 function cadastrarEndereco(req, res) {
    
-   var idmatriz = req.body.matrizServer
+   var idMatriz = req.body.matrizServer
    var cep = req.body.cepServer
    var numero = req.body.numeroServer
    var complemento = req.body.complementoServer
     // Faça as validações dos valores
-    if (matriz == undefined) {
+    if (idMatriz == undefined) {
         res.status(400).send("Sua matriz está undefined!");
     } else if (idMatriz == undefined) {
         res.status(400).send("Seu cep está undefined!");
@@ -200,11 +159,10 @@ function cadastrarEndereco(req, res) {
 
 
 module.exports = {
-    autenticar,
-    cadastrar,
-    cadastrarEmpresa,
-    verFazenda,
-    cadastrarFazenda, 
-    verFazenda,
-    cadastrarEndereco
-}
+    // cadastrarUsuario,
+    // autenticarUsuario,
+    cadastrarMatriz,
+    cadastrarFazenda,
+    cadastrarEndereco,
+    autenticarEmpresa
+};

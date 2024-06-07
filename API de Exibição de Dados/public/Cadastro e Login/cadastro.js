@@ -11,20 +11,29 @@ function login() {
 var idMatriz;
 var idFazenda;
 
+var nomeVar = ""
+var cepVar = ""
+var cnpjVar = ""
+var numeroVar = ""
+var nomeFazendaVar = ""
+var complementoVar = ""
+var senhaVar = ""
+var confirmar_senha = ""
+
 var validado = true;
 function cadastrar() {
-    var nomeVar = input_nome.value;
-    var cepVar = input_cep.value;
-    var cnpjVar = input_cnpj.value;
-    var numeroVar = input_numero.value;
-    var nomeFazendaVar = input_nome_fazenda.value;
-    var complementoVar = input_complemento.value;
-    var senhaVar = input_senha.value;
-    var confirmar_senha = input_confirmar_senha.value;
+    nomeVar = input_nome.value;
+    cepVar = input_cep.value;
+    cnpjVar = input_cnpj.value;
+    numeroVar = input_numero.value;
+    nomeFazendaVar = input_nome_fazenda.value;
+    complementoVar = input_complemento.value;
+    senhaVar = input_senha.value;
+    confirmar_senha = input_confirmar_senha.value;
 
     var mensagem = "";
-    var telefone_errado = true;
-  
+    // var telefone_errado = true;
+
     var senha_validada = 0;
 
     if (nomeVar.length < 3) {
@@ -65,8 +74,8 @@ function cadastrar() {
 
 
     if (nomeFazendaVar.length < 3) {
-        div_input_nome.style = "border: 0.12vw solid red";
-        validacao_nome.innerHTML = "O nome da fazenda precisa ter pelo menos 3 letras";
+        div_input_nome_fazenda.style = "border: 0.12vw solid red";
+        validacao_nome_fazenda.innerHTML = "O nome da fazenda precisa ter pelo menos 3 letras";
         validado = false;
     } else {
         div_input_nome_fazenda.style = "";
@@ -126,16 +135,20 @@ function cadastrarMatriz() {
             // Agora vá para o arquivo routes/usuario.js
             nomeServer: nomeVar,
             cnpjServer: cnpjVar,
-            senhaServer: senhavar,
+            senhaServer: senhaVar,
 
         }),
     })
-        .then(function (resposta) {
-            console.log("resposta: ", resposta);
+        .then(function (respostaServer) {
+            console.log("respostaServer CADASTRAR MATRIZ: ", respostaServer);
 
-            if (resposta.ok) {
-               verMatriz()
-        
+            if (respostaServer.ok) {
+
+                respostaServer.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    idMatriz = resposta.insertId
+                    cadastrarFazenda()
+                });
             } else {
                 throw "Houve um erro ao tentar realizar o cadastro!";
             }
@@ -148,34 +161,9 @@ function cadastrarMatriz() {
 }
 
 
-function verMatriz(){
-
-     // Enviando o valor da nova input
-     fetch(`/usuarios/verMatriz?cnpj=${cnpjVar}`, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-        },
-    })
-        .then(function (resposta) {
-            console.log("resposta: ", resposta);
-
-            if (resposta.ok) {
-                idMatriz = resposta.idMatriz
-                cadastrarFazenda()
-            } else {
-                throw "Houve um erro ao tentar realizar o select da Matriz!";
-            }
-        })
-        .catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-        });
-
-    return false;
-}
 
 function cadastrarFazenda() {
-
+    console.log("O id da Matriz é:" + idMatriz)
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrarFazenda", {
         method: "POST",
@@ -189,15 +177,21 @@ function cadastrarFazenda() {
             nomeFazendaServer: nomeFazendaVar,
 
         }),
-    })
-        .then(function (resposta) {
-            console.log("resposta: ", resposta);
 
-            if (resposta.ok) {
-               verFazenda()
-        
+    })
+
+        .then(function (respostaServer) {
+            console.log("respostaServer CADASTRAR MATRIZ: ", respostaServer);
+
+            if (respostaServer.ok) {
+
+                respostaServer.json().then(function (respostaFormatada) {
+
+                    idFazenda = respostaFormatada.insertId,
+                    cadastrarEndereco()
+                });
             } else {
-                throw "Houve um erro ao tentar realizar o cadastro da Fazenda!";
+                throw "Houve um erro ao tentar realizar o cadastro!";
             }
         })
         .catch(function (resposta) {
@@ -207,31 +201,7 @@ function cadastrarFazenda() {
     return false;
 }
 
-function verFazenda(){
 
-    // Enviando o valor da nova input
-    fetch(`/usuarios/verFazenda?nomeFazenda=${nomeFazendaVar}`, {
-       method: "GET",
-       headers: {
-           "Content-Type": "application/json",
-       },
-   })
-       .then(function (resposta) {
-           console.log("resposta: ", resposta);
-
-           if (resposta.ok) {
-               idFazenda = resposta.idFazenda,
-               cadastrarEndereco()
-           } else {
-               throw "Houve um erro ao tentar realizar o select da Fazenda!";
-           }
-       })
-       .catch(function (resposta) {
-           console.log(`#ERRO: ${resposta}`);
-       });
-
-   return false;
-}
 
 
 
@@ -257,8 +227,10 @@ function cadastrarEndereco() {
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-               verFazenda()
-        
+                setTimeout(function () {
+                    login();
+                }, 1000); // apenas para exibir o loading
+
             } else {
                 throw "Houve um erro ao tentar realizar o cadastro do endereço!";
             }

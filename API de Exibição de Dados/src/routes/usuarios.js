@@ -8,24 +8,16 @@ router.post("/cadastrarMatriz", function (req, res) {
     usuarioController.cadastrarMatriz(req, res);
 })
 
-router.get("/verMatriz", function (req, res) {
-    usuarioController.verMatriz(req, res);
-})
-
 router.post("/cadastrarFazenda", function (req, res) {
     usuarioController.cadastrarFazenda(req, res);
-})
-
-router.get("/verFazenda", function (req, res) {
-    usuarioController.verFazenda(req, res);
 })
 
 router.post("/cadastrarEndereco", function (req, res) {
     usuarioController.cadastrarEndereco(req, res);
 })
 
-router.post("/autenticar", function (req, res) {
-    usuarioController.autenticar(req, res);
+router.post("/autenticarEmpresa", function (req, res) {
+    usuarioController.autenticarEmpresa(req, res);
 });
 
 module.exports = router;
