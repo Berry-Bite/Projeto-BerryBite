@@ -1,0 +1,302 @@
+* {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Jost', sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    background-color: #FBF4E4;
+}
+
+#div_tela_home {
+    background-color: rgba(3, 0, 0, 0.836);
+    width: 100vw;
+    height: 100vh;
+    background-image: url(icons/banner-home.png);
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+#tela_bob_base {
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100vh;
+}
+
+
+
+
+/* BOB IA */
+#tela_bob {
+    width: 60vw;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 2vw;
+    border: 0.2vw solid white;
+}
+
+#tela_bob h1 {
+    font-size: 3vw;
+}
+
+#tela_bob div {
+    display: flex;
+    flex-direction: column;
+}
+
+#pergunta_bob {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 50%;
+    width: 100%;
+}
+
+#pergunta_bob textarea {
+    width: 50%;
+    height: 40%;
+    resize: none;
+    border: 0.11vw solid black;
+    background-color: #FFFBF2;
+    border-radius: 0.3vw;
+    padding: 0.2vw;
+    font-size: 1.1vw;
+}
+
+#pergunta_bob button {
+    border: 0.1vw solid black;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5vw;
+    height: 25%;
+    background-color: #BB2B45;
+    color: #FFFBF2;
+    cursor: pointer;
+    font-size: 1.3vw;
+    font-weight: 600;
+}
+
+#pergunta_bob button:hover {
+    width: 21%;
+    height: 26%;
+    font-size: 1.55vw;
+}
+
+#resposta_bob {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 50%;
+    width: 100%;
+}
+
+#div_resposta {
+    border-radius: 0.5vw;
+    background-color: #FFFBF2;
+    border: 0.1vw solid #63666A;
+    text-align: left;
+    display: none;
+    width: 90%;
+    height: 45%;
+}
+
+#resposta {
+    border-radius: 0.5vw;
+    padding: 0.2vw;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    background-color: #FFFBF2;
+    border: 0.1vw solid black;
+}
+
+
+
+
+
+
+
+
+
+
+/* BASE DE CONHECIMENTO */
+#tela_base {
+    width: 60vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 2vw;
+    border: 0.2vw solid white;
+}
+
+#tela_base div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#alimentar_base {
+    height: 60%;
+}
+
+#procurar_base {
+    height: 40%;
+}
+
+#alimentar_base span {
+    font-size: 1.8vw;
+    font-weight: 500;
+}
+
+#alimentar_base input {
+    width: 40%;
+    height: 12%;
+    border: 0.11vw solid black;
+    background-color: #FFFBF2;
+    border-radius: 1vw;
+    padding: 0.2vw;
+    font-size: 1.1vw;
+}
+
+#alimentar_base textarea {
+    width: 80%;
+    height: 38%;
+    resize: none;
+    border: 0.11vw solid black;
+    background-color: #FFFBF2;
+    border-radius: 0.3vw;
+    padding: 0.2vw;
+    font-size: 1.1vw;
+}
+
+#alimentar_base button {
+    border: 0.13vw solid black;
+    width: 16%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5vw;
+    height: 14%;
+    background-color: #BB2B45;
+    color: #FFFBF2;
+    cursor: pointer;
+    font-size: 1.3vw;
+    font-weight: 600;
+}
+
+#alimentar_base button:hover {
+    font-size: 1.55vw;
+    height: 14.5%;
+    width: 16.5%;
+}
+
+
+
+
+
+
+
+#procurar_base span {
+    font-size: 1.8vw;
+    font-weight: 500;
+}
+
+#procurar_base input {
+    width: 50%;
+    height: 28%;
+    border: 0.11vw solid black;
+    background-color: #FFFBF2;
+    border-radius: 1vw;
+    padding: 0.2vw;
+    font-size: 1.1vw;
+}
+
+#procurar_base button {
+    border: 0.13vw solid black;
+    width: 16%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5vw;
+    height: 20%;
+    background-color: #BB2B45;
+    color: #FFFBF2;
+    cursor: pointer;
+    font-size: 1.3vw;
+    font-weight: 600;
+}
+
+#procurar_base button:hover {
+    font-size: 1.55vw;
+    height: 20.5%;
+    width: 16.5%;
+}
+
+
+
+
+
+
+
+
+
+/* RESULTADO BASE DE CONHECIMENTO */
+#tela_resultado {
+    width: 20vw;
+    height: 90vh;
+    height: 90vh;
+    display: none;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 2vw;
+    border: 0.2vw solid white;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    overflow-y: scroll;
+    padding-left: 1.3vw;
+}
+
+#tela_resultado h1 {
+    font-size: 1.5vw;
+    margin-bottom: 1vh;
+}
+
+#tela_resultado div {
+    width: 90%;
+    border: 0.2vw solid black;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1vh;
+    padding: 0.05vw;
+    height: auto;
+}
+
+#titulo_resultado {
+    font-weight: 500;
+    font-size: 1.2vw;
+}
+
+#texto_resultado {
+    font-size: 1vw;
+}

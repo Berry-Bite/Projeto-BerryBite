@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berry Bite | Técnico</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="icons/logo-berry.png" type="image/x-icon">
+</head>
+
+<body>
+    <div id="div_tela_home">
+        <div id="tela_bob_base">
+            <div id="tela_bob">
+                <h1>Bob IA</h1>
+                <div id="pergunta_bob">
+                    <textarea id="pergunta" type="text" placeholder="Digite a pergunta"></textarea>
+                    <button id="botao_resposta_bob" onclick="gerarResposta()">Gerar Resposta</button>
+                </div>
+
+                <div id="resposta_bob">
+                    <h3>Resposta do Bob IA:</h3>
+                    <div id="div_resposta">
+                        <span id="resposta"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tela_base">
+                <div id="alimentar_base">
+                    <span>Alimentar a base de conhecimento</span>
+                    <input id="titulo_texto_base" type="text" placeholder="Digite o título">
+                    <textarea placeholder="Digite o texto" id="texto_enviar_base"></textarea>
+                    <button onclick="enviar_base()">Enviar</button>
+                </div>
+                <div id="procurar_base">
+                    <span>Procurar na base de conhecimento</span>
+                    <input id="texto_procurar_base" type="text" placeholder="Exemplo: arduino">
+                    <button onclick="procurar_base()">Procurar</button>
+                </div>
+            </div>
+        </div>
+        <div id="tela_resultado">
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+<script>
+    var titulo_base_conhecimento = [
+        "Modulos nao importados na API",
+        "Mal contato no sensor",
+        "Falha na conexao com o Wi-Fi",
+        "Dados nao estao sendo armazenados no banco de dados",
+        "Temperatura/Umidade fora dos intervalos esperados",
+        "Falha na integracao com o sistema de refrigeramento",
+        "Falha ao acessar o site institucional"
+    ];
+
+    var texto_base_conhecimento = [
+        "Verifique se a node_modules foi instalada, caso nao tenha sido, utilize o comando 'npm i' ou 'npm install'",
+        "Verifique se todos os cabos foram instalados e depois verifique se o cabo esta conectado ao computador, caso esteja certo verifique se o sensor esta funcionando ligando o codigo do arduino no 'Arduino IDE'",
+        "Certifique-se de que a estufa possui um sinal Wi-Fi estável e que as credenciais de rede foram configuradas corretamente no sistema. Verifique se o roteador está funcionando corretamente.",
+        "Verifique a conexão com o banco de dados e certifique-se de que o servidor do banco de dados está ativo. Revise as configurações de conexão no arquivo de configuração do software.",
+        "Garanta que os sensores estejam corretamente calibrados e posicionados na estufa. Verifique se há fatores externos influenciando as medições, como luz solar direta ou fontes de calor.",
+        "Verifique se o sistema de refrigeramento está funcionando corretamente e se está integrado ao sistema de monitoramento. Confira as configurações e os logs de erros para identificar possíveis problemas.",
+        "Certifique-se de que o servidor web esteja funcionando e que todas as dependências do site estejam instaladas. Verifique se há algum problema com a hospedagem ou configurações do domínio."
+    ];
+
+    async function gerarResposta() {
+        document.getElementById('botao_resposta_bob').style.display = "none";
+        const pergunta = document.getElementById('pergunta').value;
+
+        const response = await fetch('/perguntar', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ pergunta })
+        });
+
+        const data = await response.json();
+        resposta.style.display = 'block';
+        document.getElementById('resposta').innerText = data.resultado;
+        document.getElementById('botao_resposta_bob').style.display = "flex";
+    }
+
+
+    function enviar_base() {
+        var texto_enviar = texto_enviar_base.value;
+        var titulo_texto = titulo_texto_base.value;
+
+        if (titulo_texto.length < 7) {
+            alert("O título deve ter no mínimo 7 caracteres");
+        } else if (texto_enviar.length < 15) {
+            alert("O texto deve ter no mínimo 15 caracteres");
+        } else {
+            titulo_base_conhecimento.push(titulo_texto);
+            texto_base_conhecimento.push(texto_enviar);
+            alert("O texto foi enviado para a base de conhecimento");
+        }
+    }
+
+    function procurar_base() {
+        document.getElementById('tela_resultado').style.display = "block";
+        var texto_procurar = texto_procurar_base.value.toUpperCase();
+        var texto = "";
+
+        if (texto_procurar.length < 5) {
+            alert("O título deve ter no mínimo 5 caracteres");
+        } else {
+            var dados = texto_procurar.split(' ');
+            for (var i = 0; i < dados.length; i++) {
+                for (var j = 0; j < titulo_base_conhecimento.length; j++) {
+                    var item_atual = titulo_base_conhecimento[j].toUpperCase()
+                    if (item_atual.includes(dados[i])) {
+                        texto += `<div> <span id="titulo_resultado">${titulo_base_conhecimento[j]}</span> <span id="texto_resultado">${texto_base_conhecimento[j]}</span> </div>`
+                    }
+                }
+            }
+
+            if (texto == "") {
+                tela_resultado.innerHTML = "Nenhum resultado encontrado";
+            } else {
+                tela_resultado.innerHTML = "<h1>Resultados encontrados:</h1>" + texto;
+            }
+        }
+    }
+</script>
