@@ -12,7 +12,7 @@ function estufaProblematica(umidadeMinima, umidadeMaxima, temperaturaMinima, tem
 }
 
 function ultimosDadosEstufa(idEstufa, limite) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", cnpj, senha)
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function ultimosDadosEstufa(): ", idEstufa, limite)
     var instrucaoSql = `
         select umidade, temperatura from RegistroSensor join sensor on RegistroSensor.fkSensor = Sensor.idSensor where fkEstufa = ${idEstufa} limit ${limite};
     `;
@@ -20,8 +20,20 @@ function ultimosDadosEstufa(idEstufa, limite) {
     return database.executar(instrucaoSql);
 }
 
+function verEstufas(idFazenda) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrarFazenda():",idFazenda);
+    
+    var instrucaoSql = `
+        SELECT nome, idEstufa FROM Estufa WHERE fkFazendaEstufa = ${idFazenda};
+    `;
+    
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 
 module.exports = {
     estufaProblematica,
-    ultimosDadosEstufa
+    ultimosDadosEstufa,
+    verEstufas
 };

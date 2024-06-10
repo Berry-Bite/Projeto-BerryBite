@@ -12,7 +12,7 @@
   <title>Berry Bite | Estufas</title>
 </head>
 
-<body>
+<body id="body" onload="verFazendas()">
 
   <div id="div_fundo" class="pagina">
 
@@ -46,98 +46,68 @@
 
     <!-- Parte da página a direita-->
 
-  <div class="mural_right">
+    <div class="mural_right">
 
-    <div class="temperatura">
+      <div class="temperatura">
 
-        <h2>Parâmetros de Temperatura:</h2>
+        <h2>Parâmetros de Temperatura e Umidade:</h2>
 
         <div class="parametros_temperatura">
-
-            <div class="perigo_menor">
-                <p>Perigo: Frio</p>
-                <p>&#10052</p>
-                <p>Menores que 13°C</p>
-            </div>
-
-            <div class="alerta_menor">
-                <p>Alerta: Frio</p>
-                <p>&#9888</p>
-                <p>Entre 13°C e 16°C</p>
-            </div>
-
-            <div class="ideal">
-                <p>Ideal</p>
-                <p>&#9786</p>
-                <p>Entre 16,1°C e 21,9°C</p>
-            </div>
-
-            <div class="alerta_maior">
-                <p>Alerta: Calor</p>
-                <p>&#9888</p>
-                <p>Entre 22°C e 26°C</p>
-            </div>
-
-            <div class="perigo_maior">
-                <p>Perigo: Calor</p>
-                <p>&#x1F321</p>
-                <p>Maiores que 26°C</p>
-            </div>
-
-        </div>
-
-    </div>
-    <div class="umidade">
-
-      <h2>Parâmetros de Umidade:</h2>
-
-      <div class="parametros_umidade">
-
+          
           <div class="perigo_menor">
-              <p>Perigo: Baixa</p>
-              <p><b>&#127787</b></p>
-              <p>Menores que 40%</p>
-          </div>
-
-          <div class="alerta_menor">
-              <p>Alerta: Baixa</p>
-              <p>&#9888</p>
+            <p>Perigo: Frio ou Baixo</p>
+            <p>> 13°C ou > 40%</p>
+            </div>
+            
+            <div class="alerta_menor">
+              <p>Alerta: Frio ou Baixo</p>
+              <p>Entre 13°C e 16°C</p>
               <p>Entre 40% e 59%</p>
           </div>
 
           <div class="ideal">
-              <p>Ideal</p>
-              <p>&#9786</p>
-              <p>Entre 60% e 75%</p>
+            <p>Ideal</p>
+            <p>Entre 16,1°C e 21,9°C</p>
+          <p>Entre 60% e 75%</p>
           </div>
 
           <div class="alerta_maior">
-              <p>Alerta: Alta</p>
-              <p>&#9888</p>
-              <p>Entre 76% e 80%</p>
+            <p>Alerta: Calor ou Alto</p>
+            <p>Entre 22°C e 26°C</p>
+          <p>Entre 76% e 80%</p>
           </div>
 
           <div class="perigo_maior">
-              <p>Perigo: Alta</p>
-              <p>&#127782</p>
-              <p>Maiores que 80%</p>
+            <p>Perigo: Calor ou Alto</p>
+            <p>Maiores que 26°C</p>
+            <p>Maiores que 80%</p>
           </div>
+
+        </div>
+
       </div>
-    </div> 
 
-    <!-- início das estufas -->
+      <!-- início das estufas -->
 
-    <div id="select_estufas" class="minhas_estufas">
+      <div id="fazendas">
+
+      </div>
+
+      <div id="estufas">
+
+      </div>
+
+      <!-- <div id="select_estufas" class="minhas_estufas">
 
       <button onclick="estufa_omega()" type="submit" aria-label="estufa omega">
-        <!-- <img src="../icons/estufa.png" alt="estufa"> -->
+        <img src="../icons/estufa.png" alt="estufa">
         <br><br>
         <span>Estufa Omega</span>
         <p>30°C</p>
         <div class="alert-red"></div>
       </button>
       <button onclick="estufa_omega()" type="submit" aria-label="estufa omega">
-        <!-- <img src="../icons/estufa.png" alt="estufa"> -->
+        <img src="../icons/estufa.png" alt="estufa">
         <br><br>
         <span>Estufa Omega</span>
         <p>39%</p>
@@ -145,23 +115,23 @@
       </button>
 
       <button onclick="estufa_violet()" type="submit" aria-label="estufa omega">
-        <!-- <img src="../icons/estufa.png" alt="estufa"> -->
+        <img src="../icons/estufa.png" alt="estufa">
         <br><br>
         <span>Estufa Violet</span>
         <p>20°C</p>
         <div class="alert-green"></div>
       </button>
       <button onclick="estufa_violet()" type="submit" aria-label="estufa omega">
-        <!-- <img src="../icons/estufa.png" alt="estufa"> -->
+        <img src="../icons/estufa.png" alt="estufa">
         <br><br>
         <span>Estufa Violet</span>
         <p>65%</p>
         <div class="alert-green"></div>
       </button>
 
-    </div>
+    </div> -->
 
-  </div>
+    </div>
 
     <!-- <div class="alerta_erro">
       <h1>!</h1>
@@ -212,5 +182,424 @@
     window.location.href = "./cadastroFunc.html";
   }
 
-  
+
+
+
+
+
+
+
+
+  function verFazendas() {
+    // var idMatriz = sessionStorage.ID_MATRIZ;
+    var idMatriz = 1;
+
+    fetch(`/fazenda/verFazendas/${idMatriz}`, {
+      method: "GET"
+    }).then(function (resposta) {
+      if (resposta.ok) {
+        console.log(resposta);
+        resposta.json().then(json => {
+          console.log(json);
+          criarFazendas(json);
+        });
+
+      } else {
+        resposta.text().then(texto => {
+          console.error(texto);
+        });
+      }
+    }).catch(function (erro) {
+      console.log(erro);
+    })
+  }
+
+
+  function criarFazendas(dados) {
+    console.log(dados[0].nome)
+    var texto = "";
+    for (var i = 1; i <= dados.length; i++) {
+      texto += `<button id="fazenda${i}" class="button_fazenda" onclick="procurarEstufas(this)" type="submit">
+        <span>${dados[0].nome}</span>
+      </button>`
+    }
+    fazendas.innerHTML = texto;
+  }
+
+
+
+  function procurarEstufas(item) {
+    var indice = item.id[item.id.length - 1];
+    console.log(indice)
+    fetch(`/estufa/verEstufas/${indice}`, {
+      method: "GET"
+    }).then(function (resposta) {
+      if (resposta.ok) {
+        console.log(resposta);
+        resposta.json().then(json => {
+          console.log(json);
+          abrirEstufas(json);
+        });
+
+      } else {
+        resposta.text().then(texto => {
+          console.error(texto);
+        });
+      }
+    }).catch(function (erro) {
+      console.log(erro);
+    })
+  }
+
+  function abrirEstufas(dados) {
+    document.getElementById("fazendas").style.display = "none";
+    console.log(dados[0].nome)
+    var texto = "";
+    for (var i = 1; i <= dados.length; i++) {
+      texto += `<button value="${dados[0].nome}" id="estufa${i}" class="button_estufa" onclick="dadosEstufa(this)" type="submit">
+        <span>${dados[0].nome}</span>
+      </button>`
+    }
+    document.getElementById("estufas").innerHTML = texto;
+  }
+
+
+
+
+  function dadosEstufa(item) {
+    console.log(item.id)
+    document.getElementById("body").innerHTML = `
+      <div id="div_fundo" class="pagina">
+        <div class="header_left">
+            <div class="marca">
+                <img src="../icons/logo-berry.png" class="logo_header">
+                <span>Berry.Bite</span>
+            </div>
+
+            <div class="container">
+                <div id="user"></div>
+
+                <div class="menu">
+                    <button style="background-color: #7AB8CC;" onclick="estufas()">Estufas</button>
+                    <button onclick="comparacao()">Comparação</button>
+                    <button onclick="parametros()">Parâmetros</button>
+                    <button onclick="contato()">Contato</button>
+                    <button onclick="cadastrar()">Cadastrar</button>
+                </div>
+
+                <div class="sair">
+                    <button onclick="sair()">Sair</button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="mural_rigth">
+            <div class="id_estufa">
+                <h2>Estufa ${item.value}</h2>
+            </div>
+
+            <div id="box_temperatura">
+
+                <div id="box_info_temp">
+                    <h6>Temperatura Atual:</h6>
+                    <p id="temperatura_atual"></p>
+                    <span id="alerta_temp"></span>
+                    <div id="legendas_temperatura">
+                        <div id="div_legenda_verde">
+                            <img id="legenda_verde">
+                            <span>Ideal</span>
+                        </div>
+                        <div id="div_legenda_amarela">
+                            <img id="legenda_amarela">
+                            <span>Atenção</span>
+                        </div>
+                        <div id="div_legenda_vermelha">
+                            <img id="legenda_vermelha">
+                            <span>Perigo</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="estufa1_temperatura">
+                    <canvas id="chart_temp"></canvas>
+                </div>
+                <div id="parametros_temperatura">
+                    <div id="perigo_maior_temp">
+                        <span>Perigo: maior que 26ºC</span>
+                    </div>
+                    <div id="alerta_maior_temp">
+                        <span>Alerta: entre 22ºC e 26ºC</span>
+                    </div>
+                    <div id="ideal_temp">
+                        <span>Ideal: entre 16,1ºC e 21,9ºC</span>
+                    </div>
+                    <div id="alerta_menor_temp">
+                        <span>Alerta: entre 13ºC e 16ºC</span>
+                    </div>
+                    <div id="perigo_menor_temp">
+                        <span>Perigo: menor que 13ºC</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="box_umidade">
+                <div id="box_info_umi">
+                    <h6>Umidade Atual:</h6>
+                    <p id="umidade_atual"></p>
+                    <span id="alerta_umi"></span>
+                    <div id="legendas_umidade">
+                        <div id="div_legenda_verde">
+                            <img id="legenda_verde">
+                            <span>Ideal</span>
+                        </div>
+                        <div id="div_legenda_amarela">
+                            <img id="legenda_amarela">
+                            <span>Atenção</span>
+                        </div>
+                        <div id="div_legenda_vermelha">
+                            <img id="legenda_vermelha">
+                            <span>Perigo</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="estufa1_umidade">
+                    <canvas id="chart_umi"></canvas>
+                </div>
+                <div id="parametros_umidade">
+                    <div id="perigo_maior_umi">
+                        <span>Perigo: maior que 80%</span>
+                    </div>
+                    <div id="alerta_maior_umi">
+                        <span>Alerta: entre 76% e 80%</span>
+                    </div>
+                    <div id="ideal_umi">
+                        <span>Ideal: entre 60% e 75%</span>
+                    </div>
+                    <div id="alerta_menor_umi">
+                        <span>Alerta: entre 40% e 59%</span>
+                    </div>
+                    <div id="perigo_menor_umi">
+                        <span>Perigo: menor que 40%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="voltar">
+                <button onclick="estufas()">Voltar</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="div_erro"></div>
+    <div id="div_bola_erro"> </div>`
+
+    var indice = item.id[item.id.length - 1];
+    fetch(`/estufa/ultimosDadosEstufa/${indice}`, {
+      method: "GET"
+    }).then(function (resposta) {
+      if (resposta.ok) {
+        console.log(resposta);
+        resposta.json().then(json => {
+          console.log(json);
+          json.reverse();
+          criarGraficos(json);
+        });
+
+      } else {
+        resposta.text().then(texto => {
+          console.error(texto);
+        });
+      }
+    }).catch(function (erro) {
+      console.log(erro);
+    })
+  }
+
+
+  function criarGraficos(dados) {
+    console.log(dados);
+    var lista_temperatura = [];
+    var lista_umidade = [];
+    for (var i = 0; i < dados.length; i++) {
+      lista_temperatura.push(dados[i].temperatura);
+      lista_umidade.push(dados[i].umidade);
+    }
+    const ctxTemperatura = document.getElementById('chart_temp');
+    const ctxUmidade = document.getElementById('chart_umi');
+    new Chart(ctxTemperatura, {
+        type: 'line',
+        data: {
+            labels: ['12:00', '12:10', '12:20', '12:30', '12:40', '12:50', '13:00'],
+            datasets: [{
+                label: 'Temperatura',
+                data: lista_temperatura,
+                borderWidth: 3,
+                borderColor: '#5EB7D1',
+                pointBackgroundColor: '#5EB7D1',
+                pointRadius: 4,
+                backgroundColor: '#5EB7D1',
+                pointHoverRadius: 10
+            },
+            {
+                label: 'Perigo Frio',
+                data: [13, 13, 13, 13, 13, 13, 13],
+                borderColor: '#000000',
+                borderWidth: 3,
+                pointBackgroundColor: '#000000',
+                backgroundColor: '#000000',
+                pointRadius: 0,
+                pointHoverRadius: 5
+            },
+            {
+                label: 'Alerta Frio',
+                data: [16, 16, 16, 16, 16, 16, 16],
+                borderWidth: 3,
+                borderColor: '#BB2B45',
+                pointBackgroundColor: '#BB2B45',
+                backgroundColor: '#BB2B45',
+                pointRadius: 0,
+                pointHoverRadius: 5
+            },
+            {
+                label: 'Alerta Calor',
+                data: [22, 22, 22, 22, 22, 22, 22],
+                borderWidth: 3,
+                borderColor: '#BB2B45',
+                pointBackgroundColor: '#BB2B45',
+                backgroundColor: '#BB2B45',
+                pointRadius: 0,
+                pointHoverRadius: 5
+            },
+            {
+                label: 'Perigo Calor',
+                data: [26, 26, 26, 26, 26, 26, 26],
+                borderColor: '#000000',
+                borderWidth: 3,
+                pointBackgroundColor: '#000000',
+                backgroundColor: '#000000',
+                pointRadius: 0,
+                pointHoverRadius: 5
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: false
+                }
+            }
+        }
+    });
+
+    new Chart(ctxUmidade, {
+        type: 'line',
+        data: {
+            labels: ['12:00', '12:10', '12:20', '12:30', '12:40', '12:50', '13:00'],
+            datasets: [{
+                label: 'Umidade Atual',
+                data: lista_umidade,
+                borderWidth: 3,
+                borderColor: '#5EB7D1',
+                pointBackgroundColor: '#5EB7D1',
+                pointRadius: 4,
+                backgroundColor: '#5EB7D1',
+                pointHoverRadius: 10
+            },
+            {
+                label: 'Perigo Baixa',
+                data: [40, 40, 40, 40, 40, 40, 40],
+                borderColor: '#000000',
+                borderWidth: 3,
+                pointBackgroundColor: '#000000',
+                backgroundColor: '#000000',
+                pointRadius: 0,
+                pointHoverRadius: 5
+            },
+            {
+                label: 'Alerta Abaixo',
+                data: [60, 60, 60, 60, 60, 60, 60],
+                borderWidth: 3,
+                borderColor: '#BB2B45',
+                pointBackgroundColor: '#BB2B45',
+                backgroundColor: '#BB2B45',
+                pointRadius: 0,
+                pointHoverRadius: 5
+
+            },
+            {
+                label: 'Alerta Acima',
+                data: [75, 75, 75, 75, 75, 75, 75],
+                borderWidth: 3,
+                borderColor: '#BB2B45',
+                pointBackgroundColor: '#BB2B45',
+                backgroundColor: '#BB2B45',
+                pointRadius: 0,
+                pointHoverRadius: 5
+            },
+            {
+                label: 'Perigo Acima',
+                data: [80, 80, 80, 80, 80, 80, 80],
+                borderColor: '#000000',
+                borderWidth: 3,
+                pointBackgroundColor: '#000000',
+                backgroundColor: '#000000',
+                pointRadius: 0,
+                pointHoverRadius: 5
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: false
+                }
+            }
+        }
+    });
+  }
+
+  // function autenticarMatriz(req, res) {
+  //   var cnpj = req.body.cnpjServer;
+  //   var senha = req.body.senhaServer;
+
+  //   if (email == undefined) {
+  //       res.status(400).send("Seu email está undefined!");
+  //   } else if (senha == undefined) {
+  //       res.status(400).send("Sua senha está indefinida!");
+  //   } else {
+
+  //       usuarioModel.autenticarMatriz(cnpj, senha)
+  //           .then(
+  //               function (resultadoAutenticar) {
+  //                   console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
+  //                   console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`);
+
+  //                   if (resultadoAutenticar.length == 1) {
+  //                       console.log(resultadoAutenticar);
+  //                       var usuario = resultadoAutenticar[0]
+  //                       res.json({
+  //                           id: usuario.idMatriz,
+  //                           cnpj: usuario.raxaoSocial,
+  //                           nome: usuario.cnpj,
+  //                           senha: usuario.senha
+  //                       });
+
+  //                   } else if (resultadoAutenticar.length == 0) {
+  //                       res.status(403).send("Email e/ou senha inválido(s)");
+  //                   } else {
+  //                       res.status(403).send("Mais de um usuário com o mesmo login e senha!");
+  //                   }
+  //               }
+  //           ).catch(
+  //               function (erro) {
+  //                   console.log(erro);
+  //                   console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
+  //                   res.status(500).json(erro.sqlMessage);
+  //               }
+  //           );
+  //   }
+
+  // }
 </script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

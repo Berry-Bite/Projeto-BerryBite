@@ -7,8 +7,12 @@ router.post("/estufaProblematica", function (req, res) {
     estufaController.estufaProblematica(req, res);
 })
 
-router.post("/ultimosDadosEstufa/:idUsuario", function (req, res) {
+router.get("/ultimosDadosEstufa/:idEstufa", function (req, res) {
     estufaController.ultimosDadosEstufa(req, res);
 })
+
+router.get("/verEstufas/:idFazenda", function (req, res) {
+    estufaController.verEstufas(req, res);
+});
 
 module.exports = router;

@@ -21,7 +21,7 @@ var senhaVar = ""
 var confirmar_senha = ""
 
 var validado = true;
-function cadastrar() {
+function validar() {
     nomeVar = input_nome.value;
     cepVar = input_cep.value;
     cnpjVar = input_cnpj.value;
@@ -125,7 +125,7 @@ function cadastrar() {
 function cadastrarMatriz() {
 
     // Enviando o valor da nova input
-    fetch("/usuarios/cadastrarMatriz", {
+    fetch("/matriz/cadastrarMatriz", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -165,7 +165,7 @@ function cadastrarMatriz() {
 function cadastrarFazenda() {
     console.log("O id da Matriz é:" + idMatriz)
     // Enviando o valor da nova input
-    fetch("/usuarios/cadastrarFazenda", {
+    fetch("/fazenda/cadastrarFazenda", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -208,7 +208,7 @@ function cadastrarFazenda() {
 function cadastrarEndereco() {
 
     // Enviando o valor da nova input
-    fetch("/usuarios/cadastrarEndereco", {
+    fetch("/endereco/cadastrarEndereco", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

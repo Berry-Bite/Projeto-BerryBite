@@ -11,7 +11,19 @@ function cadastrarFazenda(idMatriz, nomeFazenda) {
     return database.executar(instrucaoSql);
 }
 
+function verFazendas(idMatriz) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrarFazenda():",idMatriz);
+    
+    var instrucaoSql = `
+        SELECT nome, idFazenda FROM Fazenda WHERE fkMatriz = ${idMatriz};
+    `;
+    
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 
 module.exports = {
-    cadastrarFazenda
+    cadastrarFazenda,
+    verFazendas
 };
