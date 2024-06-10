@@ -4,6 +4,7 @@ body {
     background-color: antiquewhite;
     overflow-y: hidden;
     overflow-x: hidden;
+    font-family: "Jost", serif;
 }
 
 
@@ -31,12 +32,12 @@ body {
     height: 25%;
     width: 100%;
     font-size: 150%;
+    font-weight: 400;
 }
 
 .marca span {
-    font-family: "Jomhuria", serif;
-    font-size: 200%;
-    font-weight: lighter;
+    font-size: 170%;
+    font-weight: 400;
 }
 
 .marca img {
@@ -66,10 +67,10 @@ img {
 }
 
 #user span {
-    font-family: "Jomhuria", serif;
     font-size: 300%;
     margin-top: 2%;
     font-weight: lighter;
+    font-weight: 400;
 }
 
 .menu {
@@ -144,7 +145,6 @@ img {
     font-size: 260%;
     margin-top: -3%;
     font-weight: lighter;
-    font-family: "Jomhuria", serif;
 }
 
 
@@ -178,10 +178,9 @@ img {
 }
 
 .mural_right h1 {
-    font-size: 500%;
-    font-family: "Jomhuria", serif;
+    font-size: 280%;
     margin-left: 22%;
-    font-weight: lighter;
+    font-weight: 400;
     margin-bottom: -5%;
     margin-top: 0%;
 }
@@ -203,7 +202,7 @@ img {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    font-size: larger;
+    font-weight: 400;
 }
 
 .estufa_omega button {
@@ -219,8 +218,7 @@ img {
 }
 
 .estufa_omega span{
-    font-size: 380%;
-    font-family: "Jomhuria", serif;
+    font-size: 260%;
 }
 
 
@@ -253,8 +251,7 @@ img {
 }
 
 .estufa_violet span{
-    font-size: 380%;
-    font-family: "Jomhuria", serif;
+    font-size: 260%;
 }
 
 

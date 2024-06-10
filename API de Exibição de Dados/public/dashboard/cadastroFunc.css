@@ -3,6 +3,7 @@ body {
     padding: 0;
     background-color: antiquewhite;
     overflow-y: hidden;
+    font-family: "Jost", serif;
 }
 
 
@@ -33,9 +34,8 @@ body {
 }
 
 .marca span {
-    font-family: "Jomhuria", serif;
     font-size: 200%;
-    font-weight: lighter;
+    font-weight: 400;
 }
 
 .marca img {
@@ -65,10 +65,9 @@ img {
 }
 
 #user span {
-    font-family: "Jomhuria", serif;
-    font-size: 300%;
+    font-size: 200%;
     margin-top: 2%;
-    font-weight: lighter;
+    font-weight: 400;
 }
 
 .menu {
@@ -143,9 +142,8 @@ img {
 }
 
 .cadastro_funcionario h1 {
-    font-size: 400%;
-    font-family: "Jomhuria", serif;
-    font-weight: lighter;
+    font-size: 300%;
+    font-weight: 400;
     margin-bottom: -5%;
     margin-top: 0%;
 }
@@ -161,9 +159,8 @@ img {
 }
 
 .caixa_empresa h2 {
-    font-family: "Jomhuria", serif;
-    font-weight: lighter;
-    font-size: 40pt;
+    font-weight: 400;
+    font-size: 30pt;
     margin-bottom: -5px;
 }
 
@@ -203,9 +200,9 @@ img {
 }
 
 .funcionario_cadastrado h2 {
-    font-family: "Jomhuria", serif;
-    font-size: 40pt;
-    font-weight: lighter;
+    font-size: 30pt;    
+    font-weight: 400;
+
 }
 
 .funcionario {
@@ -232,16 +229,14 @@ img {
 
 #info_funcionario h3{
     display: flex;
-    font-family: "Jomhuria", serif;
-    font-weight: lighter;
-    font-size: 30pt;
+    font-weight: 400;
+    font-size: 20pt;
     margin: 0;
 }
 
 #info_funcionario h5{
-    margin-top: -1vh;
-    font-family: "Jomhuria", serif;
-    font-weight: lighter;
+    margin-top: -1vh;    
+    font-weight: 400;
     font-size:20pt ;
     color: #6BB87A;
 
