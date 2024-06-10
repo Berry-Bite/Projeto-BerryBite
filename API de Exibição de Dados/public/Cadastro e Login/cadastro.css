@@ -1,5 +1,5 @@
 * {
-    font-family: 'Inter';
+    font-family: "Jost", serif;
     margin: 0;
     padding: 0;
 }
@@ -188,7 +188,7 @@ html, body {
     flex-direction: column;
     opacity: 100%;
     justify-content: space-around;
-    margin-left: 3vw;
+    margin-left: 5vw;
     white-space: nowrap;
 }
 
@@ -247,35 +247,39 @@ html, body {
 }
 
 #campos01 div input {
-    font-size: 1.4vw;
+    font-size: 1.3vw;
     background-color: rgba(0, 0, 0, 0);
     border-top-right-radius: 1vw;
     border-bottom-right-radius: 1vw;
     border: 0px;
+    width: 18vw;
 }
 
 #campos02 div input {
-    font-size: 1.4vw;
+    font-size: 1.3vw;
     background-color: rgba(0, 0, 0, 0);
     border-top-right-radius: 1vw;
     border-bottom-right-radius: 1vw;
     border: 0px;
+    width: 18vw;
 }
 
 #campos03 div input {
-    font-size: 1.4vw;
+    font-size: 1.3vw;
     background-color: rgba(0, 0, 0, 0);
     border-top-right-radius: 1vw;
     border-bottom-right-radius: 1vw;
     border: 0px;
+    width: 18vw;
 }
 
 #campos04 div input {
-    font-size: 1.4vw;
+    font-size: 1.3vw;
     background-color: rgba(0, 0, 0, 0);
     border-top-right-radius: 1vw;
     border-bottom-right-radius: 1vw;
     border: 0px;
+    width: 18vw;
 }
 
 #div_input_senha {
@@ -360,11 +364,12 @@ html, body {
     position: absolute;
     color: red;
     align-items: center;
-    font-size: 0.8vw;
+    font-size: 1vw;
     text-align: center;
     font-weight: bolder;
     justify-content: center;
     display: flex;
+    margin-left: 1vw;
 }
 
 #validacao_nome {
