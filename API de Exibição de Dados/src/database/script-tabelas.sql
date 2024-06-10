@@ -1,59 +1,75 @@
--- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
+create database BerryBite;
+use BerryBite;
 
-/*
-comandos para mysql server
-*/
+create table Matriz(
+idMatriz int primary key auto_increment,
+razaoSocial varchar(50),
+cnpj char(18), constraint checkCnpj check (cnpj like '__.___.___/____-__'), 
+telefoneFixo char(13),
+senha varchar(15));
 
-CREATE DATABASE aquatech;
+create table Fazenda(
+idFazenda int primary key auto_increment,
+nome varchar(45),
+quantidadeEstufa int,
+fkMatriz int, constraint fkFazendaMatriz foreign key (fkMatriz) references Matriz(idMatriz));
 
-USE aquatech;
+create table Usuario(
+idUsuario int auto_increment,
+fkFazendaUsuario int, 
+constraint pkComposta primary key (idUsuario, fkFazendaUsuario),
+nome varchar(45),
+email varchar(45),
+cpf char(11),
+telCelular char(12),
+senha varchar(15),
+fkMatriz int,
+ constraint fkFazendaUsuario foreign key (fkFazendaUsuario) references Fazenda(idFazenda));
 
-CREATE TABLE empresa (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	razao_social VARCHAR(50),
-	cnpj CHAR(14)
-);
+create table Endereco(
+idEndereco int primary key AUTO_INCREMENT,
+cep char(9),
+numero varchar(10),
+complemento varchar(45),
+fkFazenda int);
 
-CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
-);
+create table Estufa(
+idEstufa int primary key auto_increment,
+nome varchar(45),
+tamanhoMetroQuadrado float,
+quantidadeMorangueiros int,
+fkFazendaEstufa int, constraint fkFazendaEstufa foreign key (fkFazendaEstufa) references Fazenda(idFazenda));
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
-);
+create table Sensor(
+idSensor int primary key auto_increment,
+tipo varchar(45),
+fkEstufa int,
+fkMetrica int); 
 
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
-);
+create table Metrica(
+idMetrica int,
+temperaturaMinima float,
+temperaturaMaxima float,
+UmidadeMinima float,
+UmidadeMaxima float);
 
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
+create table RegistroSensor(
+idSensor int primary key auto_increment,
+umidade float,
+temperatura float,
+dataRegistro datetime default current_timestamp,
+fkSensor int, constraint fkSensorRegistroSensor foreign key (fkSensor) references Sensor(idSensor));
 
-create table medida (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	dht11_umidade DECIMAL,
-	dht11_temperatura DECIMAL,
-	luminosidade DECIMAL,
-	lm35_temperatura DECIMAL,
-	chave TINYINT,
-	momento DATETIME,
-	fk_aquario INT,
-	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
-);
+create table ContatoSimulador(
+idContatoSimulador int primary key auto_increment,
+nome varchar(45),
+email varchar(45),
+mensagem varchar(500));
 
-insert into empresa (razao_social, cnpj) values ('Empresa 1', '00000000000000');
-insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
+create table ContatoDashboard (
+idDashboard int primary key auto_increment,
+mensagem varchar(500),
+fkUsuario int,
+constraint fkDashboardUsuario foreign key (fkUsuario) references Usuario(idUsuario),
+fkFazenda int,
+constraint fkDashboardFazenda foreign key (fkFazenda) references Fazenda(idFazenda));

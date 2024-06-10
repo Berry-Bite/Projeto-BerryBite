@@ -17,10 +17,10 @@ var app = express();
 
 var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
-var avisosRouter = require("./src/routes/avisos");
-var medidasRouter = require("./src/routes/medidas");
-var aquariosRouter = require("./src/routes/aquarios");
-var empresasRouter = require("./src/routes/empresas");
+var fazendaRouter = require("./src/routes/fazenda");
+var enderecoRouter = require("./src/routes/endereco");
+var matrizRouter = require("./src/routes/matriz");
+var estufaRouter = require("./src/routes/estufa");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -30,10 +30,10 @@ app.use(cors());
 
 app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
-app.use("/avisos", avisosRouter);
-app.use("/medidas", medidasRouter);
-app.use("/aquarios", aquariosRouter);
-app.use("/empresas", empresasRouter);
+app.use("/fazenda", fazendaRouter);
+app.use("/endereco", enderecoRouter);
+app.use("/matriz", matrizRouter);
+app.use("/estufa", estufaRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`
