@@ -1,4 +1,5 @@
 * {
+    font-family: "Jost", serif;
     margin: 0;
     padding: 0;
 }
@@ -30,7 +31,6 @@ body {
 }
 
 #ul_navbar {
-    font-family: "Jomhuria", serif;
     color: #ffffff;
     list-style: none;
     display: flex;
@@ -57,7 +57,6 @@ body {
     margin-top: 15px;
     margin-left: -25%;
     font-size: 4vw;
-    font-family: "Jomhuria", serif;
     color: #E4E4E4;
     cursor: pointer;
     text-shadow: 2px 2px 4px rgba(67, 67, 67, 0.671);
@@ -125,7 +124,6 @@ body {
     right: 10%;
     font-size: 2vw;
     align-items: center;
-    font-family: "Jomhuria", serif;
     color: white;
     background-image: linear-gradient(#117a28be, #46b115b7);
     cursor: pointer;
@@ -142,7 +140,6 @@ body {
     right: 10px;
     font-size: 2vw;
     align-items: center;
-    font-family: "Jomhuria", serif;
     color: white;
     background-image: linear-gradient(#124b8bec, #2472cac7);
     cursor: pointer;
@@ -158,7 +155,6 @@ body {
 
 #div_texto p {
     font-size: 5vw;
-    font-family: "Jomhuria", serif;
 }
 
 #p_frase_principal {
@@ -177,7 +173,6 @@ body {
 }
 
 #div_frase_calculadora {
-    font-family: "Jomhuria", serif;
     display: flex;
     margin-bottom: 1vw;
     flex-direction: row;
@@ -202,7 +197,6 @@ body {
     font-size: 2.7vw;
     border-radius: 20px;
     align-items: center;
-    font-family: "Jomhuria", serif;
     color: white;
     background-image: linear-gradient(#117a28be, #46b115b7);
     cursor: pointer;
@@ -242,7 +236,6 @@ body {
 .div_sobre_nos p {
     flex-direction: column;
     color: #27AF45;
-    font-family: "Jomhuria", serif;
     font-size: 3vw;
     margin-top: -580px;
     right: 650px;
@@ -258,7 +251,6 @@ body {
 
 .div_pq_morangos p {
     
-    font-family: "Jomhuria", serif;
     font-weight: 400;
     font-style: normal;
     font-size: 7vw;
@@ -271,7 +263,6 @@ body {
 }
 
 #div_texto_sobre {
-    font-family: "Jomhuria", serif;
     color: #3d3d3d;
     padding: 20px;
     font-size: 3vw;
@@ -281,7 +272,6 @@ body {
 }
 
 #div_texto_sobre span {
-    font-family: "Jomhuria", serif;
     font-size: 3vw;
     color: #BB2B45;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
@@ -302,7 +292,6 @@ body {
 }
 
 #div_box_1 h4, #div_box_2 h4, #div_box_3 h4 {
-    font-family: "Jomhuria", serif;
     font-weight: lighter;
     font-size: 2vw;
 }
@@ -313,7 +302,6 @@ body {
     flex-direction: row;
     justify-content: center;
     color: #BB2B45;
-    font-family: "Jomhuria", serif;
     font-size: 2vw;
 }
 
@@ -371,14 +359,12 @@ body {
 #div_box_3>h5 {
     color: #BB2B45;
     margin-right: 80px;
-    font-family: "Jomhuria", serif;
     font-size: 2vw;
 }
 
 #div_box_1 h5,
 #div_box_2 h5,
 #div_box_3 h5 {
-    font-family: "Jomhuria", serif;
     font-size: 2vw;
     font-weight: 600;
     letter-spacing: 0.06vw;
@@ -390,7 +376,6 @@ body {
     flex-direction: row;
     justify-content: center;
     color: #BB2B45;
-    font-family: "Jomhuria", serif;
     font-size: 2vw;
 }
 
@@ -401,7 +386,6 @@ body {
     flex-direction: row;
     justify-content: center;
     color: #BB2B45;
-    font-family: "Jomhuria", serif;
     font-size: 2vw;
 }
 
@@ -420,7 +404,6 @@ body {
     border-radius: 50%;
     text-align: center;
     line-height: 100px;
-    font-family: "Jomhuria", serif;
     font-size: 3vw;
     color: #BB2B45;
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
@@ -439,7 +422,6 @@ body {
     border-radius: 50%;
     text-align: center;
     line-height: 100px;
-    font-family: "Jomhuria", serif;
     font-size: 3vw;
     color: #BB2B45;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -451,7 +433,6 @@ body {
     margin-left: 1200px;
     color: #BB2B45;
     font-size: 3.5vw;
-    font-family: "Jomhuria", serif;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
@@ -460,7 +441,6 @@ body {
     margin-left: 1200px;
     color: #BB2B45;
     font-size: 3.5vw;
-    font-family: "Jomhuria", serif;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
@@ -482,7 +462,6 @@ body {
 
 .div_diagrama p {
     flex-direction: column;
-    font-family: "Jomhuria", serif;
     font-size: 3vw;
     color: #27AF45;
     margin-top: 250px;
@@ -499,7 +478,6 @@ body {
 }
 
 .div_visao p {
-    font-family: "Jomhuria", serif;
     font-weight: 400;
     font-style: normal;
     font-size: 7vw;
@@ -606,7 +584,6 @@ body {
 .div_oferecemos p {
     flex-direction: column;
     color: #27AF45;
-    font-family: "Jomhuria", serif;
     font-size: 3vw;
     margin-top: 160px;
     right: 650px;
@@ -623,7 +600,6 @@ body {
 
 .div_visao p {
 
-    font-family: "Jomhuria", serif;
     font-weight: 400;
     font-style: normal;
     font-size: 7vw;
@@ -655,14 +631,12 @@ body {
     margin-top: 1vw;
     font-size: 2.5vw;
     color: #BB2B45;
-    font-family: "Jomhuria", serif;
     margin-left: -80px;
 }
 
 .caixa_1 p {
     margin-left: -100px;
     font-size: 1vw;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: black;
 
 }
@@ -687,7 +661,6 @@ body {
 .caixa_2 h1 {
     margin-top: 1vw;
     font-size: 2.5vw;
-    font-family: "Jomhuria", serif;
     margin-left: -50px;
     background-image: linear-gradient(to right, #27AF45, #4AE700);
     -webkit-background-clip: text;
@@ -698,7 +671,6 @@ body {
 .caixa_2 p {
     margin-left: -95.5px;
     font-size: 1vw;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: black;
 }
 
@@ -723,14 +695,12 @@ body {
     margin-top: 1vw;
     font-size: 2.5vw;
     color: #BB2B45;
-    font-family: "Jomhuria", serif;
     margin-left: -130px;
 }
 
 .caixa_3 p {
     margin-left: -95.5px;
     font-size: 1vw;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: black;
 }
 
@@ -754,7 +724,6 @@ body {
 .caixa_4 h1 {
     margin-top: 1vw;
     font-size: 2.5vw;
-    font-family: "Jomhuria", serif;
     margin-left: -60px;
     background-image: linear-gradient(to right, #27AF45, #4AE700);
     -webkit-background-clip: text;
@@ -765,7 +734,6 @@ body {
 .caixa_4 p {
     margin-left: -95.5px;
     font-size: 1vw;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: black;
 }
 
@@ -785,7 +753,6 @@ body {
     margin-top: 12px;
     margin-left:-33%;
     font-size: 4vw;
-    font-family: "Jomhuria", serif;
     color: #E4E4E4;
     cursor: pointer;
     text-shadow: 2px 2px 4px rgba(67, 67, 67, 0.671);
@@ -797,7 +764,6 @@ body {
     margin-top: 10px;
     margin-left:35%;
     font-size: 3vw;
-    font-family: "Jomhuria", serif;
     color: #E4E4E4;
     cursor: pointer;
     text-shadow: 2px 2px 4px rgba(67, 67, 67, 0.671);
