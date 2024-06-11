@@ -7,7 +7,8 @@
   <link rel="stylesheet" href="./cadastroFunc.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
   <link rel="icon" href="../icons/logo-berry.png" type="image/x-icon">
   <title>Berry Bite | Estufas</title>
 </head>
@@ -128,4 +129,124 @@
   function cadastrar() {
     window.location.href = "./cadastroFunc.html";
   }
+
+  var idMatriz = sessionStorage.ID_USUARIO
+  function cadastrarFuncionario() {
+    var nomevar = inp_nome.value
+    var emailVar = inp_email.value
+    var cpfVar = inp_cpf.value
+    var senhaVar = inp_senha.value
+
+    if (nomevar == "" || emailVar == "" || cpfVar == "" || senhaVar == "") {
+      alert("Os campos não podem ficar vazios!Senha")
+    }
+    else {
+      // Enviando o valor da nova input
+      fetch("/usuarios/cadastrarUsuario", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          // crie um atributo que recebe o valor recuperado aqui
+          // Agora vá para o arquivo routes/usuario.js
+          matrizServer: idMatriz,
+          nomeServer: nomeVar,
+          cpfServer: cpfVar,
+          emailServer: emailVar,
+          senhaServer: senhaVar,
+        }),
+      })
+        .then(function (respostaServer) {
+          console.log("respostaServer CADASTRAR MATRIZ: ", respostaServer);
+
+          if (respostaServer.ok) {
+
+            respostaServer.json().then(function (resposta) {
+              console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+
+            });
+          } else {
+            throw "Houve um erro ao tentar realizar o cadastro!";
+          }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+        });
+
+      return false;
+    }
+  }
+
+  function aparecerFuncionario() {
+    // Enviando o valor da nova input
+    fetch("/usuarios/aparecerFuncionario?idMatriz=${idMatriz}", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then(function (respostaServer) {
+        console.log("respostaServer CADASTRAR MATRIZ: ", respostaServer);
+
+        if (respostaServer.ok) {
+
+          respostaServer.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+
+          });
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+
+    return false;
+  }
+
+
+  function editarFuncionario() {
+    var nomeVar = inp_atualizarNome.value
+    var emailvar = inp_atualizarEmail.value
+    var cpfVar = inp_atualizarCpf.value
+    var senhaVar = inp_atualizarSenha.value
+
+    if (nomeVar != "") {
+      // Enviando o valor da nova input
+      fetch("/usuarios/editarNome", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          nomeServer: nomeVar,
+        }),
+      })
+        .then(function (respostaServer) {
+          console.log("respostaServer editarNome: ", respostaServer);
+
+          if (respostaServer.ok) {
+
+            respostaServer.json().then(function (resposta) {
+              console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+
+            });
+          } else {
+            throw "Houve um erro ao tentar realizar o editarNome!";
+          }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+        });
+
+      return false;
+    }
+  }
+
+
 </script>

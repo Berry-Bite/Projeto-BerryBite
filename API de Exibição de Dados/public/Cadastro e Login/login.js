@@ -22,6 +22,9 @@ function entrar() {
         validacao_login.innerHTML = "Preencha todos os campos para prosseguir!";
         validado = true
     }
+    else if(cnpjVar.leght == 18){
+        
+    }
     else {
 
         console.log("FORM LOGIN: ", cnpjVar);

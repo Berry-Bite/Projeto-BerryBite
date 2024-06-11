@@ -5,6 +5,7 @@ function cadastrarUsuario(req, res) {
     var cpf = req.body.cpfServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
+    var idMatriz = req.body.matrizServer;
 
     if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
@@ -14,9 +15,11 @@ function cadastrarUsuario(req, res) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
-    } else {
+    } else if (idMatriz == undefined) {
+        res.status(400).send("Sua idMatriz está undefined!");
+    }else {
 
-        usuarioModel.cadastrarUsuario(nome, cpf, email, senha)
+        usuarioModel.cadastrarUsuario(nome, cpf, email, senha, idMatriz)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -54,9 +57,9 @@ function autenticarUsuario(req, res) {
                         console.log(resultadoAutenticar);
                         var usuario = resultadoAutenticar[0]
                         res.json({
-                            id: usuario.idMatriz,
+                            id: usuario.idUsuario,
                             cpf: usuario.cpf,
-                            nome: usuario.razaoSocial,
+                            nome: usuario.nome,
                             senha: usuario.senha,
                         });
 
@@ -77,8 +80,35 @@ function autenticarUsuario(req, res) {
 
 }
 
+function aparecerFuncionario(req, res) {
+    var idMatriz = req.query.idMatriz;
+
+    if (idMatriz == undefined) {
+        res.status(400).send("Seu idMatriz está undefined!");
+    } else {
+
+        usuarioModel.aparecerFuncionario(idMatriz)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro: aparecerFuncionario ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+
 
 module.exports = {
     cadastrarUsuario,
-    autenticarUsuario
+    autenticarUsuario,
+    aparecerFuncionario
 };

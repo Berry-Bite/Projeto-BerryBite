@@ -10,10 +10,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
   <link rel="icon" href="../icons/logo-berry.png" type="image/x-icon">
-  <title>Berry Bite | Estufas</title>
+  <title>Berry Bite | Comparação</title>
 </head>
 
-<body>
+<body onload="verFazendas()">
 
   <div id="div_fundo" class="pagina">
 
@@ -47,11 +47,11 @@
 
 
     <!-- Parte da página a direita-->
-    <div class="mural_right">
+    <div id="mural_right">
 
-      <h1>Comparação: Fazenda Colheita Feliz</h1>
+      <!-- <h1>Comparação: Fazenda Colheita Feliz</h1> -->
 
-      <div id="estufas">
+      <!-- <div id="estufas">
 
         <div id="select_estufas" class="estufa_omega">
           <button onclick="comparacao_omega_temp()" type="submit" aria-label="estufa omega">
@@ -73,11 +73,13 @@
           </button>
         </div>
 
-      </div>
+      </div> -->
 
-
-
+      <!-- início das estufas -->
+      <div id="fazendas"></div>
+      <div id="estufas"></div>
     </div>
+
 
   </div>
 
@@ -87,7 +89,6 @@
 </body>
 
 </html>
-
 <script>
   var nome = 'Fernanda';
   user.innerHTML = `<span id="nome">Bem-vindo(a)<br>${nome}</span>`;
@@ -104,6 +105,19 @@
     window.location.href = "../index.html";
   }
 
+  function estufa_omega() {
+    window.location.href = "estufa-omega.html";
+  }
+
+  function estufa_violet() {
+    window.location.href = "estufa-violet.html";
+
+  }
+
+  function inicio() {
+    window.location.href = "./estufas.html";
+  }
+
   function comparacao() {
     window.location.href = "./comparacao.html";
   }
@@ -112,31 +126,189 @@
     window.open('https://berrybite.atlassian.net/servicedesk/customer/portal/1', '_blank');
   }
 
-
-  // COMPARACOES
-
-  function comparacao_omega_temp() {
-    window.location.href = "comparacao-omega-temp.html";
-  }
-
-  function comparacao_violet_temp() {
-    window.location.href = "comparacao-violet-temp.html";
-  }
-
-  function comparacao_omega_umi() {
-    window.location.href = "comparacao-omega-umi.html";
-  }
-
-  function comparacao_violet_umi() {
-    window.location.href = "comparacao-violet-umi.html";
-  }
-
   function cadastrar() {
     window.location.href = "./cadastroFunc.html";
   }
 
-  function inicio() {
-    window.location.href = "./estufas.html";
+
+
+
+
+
+
+
+
+  function verFazendas() {
+    // var idMatriz = sessionStorage.ID_MATRIZ;
+    var idMatriz = 1;
+
+    fetch(`/fazenda/verFazendas/${idMatriz}`, {
+      method: "GET"
+    }).then(function (resposta) {
+      if (resposta.ok) {
+        console.log(resposta);
+        resposta.json().then(json => {
+          criarFazendas(json);
+        });
+
+      } else {
+        resposta.text().then(texto => {
+          console.error(texto);
+        });
+      }
+    }).catch(function (erro) {
+      console.log(erro);
+    })
   }
 
+
+  function criarFazendas(dados) {
+    // if (dados.length == 1) {
+    //   procurarEstufas(1);
+    // } else {
+    var texto = `<h2 id="titulo_fazenda">Suas Fazendas</h2>`;
+    for (var i = 1; i <= dados.length; i++) {
+      texto += `<button id="fazenda${i}" class="button_fazenda" onclick="procurarEstufas(this)" type="submit">
+        <span>${dados[i - 1].nome}</span>
+        </button>`;
+    }
+    fazendas.innerHTML = texto;
+  }
+  // }
+
+  var nome_fazenda_escolhida = "";
+
+  function procurarEstufas(item) {
+    console.log(item)
+    if (item == 1) {
+      var indice = 1;
+    } else {
+      var indice = item.id[item.id.length - 1];
+    }
+    fetch(`/estufa/verEstufas/${indice}`, {
+      method: "GET"
+    }).then(function (resposta) {
+      if (resposta.ok) {
+        console.log(resposta);
+        resposta.json().then(json => {
+          abrirEstufas(json);
+        });
+
+      } else {
+        resposta.text().then(texto => {
+          console.error(texto);
+        });
+      }
+    }).catch(function (erro) {
+      console.log(erro);
+    })
+  }
+
+  function abrirEstufas(dados) {
+    document.getElementById("fazendas").style.display = "none";
+    var texto = `<h2 id="titulo_estufa">Estufas da Fazenda ${nome_fazenda_escolhida}</h2>`;
+    for (var i = 1; i <= dados.length; i++) {
+      texto += `<button value="${dados[i - 1].nome}" id="estufau${i}" class="button_estufa" onclick="dadosEstufa(this)" type="submit">
+        <span>${dados[i - 1].nome}<br>Umidade</span>
+      </button>`;
+      texto += `<button value="${dados[i - 1].nome}" id="estufat${i}" class="button_estufa" onclick="dadosEstufa(this)" type="submit">
+        <span>${dados[i - 1].nome}<br>Temperatura</span>
+      </button>`;
+    }
+    document.getElementById("estufas").innerHTML = texto;
+  }
+
+
+
+
+  function dadosEstufa(item) {
+    document.getElementById("mural_right").innerHTML = `
+            <div class="id_estufa">
+                <h2>Estufa ${item.value}</h2>
+            </div>
+
+            
+
+            <div class="voltar">
+                <button onclick="estufas()">Voltar</button>
+            </div>
+
+    `
+    var indice = item.id[item.id.length - 1];
+    fetch(`/estufa/compararEstufa/${indice}`, {
+      method: "GET"
+    }).then(function (resposta) {
+      if (resposta.ok) {
+        console.log(resposta);
+        resposta.json().then(json => {
+          json.reverse();
+          console.log(json);
+        });
+
+      } else {
+        resposta.text().then(texto => {
+          console.error(texto);
+        });
+      }
+    }).catch(function (erro) {
+      console.log(erro);
+    })
+  }
+
+
+  var lista_temperatura = [];
+  var lista_umidade = [];
+  function criarGraficos(dados) {
+    for (var i = 0; i < dados.length; i++) {
+      lista_temperatura.push(dados[i].temperatura);
+      lista_umidade.push(dados[i].umidade);
+    }
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Novembro', 'Dezembro'],
+        datasets: [{
+          label: 'Umidade 2022',
+          data: [75, 72, 69, 65, 63, 63, 66, 64, 70, 70, 75, 74],
+          borderWidth: 1,
+          borderColor: '#5EB7D1',
+          pointBackgroundColor: '#5EB7D1',
+          backgroundColor: '#5EB7D1',
+          hoverBackgroundColor: '#5EB7D1',
+          hoverBorderColor: 'black',
+          hoverBorderWidth: 4
+        },
+        {
+          label: 'Umidade 2023',
+          data: [74, 73, 65, 64, 60, 62, 64, 67, 70, 71, 70, 74],
+          borderWidth: 1,
+          borderColor: '#00739A',
+          pointBackgroundColor: '#00739A',
+          backgroundColor: '#00739A',
+          hoverBackgroundColor: '#00739A',
+          hoverBorderColor: 'black',
+          hoverBorderWidth: 4
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      },
+      onHover: function (event, chartElement) {
+        event.target.style.cursor = chartElement[0] ? 'pointer' : 'default';
+        event.target.style.cursor = chartElement[1] ? 'pointer' : 'default';
+      }
+    });
+  }
+
+
+
+
+
 </script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

@@ -11,4 +11,8 @@ router.get("/verFazendas/:idMatriz", function (req, res) {
     fazendaController.verFazendas(req, res);
 });
 
+router.get("/compararEstufa/:idEstufa", function (req, res) {
+    fazendaController.verFazendas(req, res);
+});
+
 module.exports = router;

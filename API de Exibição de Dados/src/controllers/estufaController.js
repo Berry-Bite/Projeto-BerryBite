@@ -79,9 +79,37 @@ function verEstufas(req, res) {
 }
 
 
+function compararEstufa(req, res) {
+    var idEstufa= req.params.idEstufa;
+
+    if (idEstufa== undefined) {
+        res.status(400).send("Seu idEstufa está undefined!");
+    } else {
+
+        estufaModel.verEstufas(idEstufa)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro: verEstufas ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+
+
 
 module.exports = {
     estufaProblematica,
     ultimosDadosEstufa,
-    verEstufas
+    verEstufas,
+    compararEstufa
 };

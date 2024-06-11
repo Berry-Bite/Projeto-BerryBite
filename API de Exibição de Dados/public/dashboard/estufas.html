@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="./estufas.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jomhuria&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
   <link rel="icon" href="../icons/logo-berry.png" type="image/x-icon">
   <title>Berry Bite | Estufas</title>
 </head>
@@ -32,8 +32,8 @@
           <button style="background-color: #7AB8CC;" onclick="estufas()">Estufas</button>
           <button onclick="comparacao()">Comparação</button>
           <button onclick="parametros()">Parâmetros</button>
-          <button onclick="contato()">Contato</button>
           <button onclick="cadastrar()">Cadastrar</button>
+          <button onclick="contato()">Contato</button>
         </div>
 
         <div class="sair">
@@ -55,28 +55,23 @@
         <div class="parametros_temp_umi">
 
           <div class="perigo_menor">
-            <p>Perigo: Frio ou Baixo</p>
-            <p>> 13°C ou > 40%</p>
+            <p>Perigo:<br>Frio ou Baixo</p>
           </div>
 
           <div class="alerta_menor">
-            <p>Alerta: Frio ou Baixo</p>
-            <p>> 16°C ou > 59%</p>
+            <p>Alerta:<br>Frio ou Baixo</p>
           </div>
 
           <div class="ideal">
             <p>Ideal</p>
-            <p>> 21,9°C > 75%</p>
           </div>
 
           <div class="alerta_maior">
-            <p>Alerta: Calor ou Alto</p>
-            <p>> 22°C > 80%</p>
+            <p>Alerta:<br>Calor ou Alto</p>
           </div>
 
           <div class="perigo_maior">
-            <p>Perigo: Calor ou Alto</p>
-            <p>> 26°C > 80%</p>
+            <p>Perigo:<br>Calor ou Alto</p>
           </div>
 
         </div>
@@ -167,19 +162,28 @@
 
 
   function criarFazendas(dados) {
-    var texto = "";
-    for (var i = 1; i <= dados.length; i++) {
-      texto += `<button id="fazenda${i}" class="button_fazenda" onclick="procurarEstufas(this)" type="submit">
-        <span>${dados[0].nome}</span>
-      </button>`
+    // if (dados.length == 1) {
+    //   procurarEstufas(1);
+    // } else {
+      var texto = `<h2 id="titulo_fazenda">Suas Fazendas</h2>`;
+      for (var i = 1; i <= dados.length; i++) {
+        texto += `<button id="fazenda${i}" class="button_fazenda" onclick="procurarEstufas(this)" type="submit">
+        <span>${dados[i - 1].nome}</span>
+        </button>`;
+      }
+      fazendas.innerHTML = texto;
     }
-    fazendas.innerHTML = texto;
-  }
+  // }
 
-
+var nome_fazenda_escolhida = "";
 
   function procurarEstufas(item) {
-    var indice = item.id[item.id.length - 1];
+    if (item == 1) {
+      var indice = 1;
+    } else {
+      var indice = item.id[item.id.length - 1];
+      nome_fazenda_escolhida = item.querySelector('span').textContent;
+    }
     fetch(`/estufa/verEstufas/${indice}`, {
       method: "GET"
     }).then(function (resposta) {
@@ -201,10 +205,10 @@
 
   function abrirEstufas(dados) {
     document.getElementById("fazendas").style.display = "none";
-    var texto = "";
+    var texto = `<h2 id="titulo_estufa">Estufas da ${nome_fazenda_escolhida}</h2>`;
     for (var i = 1; i <= dados.length; i++) {
-      texto += `<button value="${dados[0].nome}" id="estufa${i}" class="button_estufa" onclick="dadosEstufa(this)" type="submit">
-        <span>${dados[0].nome}</span>
+      texto += `<button value="${dados[i - 1].nome}" id="estufa${i}" class="button_estufa" onclick="dadosEstufa(this)" type="submit">
+        <span>${dados[i - 1].nome}</span>
       </button>`
     }
     document.getElementById("estufas").innerHTML = texto;

@@ -15,4 +15,8 @@ router.get("/verEstufas/:idFazenda", function (req, res) {
     estufaController.verEstufas(req, res);
 });
 
+router.get("/compararEstufa/:idEstufa", function (req, res) {
+    estufaController.compararEstufa(req, res);
+});
+
 module.exports = router;

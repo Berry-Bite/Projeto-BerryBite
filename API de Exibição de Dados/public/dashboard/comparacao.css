@@ -177,7 +177,7 @@ img {
     height: 100vh;
 }
 
-.mural_right h1 {
+#mural_right h1 {
     font-size: 280%;
     margin-left: 22%;
     font-weight: 400;

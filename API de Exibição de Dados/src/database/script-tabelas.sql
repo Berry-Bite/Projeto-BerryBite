@@ -18,15 +18,14 @@ CREATE TABLE Fazenda(
 
 CREATE TABLE Usuario(
     idUsuario INT AUTO_INCREMENT,
-    fkFazendaUsuario INT,
-    CONSTRAINT pkComposta PRIMARY KEY (idUsuario, fkFazendaUsuario),
     nome VARCHAR(45),
     email VARCHAR(45),
     cpf CHAR(11) UNIQUE,
     telCelular CHAR(12),
     senha VARCHAR(15),
     fkMatriz INT,
-    CONSTRAINT fkFazendaUsuario FOREIGN KEY (fkFazendaUsuario) REFERENCES Fazenda(idFazenda)
+    PRIMARY KEY (idUsuario, fkMatriz),
+    FOREIGN KEY (fkMatriz) REFERENCES Matriz(idMatriz)
 );
 
 CREATE TABLE Endereco(
