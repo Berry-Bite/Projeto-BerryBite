@@ -3,19 +3,19 @@ var router = express.Router();
 
 var estufaController = require("../controllers/estufaController");
 
-router.post("/estufaProblematica", function (req, res) {
+router.get("/estufaProblematica/:idMatriz", function (req, res) {
     estufaController.estufaProblematica(req, res);
 })
 
-router.get("/ultimosDadosEstufa/:idEstufa", function (req, res) {
+router.get("/ultimosDadosEstufa/:idEstufa/:idFazenda/:idMatriz", function (req, res) {
     estufaController.ultimosDadosEstufa(req, res);
 })
 
-router.get("/verEstufas/:idFazenda", function (req, res) {
+router.get("/verEstufas/:idFazenda/:Matriz", function (req, res) {
     estufaController.verEstufas(req, res);
 });
 
-router.get("/compararEstufa/:idEstufa", function (req, res) {
+router.get("/compararEstufa/:idEstufa/:idFazenda/:idMatriz", function (req, res) {
     estufaController.compararEstufa(req, res);
 });
 

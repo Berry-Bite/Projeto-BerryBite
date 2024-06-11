@@ -138,10 +138,13 @@
 
 
   function verFazendas() {
+    // Murilo
     // var idMatriz = sessionStorage.ID_MATRIZ;
+    // var idFazenda = sessionStorage.ID_FAZENDA;
     var idMatriz = 1;
+    var idFazenda = 1
 
-    fetch(`/fazenda/verFazendas/${idMatriz}`, {
+    fetch(`/fazenda/verFazendas/${idMatriz}/${idFazenda}`, {
       method: "GET"
     }).then(function (resposta) {
       if (resposta.ok) {
@@ -184,7 +187,7 @@ var nome_fazenda_escolhida = "";
       var indice = item.id[item.id.length - 1];
       nome_fazenda_escolhida = item.querySelector('span').textContent;
     }
-    fetch(`/estufa/verEstufas/${indice}`, {
+    fetch(`/estufa/verEstufas/${indice}/${idMatriz}/${idFazenda}`, {
       method: "GET"
     }).then(function (resposta) {
       if (resposta.ok) {
@@ -318,7 +321,7 @@ var nome_fazenda_escolhida = "";
       <div id="div_erro"></div>
       <div id="div_bola_erro"> </div>`
     var indice = item.id[item.id.length - 1];
-    fetch(`/estufa/ultimosDadosEstufa/${indice}`, {
+    fetch(`/estufa/ultimosDadosEstufa/${indice}/${idMatriz}/${idFazenda}`, {
       method: "GET"
     }).then(function (resposta) {
       if (resposta.ok) {

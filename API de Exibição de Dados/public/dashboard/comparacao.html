@@ -138,9 +138,9 @@
 
 
 
+  // var idMatriz = sessionStorage.ID_MATRIZ;
+  var idMatriz = 1;
   function verFazendas() {
-    // var idMatriz = sessionStorage.ID_MATRIZ;
-    var idMatriz = 1;
 
     fetch(`/fazenda/verFazendas/${idMatriz}`, {
       method: "GET"
@@ -185,7 +185,7 @@
     } else {
       var indice = item.id[item.id.length - 1];
     }
-    fetch(`/estufa/verEstufas/${indice}`, {
+    fetch(`/estufa/verEstufas/${indice}/${item.id[item.id.length - 1]}/${idMatriz}`, {
       method: "GET"
     }).then(function (resposta) {
       if (resposta.ok) {
@@ -222,12 +222,19 @@
 
 
   function dadosEstufa(item) {
+    if (item.id[7] == "u") {
+      var tipo = "Umidade"
+    } else {
+      var tipo = "Temperatura"
+    }
     document.getElementById("mural_right").innerHTML = `
             <div class="id_estufa">
                 <h2>Estufa ${item.value}</h2>
             </div>
 
-            
+            <div class="grafico">
+                <canvas id="myChart"></canvas>
+            </div>
 
             <div class="voltar">
                 <button onclick="estufas()">Voltar</button>
@@ -241,8 +248,7 @@
       if (resposta.ok) {
         console.log(resposta);
         resposta.json().then(json => {
-          json.reverse();
-          console.log(json);
+          criarGraficos(json);
         });
 
       } else {
@@ -256,12 +262,16 @@
   }
 
 
-  var lista_temperatura = [];
-  var lista_umidade = [];
+  var lista_media = [];
   function criarGraficos(dados) {
-    for (var i = 0; i < dados.length; i++) {
-      lista_temperatura.push(dados[i].temperatura);
-      lista_umidade.push(dados[i].umidade);
+    if (tipo == "Umidade") {
+      for (var i = 0; i < dados.length; i++) {
+        lista_media.push(dados[i].media_umidade);
+      }
+    } else {
+      for (var i = 0; i < dados.length; i++) {
+        lista_media.push(dados[i].media_temperatura);
+      }
     }
     const ctx = document.getElementById('myChart');
 
@@ -269,9 +279,9 @@
       type: 'bar',
       data: {
         labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Novembro', 'Dezembro'],
-        datasets: [{
-          label: 'Umidade 2022',
-          data: [75, 72, 69, 65, 63, 63, 66, 64, 70, 70, 75, 74],
+        datasets: {
+          label: `Média de ${tipo} dos meses`,
+          data: lista_media,
           borderWidth: 1,
           borderColor: '#5EB7D1',
           pointBackgroundColor: '#5EB7D1',
@@ -279,18 +289,7 @@
           hoverBackgroundColor: '#5EB7D1',
           hoverBorderColor: 'black',
           hoverBorderWidth: 4
-        },
-        {
-          label: 'Umidade 2023',
-          data: [74, 73, 65, 64, 60, 62, 64, 67, 70, 71, 70, 74],
-          borderWidth: 1,
-          borderColor: '#00739A',
-          pointBackgroundColor: '#00739A',
-          backgroundColor: '#00739A',
-          hoverBackgroundColor: '#00739A',
-          hoverBorderColor: 'black',
-          hoverBorderWidth: 4
-        }]
+        }
       },
       options: {
         scales: {

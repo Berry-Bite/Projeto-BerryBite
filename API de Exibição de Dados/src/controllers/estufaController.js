@@ -6,8 +6,9 @@ function estufaProblematica(req, res) {
     var umidadeMaxima = 80;
     var temperaturaMinima = 13;
     var temperaturaMaxima = 26;
+    var idMatriz = req.params.idMatriz;
 
-    estufaModel.estufaProblematica(umidadeMinima, umidadeMaxima, temperaturaMinima, temperaturaMaxima)
+    estufaModel.estufaProblematica(umidadeMinima, umidadeMaxima, temperaturaMinima, temperaturaMaxima, idMatriz)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -27,13 +28,15 @@ function estufaProblematica(req, res) {
 
 function ultimosDadosEstufa(req, res) {
     var idEstufa = req.params.idEstufa;
+    var idFazenda = req.params.idFazenda;
+    var idMatriz = req.params.idMatriz;
     var limite = 7;
 
     if (idEstufa == undefined) {
         res.status(400).send("Seu idEstufa está undefined!");
     } else {
 
-        estufaModel.ultimosDadosEstufa(idEstufa, limite)
+        estufaModel.ultimosDadosEstufa(idEstufa, idFazenda, idMatriz, limite)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -55,12 +58,15 @@ function ultimosDadosEstufa(req, res) {
 
 function verEstufas(req, res) {
     var idFazenda = req.params.idFazenda;
+    var idMatriz = req.params.idMatriz;
 
     if (idFazenda == undefined) {
         res.status(400).send("Seu idFazenda está undefined!");
+    } else if (idMatriz == undefined) {
+        res.status(400).send("Seu idMatriz está undefined!");
     } else {
 
-        estufaModel.verEstufas(idFazenda)
+        estufaModel.verEstufas(idFazenda, idMatriz)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -81,12 +87,14 @@ function verEstufas(req, res) {
 
 function compararEstufa(req, res) {
     var idEstufa= req.params.idEstufa;
+    var idFazenda= req.params.idFazenda;
+    var idMatriz= req.params.idMatriz;
 
     if (idEstufa== undefined) {
         res.status(400).send("Seu idEstufa está undefined!");
     } else {
 
-        estufaModel.verEstufas(idEstufa)
+        estufaModel.compararEstufa(idEstufa, idFazenda, idMatriz)
             .then(
                 function (resultado) {
                     res.json(resultado);

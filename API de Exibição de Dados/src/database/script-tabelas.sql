@@ -41,8 +41,8 @@ CREATE TABLE Estufa(
     nome VARCHAR(45),
     tamanhoMetroQuadrado FLOAT,
     quantidadeMorangueiros INT,
-    fkFazendaEstufa INT,
-    CONSTRAINT fkFazendaEstufa FOREIGN KEY (fkFazendaEstufa) REFERENCES Fazenda(idFazenda)
+    fkFazenda INT,
+    CONSTRAINT fkFazendaEstufa FOREIGN KEY (fkFazenda) REFERENCES Fazenda(idFazenda)
 );
 
 CREATE TABLE Sensor(
@@ -53,7 +53,7 @@ CREATE TABLE Sensor(
 );
 
 CREATE TABLE Metrica(
-    idMetrica INT AUTO_INCREMENT,
+    idMetrica INT PRIMARY KEY AUTO_INCREMENT,
     temperaturaMinima FLOAT,
     temperaturaMaxima FLOAT,
     UmidadeMinima FLOAT,
