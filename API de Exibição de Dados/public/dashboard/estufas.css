@@ -1,8 +1,9 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: antiquewhite;
+    background-color: #faebd7;
     overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 
@@ -13,11 +14,16 @@ body {
 
 .header_left {
     height: 100vh;
-    width: 15%;
+    width: 15vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-right: 2px solid black;
+    border-right: 3.5px solid black;
+}
+
+#mural_right{
+    width: 85vw;
+    height: 100vh;
 }
 
 .marca {
@@ -115,21 +121,17 @@ img {
     font-size: 110%;
 }
 
+
+
+
+
+
 /* início dos parâmetros */
-
-.mural_right{ 
-    width: 100%;
-    flex-direction: column;
-    display: flex;
-    align-items: flex-start;
-}
-
-.temperatura{
-    padding-left: 20%;
+.parametros{
     height: 22%;
 }
 
-.temperatura h2 {
+.parametros h2 {
     font-family: "Jomhuria", serif;
     font-size: 300%;
     margin-top: 2%;
@@ -137,7 +139,7 @@ img {
     font-weight: lighter;
 }
 
-.parametros_temperatura {
+.parametros_temp_umi {
     width: 120%;
     height: 70%;
     display: flex;
@@ -150,9 +152,8 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* background-color:  #00739A; */
     background-color: #BB2B45;
-    width: 36%;
+    width: 20%;
     height: 80%;
     font-size: 180%;
     text-align: center;
@@ -172,11 +173,10 @@ img {
 }
 
 .alerta_menor {
-    /* background-color: #5EB7D1; */
     display: flex;
     flex-direction: column;
     background-color: #E6C84C;
-    width: 36%;
+    width: 20%;
     font-size: 180%;
     height: 80%;
     text-align: center;
@@ -196,7 +196,7 @@ img {
     background-color: #6BB87A;
     display: flex;
     flex-direction: column;
-    width: 36%;
+    width: 20%;
     height: 80%;
     font-size: 180%;
     text-align: center;
@@ -217,7 +217,7 @@ img {
     flex-direction: column;
     align-items: center;
     background-color: #E6C84C;
-    width: 36%;
+    width: 20%;
     font-size: 180%;
     height: 80%;
     text-align: center;
@@ -241,7 +241,7 @@ img {
     flex-direction: column;
     align-items: center;
     background-color: #BB2B45;
-    width: 36%;
+    width: 20%;
     height: 80%;
     text-align: center;
     border-top-right-radius: 3vw;
@@ -632,128 +632,9 @@ img {
 
 
 
-
-/* ESTUFAS */
-.pagina {
-    display: flex;
-}
-
-
-.header_left {
-    height: 100vh;
-    width: 15%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-right: 3.5px solid black;
-}
-
-.marca {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    gap: 1px;
-    height: 25%;
-    width: 100%;
-    font-size: 150%;
-}
-
-.marca span {
-    font-family: "Jomhuria", serif;
-    font-size: 200%;
-    font-weight: lighter;
-}
-
-.marca img {
-    height: auto;
-    width: 20%;
-}
-
-img {
-    height: 25%;
-    width: 25%;
-}
-
-.container {
-    height: 70%;
-}
-
-#user {
-    margin-bottom: -2%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 20%;
-    margin-bottom: 30%;
-    margin-top: 10%;
-}
-
-#user span {
-    font-family: "Jomhuria", serif;
-    font-size: 300%;
-    margin-top: 2%;
-    font-weight: lighter;
-}
-
-.menu {
-    margin-bottom: -10%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    list-style: none;
-    margin-left: 0;
-    width: 100%;
-    height: 55%;
-    gap: 20px;
-}
-
-.menu button {
-    text-align: center;
-    border-radius: 3px;
-    border: 0.2vw solid white;
-    background-color: #6BB87A;
-    color: white;
-    cursor: pointer;
-    width: 85%;
-    height: 12%;
-    font-size: 110%;
-}
-
-.sair {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    height: 20%;
-}
-
-.sair button {
-    border-radius: 3px;
-    border: 0.2vw solid white;
-    background-color: #BB2B45;;
-    color: white;
-    cursor: pointer;
-    width: 60%;
-    height: 30%;
-    font-size: 110%;
-}
-
-
-/*inicio da seleção das estufas*/
-
 .minhas_estufas button img {
     width: 30%;
     height: auto;
-}
-
-.mural_rigth{
-    width: 88%;
-    height: 100vh;
 }
 
 .minhas_estufas{
@@ -887,7 +768,7 @@ img {
     height: auto;
 }
 
-#parametros_temperatura {
+#parametros_temp_umi {
     margin-top: 7%;
     width: 18%;
     font-weight: lighter;
@@ -957,7 +838,7 @@ img {
 }
 
 .estufa1_umidade{
-    margin-top: 3%;
+    margin-top: 1%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -1145,46 +1026,7 @@ img {
 }
 
 
-/* ALERTA ERRO DUPLO */
-
-
-#caixa_erro {
-    border: 1.5vw solid white;
-    border-radius: 5vw;
-    width: 35vw;
-    height: 30vw;
-    position: absolute;
-    top: 7.5vw;
-    left: 32.5vw;
-    background-color: #BB2B45;
-    text-align: center;
-}
-
-#titulo_erro {
-    font-family: "Jomhuria", serif;
-    padding: 5vw;
-    color: white;
-    font-size: 3vw;
-}
-
-#simbolo_erro {
-    font-size: 7vw;
-}
-
-#mensagem_erro_umidade, #mensagem_erro_temperatura {
-    font-family: "Jomhuria", serif;
-    color: white;
-    font-size: 3vw;
-}
-
-#mensagem_erro b {
-    font-family: "Jomhuria", serif;
-    color: white;
-    font-size: 5vw;
-    font-weight: 500;
-    text-decoration: underline;
-}
-
+/* ALERTA ERRO */
 #botao_erro {
     border: 0.25vw solid white;
     border-radius: 3vw;

@@ -7,7 +7,8 @@
   <link rel="stylesheet" href="./comparacao.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
   <link rel="icon" href="../icons/logo-berry.png" type="image/x-icon">
   <title>Berry Bite | Estufas</title>
 </head>
@@ -30,7 +31,7 @@
 
         <div class="menu">
           <button onclick="estufas()">Estufas</button>
-          <button style="background-color: #7AB8CC;"  onclick="comparacao()">Comparação</button>
+          <button style="background-color: #7AB8CC;" onclick="comparacao()">Comparação</button>
           <button onclick="parametros()">Parâmetros</button>
           <button onclick="contato()">Contato</button>
           <button onclick="cadastrar()">Cadastrar</button>
@@ -47,33 +48,33 @@
 
     <!-- Parte da página a direita-->
     <div class="mural_right">
-        
-        <h1>Comparação: Fazenda Colheita Feliz</h1>
 
-        <div id="estufas">
+      <h1>Comparação: Fazenda Colheita Feliz</h1>
 
-            <div id="select_estufas" class="estufa_omega">
-                <button onclick="comparacao_omega_temp()" type="submit" aria-label="estufa omega">
-                    <img src="../icons/estufa.png" alt="estufa"><br><br><span>Estufa Omega<br>Temperatura</span>
-                </button>
-    
-                <button onclick="comparacao_omega_umi()" type="submit" aria-label="estufa omega">
-                    <img src="../icons/estufa.png" alt="estufa"><br><br><span>Estufa Omega<br>Umidade</span>
-                </button>
-            </div>
-    
-            <div id="select_estufas" class="estufa_violet">
-                <button onclick="comparacao_violet_temp()" type="submit" aria-label="estufa violet">
-                    <img src="../icons/estufa.png" alt="estufa"><br><br><span>Estufa Violet<br>Temperatura</span>
-                </button>
-    
-                <button onclick="comparacao_violet_umi()" type="submit" aria-label="estufa violet">
-                    <img src="../icons/estufa.png" alt="estufa"><br><br><span>Estufa Violet<br>Umidade</span>
-                </button>
-            </div>
+      <div id="estufas">
 
+        <div id="select_estufas" class="estufa_omega">
+          <button onclick="comparacao_omega_temp()" type="submit" aria-label="estufa omega">
+            <img src="../icons/estufa.png" alt="estufa"><br><br><span>Estufa Omega<br>Temperatura</span>
+          </button>
+
+          <button onclick="comparacao_omega_umi()" type="submit" aria-label="estufa omega">
+            <img src="../icons/estufa.png" alt="estufa"><br><br><span>Estufa Omega<br>Umidade</span>
+          </button>
         </div>
-        
+
+        <div id="select_estufas" class="estufa_violet">
+          <button onclick="comparacao_violet_temp()" type="submit" aria-label="estufa violet">
+            <img src="../icons/estufa.png" alt="estufa"><br><br><span>Estufa Violet<br>Temperatura</span>
+          </button>
+
+          <button onclick="comparacao_violet_umi()" type="submit" aria-label="estufa violet">
+            <img src="../icons/estufa.png" alt="estufa"><br><br><span>Estufa Violet<br>Umidade</span>
+          </button>
+        </div>
+
+      </div>
+
 
 
     </div>
@@ -108,11 +109,11 @@
   }
 
   function contato() {
-    window.location.href = "./contato.html";
+    window.open('https://berrybite.atlassian.net/servicedesk/customer/portal/1', '_blank');
   }
 
 
-// COMPARACOES
+  // COMPARACOES
 
   function comparacao_omega_temp() {
     window.location.href = "comparacao-omega-temp.html";
