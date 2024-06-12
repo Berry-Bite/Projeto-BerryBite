@@ -71,14 +71,12 @@
 
         <div class="funcionario_cadastrado">
           <h2>Funcionarios Cadastrados:</h2>
-
-          <div class="funcionario">
-            <div id="info_funcionario">
-              <h3>Fernanda</h3>
-              <h5>Supervisor: Estufa ômega</h5>
-            </div>
-            <div id="img_editar">
-              <img src="../icons/icons8-editar-50.png" alt="">
+          <div id="div_lista_funcionarios">
+            <div class="funcionario">
+              <div id="info_funcionario">
+                <h3>Fernanda</h3>
+                <h5>Supervisor: Estufa ômega</h5>
+              </div>
             </div>
           </div>
         </div>
@@ -135,7 +133,7 @@
     window.location.href = "./cadastroFunc.html";
   }
 
-  var idMatriz = sessionStorage.ID_USUARIO
+  var idMatriz = sessionStorage.ID_MATRIZ
   function cadastrarFuncionario() {
     var nomeVar = inp_nome.value
     var emailVar = inp_email.value
@@ -220,6 +218,7 @@
 
           respostaServer.json().then(function (resposta) {
             console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
 
 
           });
