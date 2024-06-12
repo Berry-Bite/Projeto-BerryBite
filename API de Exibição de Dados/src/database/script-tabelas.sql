@@ -1,5 +1,5 @@
-CREATE DATABASE BerryBite;
-USE BerryBite;
+CREATE DATABASE berrybite;
+USE berrybite;
 
 CREATE TABLE Matriz(
     idMatriz INT PRIMARY KEY AUTO_INCREMENT,
@@ -21,7 +21,7 @@ CREATE TABLE Usuario(
     nome VARCHAR(45),
     email VARCHAR(45),
     cpf CHAR(11) UNIQUE,
-    telCelular CHAR(12),
+    CONSTRAINT checkcpf CHECK (cpf LIKE '___.___.___-__'),
     senha VARCHAR(15),
     fkMatriz INT,
     PRIMARY KEY (idUsuario, fkMatriz),
@@ -42,7 +42,7 @@ CREATE TABLE Estufa(
     tamanhoMetroQuadrado FLOAT,
     quantidadeMorangueiros INT,
     fkFazenda INT,
-    CONSTRAINT fkFazendaEstufa FOREIGN KEY (fkFazenda) REFERENCES Fazenda(idFazenda)
+    FOREIGN KEY (fkFazenda) REFERENCES Fazenda(idFazenda)
 );
 
 CREATE TABLE Sensor(
@@ -66,7 +66,7 @@ CREATE TABLE RegistroSensor(
     temperatura FLOAT,
     dataRegistro DATETIME DEFAULT CURRENT_TIMESTAMP,
     fkSensor INT,
-    CONSTRAINT fkSensorRegistroSensor FOREIGN KEY (fkSensor) REFERENCES Sensor(idSensor)
+	FOREIGN KEY (fkSensor) REFERENCES Sensor(idSensor)
 );
 
 CREATE TABLE ContatoSimulador(
@@ -80,7 +80,7 @@ CREATE TABLE ContatoDashboard(
     idDashboard INT PRIMARY KEY AUTO_INCREMENT,
     mensagem VARCHAR(500),
     fkUsuario INT,
-    CONSTRAINT fkDashboardUsuario FOREIGN KEY (fkUsuario) REFERENCES Usuario(idUsuario),
+	FOREIGN KEY (fkUsuario) REFERENCES Usuario(idUsuario),
     fkFazenda INT,
-    CONSTRAINT fkDashboardFazenda FOREIGN KEY (fkFazenda) REFERENCES Fazenda(idFazenda)
+	FOREIGN KEY (fkFazenda) REFERENCES Fazenda(idFazenda)
 );

@@ -30,7 +30,7 @@ function verEstufas(idFazenda, idMatriz) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrarFazenda():", idFazenda, idMatriz);
 
     var instrucaoSql = `
-        SELECT nome, idEstufa FROM Estufa JOIN Fazenda ON idFazenda = fkFazenda WHERE fkFazenda = ${idFazenda} AND fkMatriz = ${idMatriz} ;
+        SELECT Estufa.nome, idEstufa FROM Estufa JOIN Fazenda ON idFazenda = fkFazenda WHERE fkFazenda = ${idFazenda} AND fkMatriz = ${idMatriz} ;
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);

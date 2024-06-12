@@ -11,7 +11,7 @@ router.get("/ultimosDadosEstufa/:idEstufa/:idFazenda/:idMatriz", function (req, 
     estufaController.ultimosDadosEstufa(req, res);
 })
 
-router.get("/verEstufas/:idFazenda/:Matriz", function (req, res) {
+router.get("/verEstufas/:indice/:idMatriz", function (req, res) {
     estufaController.verEstufas(req, res);
 });
 

@@ -57,7 +57,7 @@ function ultimosDadosEstufa(req, res) {
 
 
 function verEstufas(req, res) {
-    var idFazenda = req.params.idFazenda;
+    var idFazenda = req.params.indice;
     var idMatriz = req.params.idMatriz;
 
     if (idFazenda == undefined) {

@@ -89,7 +89,7 @@
 </html>
 
 <script>
-  var nome = 'Fernanda';
+  var nome = sessionStorage.NOME_USUARIO;
   user.innerHTML = `<span id="nome">Bem-vindo(a)<br>${nome}</span>`;
 
   function estufas() {
@@ -138,13 +138,12 @@
 
 
   function verFazendas() {
+    var idMatriz = sessionStorage.ID_MATRIZ;
     // Murilo
-    // var idMatriz = sessionStorage.ID_MATRIZ;
-    // var idFazenda = sessionStorage.ID_FAZENDA;
-    var idMatriz = 1;
-    var idFazenda = 1
+   console.log('Essa é a ID MATRIZ do verFazendas: ' + idMatriz)
+    // var idMatriz = 1;
 
-    fetch(`/fazenda/verFazendas/${idMatriz}/${idFazenda}`, {
+    fetch(`/fazenda/verFazendas/${idMatriz}`, {
       method: "GET"
     }).then(function (resposta) {
       if (resposta.ok) {
@@ -168,12 +167,17 @@
     // if (dados.length == 1) {
     //   procurarEstufas(1);
     // } else {
-      var texto = `<h2 id="titulo_fazenda">Suas Fazendas</h2>`;
+      var texto = `
+      <h2 id="titulo_fazenda">Suas Fazendas</h2>
+      <div id="div_fila_fazendas">`;
       for (var i = 1; i <= dados.length; i++) {
         texto += `<button id="fazenda${i}" class="button_fazenda" onclick="procurarEstufas(this)" type="submit">
-        <span>${dados[i - 1].nome}</span>
-        </button>`;
-      }
+          <span>${dados[i - 1].nome}</span>
+          </button>`;
+          }
+        texto += `
+        </div>
+        `;
       fazendas.innerHTML = texto;
     }
   // }
@@ -181,13 +185,14 @@
 var nome_fazenda_escolhida = "";
 
   function procurarEstufas(item) {
+    var idMatriz = sessionStorage.ID_MATRIZ;
     if (item == 1) {
       var indice = 1;
     } else {
       var indice = item.id[item.id.length - 1];
       nome_fazenda_escolhida = item.querySelector('span').textContent;
     }
-    fetch(`/estufa/verEstufas/${indice}/${idMatriz}/${idFazenda}`, {
+    fetch(`/estufa/verEstufas/${indice}/${idMatriz}`, {
       method: "GET"
     }).then(function (resposta) {
       if (resposta.ok) {
@@ -208,12 +213,15 @@ var nome_fazenda_escolhida = "";
 
   function abrirEstufas(dados) {
     document.getElementById("fazendas").style.display = "none";
-    var texto = `<h2 id="titulo_estufa">Estufas da ${nome_fazenda_escolhida}</h2>`;
+    var texto = `
+    <h2 id="titulo_estufa">Estufas da ${nome_fazenda_escolhida}</h2>
+    <div id="div_fila_estufas">`;
     for (var i = 1; i <= dados.length; i++) {
       texto += `<button value="${dados[i - 1].nome}" id="estufa${i}" class="button_estufa" onclick="dadosEstufa(this)" type="submit">
         <span>${dados[i - 1].nome}</span>
       </button>`
     }
+    texto += `</div>`
     document.getElementById("estufas").innerHTML = texto;
   }
 
@@ -320,8 +328,10 @@ var nome_fazenda_escolhida = "";
     document.getElementById("body").innerHTML += `
       <div id="div_erro"></div>
       <div id="div_bola_erro"> </div>`
+
+    var idMatriz = sessionStorage.ID_MATRIZ;
     var indice = item.id[item.id.length - 1];
-    fetch(`/estufa/ultimosDadosEstufa/${indice}/${idMatriz}/${idFazenda}`, {
+    fetch(`/estufa/ultimosDadosEstufa/${indice}/${idFazenda}/${idMatriz} `, {
       method: "GET"
     }).then(function (resposta) {
       if (resposta.ok) {

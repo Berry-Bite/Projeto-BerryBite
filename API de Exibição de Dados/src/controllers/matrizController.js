@@ -54,8 +54,8 @@ function autenticarMatriz(req, res) {
                         var usuario = resultadoAutenticar[0]
                         res.json({
                             id: usuario.idMatriz,
-                            cnpj: usuario.raxaoSocial,
-                            nome: usuario.cnpj,
+                            cnpj: usuario.cnpj,
+                            nome: usuario.razaoSocial,
                             senha: usuario.senha
                         });
 

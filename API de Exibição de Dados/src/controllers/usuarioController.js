@@ -61,6 +61,7 @@ function autenticarUsuario(req, res) {
                             cpf: usuario.cpf,
                             nome: usuario.nome,
                             senha: usuario.senha,
+                            fkMatriz: usuario.fkMatriz,
                         });
 
                     } else if (resultadoAutenticar.length == 0) {

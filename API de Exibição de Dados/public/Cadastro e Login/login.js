@@ -65,9 +65,10 @@ function autenticarMatriz(){
             resposta.json().then(json => {
                 console.log(json);
                 console.log(JSON.stringify(json));
-                sessionStorage.CNPJ_USUARIO = json.cnpj;
-                sessionStorage.NOME_USUARIO = json.razaoSocial;
-                sessionStorage.ID_USUARIO = json.idMatriz;
+                console.log('O JSON DO LOGIN' + JSON.stringify(json));
+                sessionStorage.ID_MATRIZ = json.id;
+                sessionStorage.CNPJ_CPF_USUARIO = json.cnpj;
+                sessionStorage.NOME_USUARIO = json.nome;
 
                 setTimeout(function () {
                     window.location = "../dashboard/estufas.html";
@@ -135,10 +136,11 @@ function autenticarUsuario(){
             resposta.json().then(json => {
                 console.log(json);
                 console.log(JSON.stringify(json));
-                sessionStorage.CNPJ_USUARIO = json.cpf;
-                sessionStorage.NOME_USUARIO = json.razaoSocial;
-                sessionStorage.ID_USUARIO = json.idUsuario;
-                sessionStorage.FK_MATRIZ = json.fkMatriz;
+                console.log('O JSON DO LOGIN' + JSON.stringify(json));
+                sessionStorage.CNPJ_CPF_USUARIO = json.cpf;
+                sessionStorage.NOME_USUARIO = json.nome;
+                sessionStorage.ID_USUARIO = json.id;
+                sessionStorage.ID_MATRIZ = json.fkMatriz;
 
                 setTimeout(function () {
                     window.location = "../dashboard/estufas.html";

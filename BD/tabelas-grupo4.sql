@@ -1,79 +1,89 @@
+CREATE DATABASE berrybite;
+USE berrybite;
 
-create database BerryBite;
-use BerryBite;
+CREATE TABLE Matriz(
+    idMatriz INT PRIMARY KEY AUTO_INCREMENT,
+    razaoSocial VARCHAR(50),
+    cnpj CHAR(18) UNIQUE,
+    CONSTRAINT checkCnpj CHECK (cnpj LIKE '__.___.___/____-__'),
+    senha VARCHAR(15)
+);
 
-create table Matriz(
-idMatriz int primary key auto_increment,
-razaoSocial varchar(50),
-cnpj char(18), constraint checkCnpj check (cnpj like '__.___.___/____-__'), 
-telefoneFixo char(13),
-senha varchar(15));
+CREATE TABLE Fazenda(
+    idFazenda INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(45),
+    fkMatriz INT,
+    CONSTRAINT fkFazendaMatriz FOREIGN KEY (fkMatriz) REFERENCES Matriz(idMatriz)
+);
 
-create table Fazenda(
-idFazenda int primary key auto_increment,
-nome varchar(45),
-quantidadeEstufa int,
-fkMatriz int, constraint fkFazendaMatriz foreign key (fkMatriz) references Matriz(idMatriz));
+CREATE TABLE Usuario(
+    idUsuario INT AUTO_INCREMENT,
+    nome VARCHAR(45),
+    email VARCHAR(45),
+    cpf CHAR(11) UNIQUE,
+    telCelular CHAR(12),
+    senha VARCHAR(15),
+    fkMatriz INT,
+    PRIMARY KEY (idUsuario, fkMatriz),
+    FOREIGN KEY (fkMatriz) REFERENCES Matriz(idMatriz)
+);
 
-create table Usuario(
-idUsuario int auto_increment,
-fkFazendaUsuario int, 
-constraint pkComposta primary key (idUsuario, fkFazendaUsuario),
-nome varchar(45),
-email varchar(45),
-cpf char(11),
-telCelular char(12),
-senha varchar(15),
-fkMatriz int,
- constraint fkFazendaUsuario foreign key (fkFazendaUsuario) references Fazenda(idFazenda));
+CREATE TABLE Endereco(
+    idEndereco INT PRIMARY KEY AUTO_INCREMENT,
+    cep CHAR(9),
+    numero VARCHAR(10),
+    complemento VARCHAR(45),
+    fkFazenda INT
+);
 
-create table Endereco(
-idEndereco int primary key AUTO_INCREMENT,
-cep char(9),
-numero varchar(10),
-complemento varchar(45),
-fkFazenda int);
+CREATE TABLE Estufa(
+    idEstufa INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(45),
+    tamanhoMetroQuadrado FLOAT,
+    quantidadeMorangueiros INT,
+    fkFazenda INT,
+    CONSTRAINT fkFazendaEstufa FOREIGN KEY (fkFazenda) REFERENCES Fazenda(idFazenda)
+);
 
-create table Estufa(
-idEstufa int primary key auto_increment,
-nome varchar(45),
-tamanhoMetroQuadrado float,
-quantidadeMorangueiros int,
-fkFazendaEstufa int, constraint fkFazendaEstufa foreign key (fkFazendaEstufa) references Fazenda(idFazenda));
+CREATE TABLE Sensor(
+    idSensor INT PRIMARY KEY AUTO_INCREMENT,
+    tipo VARCHAR(45),
+    fkEstufa INT,
+    fkMetrica INT
+);
 
-create table Sensor(
-idSensor int primary key auto_increment,
-tipo varchar(45),
-fkEstufa int,
-fkMetrica int); 
+CREATE TABLE Metrica(
+    idMetrica INT PRIMARY KEY AUTO_INCREMENT,
+    temperaturaMinima FLOAT,
+    temperaturaMaxima FLOAT,
+    UmidadeMinima FLOAT,
+    UmidadeMaxima FLOAT
+);
 
-create table Metrica(
-idMetrica int,
-temperaturaMinima float,
-temperaturaMaxima float,
-UmidadeMinima float,
-UmidadeMaxima float);
+CREATE TABLE RegistroSensor(
+    idRegistroSensor INT PRIMARY KEY AUTO_INCREMENT,
+    umidade FLOAT,
+    temperatura FLOAT,
+    dataRegistro DATETIME DEFAULT CURRENT_TIMESTAMP,
+    fkSensor INT,
+    CONSTRAINT fkSensorRegistroSensor FOREIGN KEY (fkSensor) REFERENCES Sensor(idSensor)
+);
 
-create table RegistroSensor(
-idSensor int primary key auto_increment,
-umidade float,
-temperatura float,
-dataRegistro datetime default current_timestamp,
-fkSensor int, constraint fkSensorRegistroSensor foreign key (fkSensor) references Sensor(idSensor));
+CREATE TABLE ContatoSimulador(
+    idContatoSimulador INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(45),
+    email VARCHAR(45),
+    mensagem VARCHAR(500)
+);
 
-create table ContatoSimulador(
-idContatoSimulador int primary key auto_increment,
-nome varchar(45),
-email varchar(45),
-mensagem varchar(500));
-
-create table ContatoDashboard (
-idDashboard int primary key auto_increment,
-mensagem varchar(500),
-fkUsuario int,
-constraint fkDashboardUsuario foreign key (fkUsuario) references Usuario(idUsuario),
-fkFazenda int,
-constraint fkDashboardFazenda foreign key (fkFazenda) references Fazenda(idFazenda));
+CREATE TABLE ContatoDashboard(
+    idDashboard INT PRIMARY KEY AUTO_INCREMENT,
+    mensagem VARCHAR(500),
+    fkUsuario INT,
+    CONSTRAINT fkDashboardUsuario FOREIGN KEY (fkUsuario) REFERENCES Usuario(idUsuario),
+    fkFazenda INT,
+    CONSTRAINT fkDashboardFazenda FOREIGN KEY (fkFazenda) REFERENCES Fazenda(idFazenda)
+);
 
 insert into Matriz values
 (default, 'Eder Morangos', '52.555.878/0001-28','(11)9455-1050',1234),
@@ -133,6 +143,17 @@ FROM RegistroSensor JOIN Estufa ON Estufa.idEstufa = RegistroSensor.fkSensor;
 select idMatriz from matriz order by idMatriz desc limit 1;
 
 select * from Matriz;
-
+describe Usuario;
 select * from Fazenda;
 select * from Endereco;
+
+ SELECT 
+                MONTH(dataRegistro) AS mes,
+                AVG(umidade) AS media_umidade,
+                AVG(temperatura) AS media_temperatura
+            FROM RegistroSensor 
+            JOIN Sensor ON fkSensor = idSensor
+            JOIN Estufa ON fkEstufa = idEstufa
+            WHERE idEstufa = 1
+            GROUP BY MONTH(dataRegistro)
+            ORDER BY MONTH(dataRegistro);
