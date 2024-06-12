@@ -1,4 +1,4 @@
-var usuarioModel = require("../models/usuarioModel");
+var matrizModel = require("../models/matrizModel");
 
 
 function cadastrarMatriz(req, res) {
@@ -15,7 +15,7 @@ function cadastrarMatriz(req, res) {
 
     } else {
 
-        usuarioModel.cadastrarMatriz(razaoSocial, cnpj, senha)
+        matrizModel.cadastrarMatriz(razaoSocial, cnpj, senha)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -37,13 +37,13 @@ function autenticarMatriz(req, res) {
     var cnpj = req.body.cnpjServer;
     var senha = req.body.senhaServer;
 
-    if (email == undefined) {
-        res.status(400).send("Seu email está undefined!");
+    if (cnpj == undefined) {
+        res.status(400).send("Seu cnpj está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está indefinida!");
     } else {
 
-        usuarioModel.autenticarMatriz(cnpj, senha)
+        matrizModel.autenticarMatriz(cnpj, senha)
             .then(
                 function (resultadoAutenticar) {
                     console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
@@ -60,7 +60,7 @@ function autenticarMatriz(req, res) {
                         });
 
                     } else if (resultadoAutenticar.length == 0) {
-                        res.status(403).send("Email e/ou senha inválido(s)");
+                        res.status(403).send("CNPJ e/ou senha inválido(s)");
                     } else {
                         res.status(403).send("Mais de um usuário com o mesmo login e senha!");
                     }

@@ -4,7 +4,7 @@ function cadastrarEndereco(req, res) {
     var cep = req.body.cepServer
     var numero = req.body.numeroServer
     var complemento = req.body.complementoServer
-    var fkFazenda = req.body.fkFazendaServer
+    var fkFazenda = req.body.fazendaServer
     
     if (cep == undefined) {
         res.status(400).send("Seu cep está undefined!");

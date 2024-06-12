@@ -216,7 +216,7 @@ function cadastrarEndereco() {
         body: JSON.stringify({
             // crie um atributo que recebe o valor recuperado aqui
             // Agora vá para o arquivo routes/usuario.js
-            matrizServer: idFazenda,
+            fazendaServer: idFazenda,
             cepServer: cepVar,
             numeroServer: numeroVar,
             complementoServer: complementoVar,

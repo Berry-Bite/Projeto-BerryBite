@@ -10,10 +10,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
   <link rel="icon" href="../icons/logo-berry.png" type="image/x-icon">
+
+  <!--Sweetalert2-->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/dist/sweetalert2.all.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/dist/sweetalert2.min.css">
+
   <title>Berry Bite | Estufas</title>
 </head>
 
-<body>
+<body onload="aparecerFuncionario()">
 
   <div id="div_fundo" class="pagina">
 
@@ -61,7 +66,7 @@
             <input type="password" id="inp_senha" placeholder="Senha ">
             <input type="password" id="inp_senha_confirm" placeholder="Confirme sua Senha">
           </div>
-          <button onclick="cadastrarFunc()">Cadastrar</button>
+          <button onclick="cadastrarFuncionario()">Cadastrar</button>
         </div>
 
         <div class="funcionario_cadastrado">
@@ -90,7 +95,7 @@
 </html>
 
 <script>
-  var nome = 'Fernanda';
+  var nome = sessionStorage.NOME_USUARIO;
   user.innerHTML = `<span id="nome">Bem-vindo(a)<br>${nome}</span>`;
 
   function estufas() {
@@ -132,50 +137,71 @@
 
   var idMatriz = sessionStorage.ID_USUARIO
   function cadastrarFuncionario() {
-    var nomevar = inp_nome.value
+    var nomeVar = inp_nome.value
     var emailVar = inp_email.value
     var cpfVar = inp_cpf.value
     var senhaVar = inp_senha.value
 
-    if (nomevar == "" || emailVar == "" || cpfVar == "" || senhaVar == "") {
+    if (nomeVar == "" || emailVar == "" || cpfVar == "" || senhaVar == "") {
       alert("Os campos não podem ficar vazios!Senha")
     }
     else {
-      // Enviando o valor da nova input
-      fetch("/usuarios/cadastrarUsuario", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          // crie um atributo que recebe o valor recuperado aqui
-          // Agora vá para o arquivo routes/usuario.js
-          matrizServer: idMatriz,
-          nomeServer: nomeVar,
-          cpfServer: cpfVar,
-          emailServer: emailVar,
-          senhaServer: senhaVar,
-        }),
-      })
-        .then(function (respostaServer) {
-          console.log("respostaServer CADASTRAR MATRIZ: ", respostaServer);
 
-          if (respostaServer.ok) {
+      Swal.fire({
+        title: "Você gostaria de cadastrar este funcionário?",
+        text: "Confira se os dados estão corretos!",
+        showDenyButton: true,
+        showCancelButton: false,
+        confirmButtonText: "Cadastrar",
+        denyButtonText: `Não Cadastrar`
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
 
-            respostaServer.json().then(function (resposta) {
-              console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+          // Enviando o valor da nova input
+          fetch("/usuarios/cadastrarUsuario", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              // crie um atributo que recebe o valor recuperado aqui
+              // Agora vá para o arquivo routes/usuario.js
+              matrizServer: idMatriz,
+              nomeServer: nomeVar,
+              cpfServer: cpfVar,
+              emailServer: emailVar,
+              senhaServer: senhaVar,
+            }),
+          })
+            .then(function (respostaServer) {
+              console.log("respostaServer CADASTRAR MATRIZ: ", respostaServer);
+
+              if (respostaServer.ok) {
+
+                respostaServer.json().then(function (resposta) {
+                  console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                  Swal.fire("Saved!", "", "success");
 
 
+                });
+              } else {
+                throw "Houve um erro ao tentar realizar o cadastro!";
+                Swal.fire("Houve um erro ao cadastrar o Funcionário!", "", "error");
+
+              }
+            })
+            .catch(function (resposta) {
+              console.log(`#ERRO: ${resposta}`);
             });
-          } else {
-            throw "Houve um erro ao tentar realizar o cadastro!";
-          }
-        })
-        .catch(function (resposta) {
-          console.log(`#ERRO: ${resposta}`);
-        });
 
-      return false;
+          return false;
+        } else if (result.isDenied) {
+          Swal.fire("Usuário não cadastrardo!", "", "info");
+        }
+      });
+
+
     }
   }
 
@@ -209,44 +235,44 @@
   }
 
 
-  function editarFuncionario() {
-    var nomeVar = inp_atualizarNome.value
-    var emailvar = inp_atualizarEmail.value
-    var cpfVar = inp_atualizarCpf.value
-    var senhaVar = inp_atualizarSenha.value
+  // function editarFuncionario() {
+  //   var nomeVar = inp_atualizarNome.value
+  //   var emailvar = inp_atualizarEmail.value
+  //   var cpfVar = inp_atualizarCpf.value
+  //   var senhaVar = inp_atualizarSenha.value
 
-    if (nomeVar != "") {
-      // Enviando o valor da nova input
-      fetch("/usuarios/editarNome", {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          nomeServer: nomeVar,
-        }),
-      })
-        .then(function (respostaServer) {
-          console.log("respostaServer editarNome: ", respostaServer);
+  //   if (nomeVar != "") {
+  //     // Enviando o valor da nova input
+  //     fetch("/usuarios/editarNome", {
+  //       method: "PUT",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         nomeServer: nomeVar,
+  //       }),
+  //     })
+  //       .then(function (respostaServer) {
+  //         console.log("respostaServer editarNome: ", respostaServer);
 
-          if (respostaServer.ok) {
+  //         if (respostaServer.ok) {
 
-            respostaServer.json().then(function (resposta) {
-              console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+  //           respostaServer.json().then(function (resposta) {
+  //             console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
 
-            });
-          } else {
-            throw "Houve um erro ao tentar realizar o editarNome!";
-          }
-        })
-        .catch(function (resposta) {
-          console.log(`#ERRO: ${resposta}`);
-        });
+  //           });
+  //         } else {
+  //           throw "Houve um erro ao tentar realizar o editarNome!";
+  //         }
+  //       })
+  //       .catch(function (resposta) {
+  //         console.log(`#ERRO: ${resposta}`);
+  //       });
 
-      return false;
-    }
-  }
+  //     return false;
+  //   }
+  // }
 
 
 </script>
