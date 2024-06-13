@@ -13,7 +13,7 @@
   <title>Berry Bite | Comparação</title>
 </head>
 
-<body onload="verFazendas()">
+<body onload="botao_cadastrar(), verFazendas()">
 
   <div id="div_fundo" class="pagina">
 
@@ -33,7 +33,7 @@
           <button onclick="estufas()">Estufas</button>
           <button style="background-color: #7AB8CC;" onclick="comparacao()">Comparação</button>
           <button onclick="parametros()">Parâmetros</button>
-          <button onclick="cadastrar()">Cadastrar</button>
+          <button id="button_cadastrar" onclick="cadastrar()">Cadastrar</button>
           <button onclick="contato()">Contato</button>
         </div>
 
@@ -76,7 +76,14 @@
     window.location.href = "./parametros.html";
   }
 
+  function botao_cadastrar() {
+    if (sessionStorage.ID_USUARIO != undefined) {
+      button_cadastrar.style.display = "none";
+    }
+  }
+
   function sair() {
+    sessionStorage.clear();
     window.location.href = "../index.html";
   }
 

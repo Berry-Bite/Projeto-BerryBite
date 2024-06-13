@@ -12,7 +12,7 @@
   <title>Berry Bite | Estufas</title>
 </head>
 
-<body id="body" onload="verFazendas()">
+<body id="body" onload="botao_cadastrar(), verFazendas()">
 
   <div id="div_fundo" class="pagina">
 
@@ -32,7 +32,7 @@
           <button style="background-color: #7AB8CC;" onclick="estufas()">Estufas</button>
           <button onclick="comparacao()">Comparação</button>
           <button onclick="parametros()">Parâmetros</button>
-          <button onclick="cadastrar()">Cadastrar</button>
+          <button id="button_cadastrar" onclick="cadastrar()">Cadastrar</button>
           <button onclick="contato()">Contato</button>
         </div>
 
@@ -100,7 +100,14 @@
     window.location.href = "./parametros.html";
   }
 
+  function botao_cadastrar() {
+    if (sessionStorage.ID_USUARIO != undefined) {
+      button_cadastrar.style.display = "none";
+    }
+  }
+
   function sair() {
+    sessionStorage.clear();
     window.location.href = "../index.html";
   }
 
@@ -523,10 +530,10 @@
         {
           label: 'Perigo Baixa',
           data: [40, 40, 40, 40, 40, 40, 40],
-          borderColor: '#000000',
+          borderColor: '#BB2B45',
           borderWidth: 3,
-          pointBackgroundColor: '#000000',
-          backgroundColor: '#000000',
+          pointBackgroundColor: '#BB2B45',
+          backgroundColor: '#BB2B45',
           pointRadius: 0,
           pointHoverRadius: 5
         },
@@ -534,9 +541,9 @@
           label: 'Alerta Abaixo',
           data: [60, 60, 60, 60, 60, 60, 60],
           borderWidth: 3,
-          borderColor: '#BB2B45',
-          pointBackgroundColor: '#BB2B45',
-          backgroundColor: '#BB2B45',
+          borderColor: '#E6C84C',
+          pointBackgroundColor: '#E6C84C',
+          backgroundColor: '#E6C84C',
           pointRadius: 0,
           pointHoverRadius: 5
 
@@ -545,19 +552,19 @@
           label: 'Alerta Acima',
           data: [75, 75, 75, 75, 75, 75, 75],
           borderWidth: 3,
-          borderColor: '#BB2B45',
-          pointBackgroundColor: '#BB2B45',
-          backgroundColor: '#BB2B45',
+          borderColor: '#E6C84C',
+          pointBackgroundColor: '#E6C84C',
+          backgroundColor: '#E6C84C',
           pointRadius: 0,
           pointHoverRadius: 5
         },
         {
           label: 'Perigo Acima',
           data: [80, 80, 80, 80, 80, 80, 80],
-          borderColor: '#000000',
+          borderColor: '#BB2B45',
           borderWidth: 3,
-          pointBackgroundColor: '#000000',
-          backgroundColor: '#000000',
+          pointBackgroundColor: '#BB2B45',
+          backgroundColor: '#BB2B45',
           pointRadius: 0,
           pointHoverRadius: 5
         }]
@@ -602,10 +609,10 @@
         {
           label: 'Perigo Frio',
           data: [13, 13, 13, 13, 13, 13, 13],
-          borderColor: '#000000',
+          borderColor: '#BB2B45',
           borderWidth: 3,
-          pointBackgroundColor: '#000000',
-          backgroundColor: '#000000',
+          pointBackgroundColor: '#BB2B45',
+          backgroundColor: '#BB2B45',
           pointRadius: 0,
           pointHoverRadius: 5
         },
@@ -613,9 +620,9 @@
           label: 'Alerta Frio',
           data: [16, 16, 16, 16, 16, 16, 16],
           borderWidth: 3,
-          borderColor: '#BB2B45',
-          pointBackgroundColor: '#BB2B45',
-          backgroundColor: '#BB2B45',
+          borderColor: '#E6C84C',
+          pointBackgroundColor: '#E6C84C',
+          backgroundColor: '#E6C84C',
           pointRadius: 0,
           pointHoverRadius: 5
         },
@@ -623,19 +630,19 @@
           label: 'Alerta Calor',
           data: [22, 22, 22, 22, 22, 22, 22],
           borderWidth: 3,
-          borderColor: '#BB2B45',
-          pointBackgroundColor: '#BB2B45',
-          backgroundColor: '#BB2B45',
+          borderColor: '#E6C84C',
+          pointBackgroundColor: '#E6C84C',
+          backgroundColor: '#E6C84C',
           pointRadius: 0,
           pointHoverRadius: 5
         },
         {
           label: 'Perigo Calor',
           data: [26, 26, 26, 26, 26, 26, 26],
-          borderColor: '#000000',
+          borderColor: '#BB2B45',
           borderWidth: 3,
-          pointBackgroundColor: '#000000',
-          backgroundColor: '#000000',
+          pointBackgroundColor: '#BB2B45',
+          backgroundColor: '#BB2B45',
           pointRadius: 0,
           pointHoverRadius: 5
         }]
@@ -682,7 +689,7 @@
     } else {
       erro_umi = true;
       box_info_umi.style = "background-color: #BB2B45;";
-      umidade_atual.style = "color: white; font-weight: 900; text-decoration: none;";
+      umidade_atual.style = "color: white; font-weight: 900; text-decoration: underline;";
     }
 
     if (erro_temp || erro_umi) {

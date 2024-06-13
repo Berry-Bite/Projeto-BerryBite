@@ -1,6 +1,7 @@
-*{
+* {
     font-family: "jost", serif;
 }
+
 body {
     margin: 0;
     padding: 0;
@@ -22,11 +23,6 @@ body {
     flex-direction: column;
     align-items: center;
     border-right: 3.5px solid black;
-}
-
-#mural_right {
-    width: 85vw;
-    height: 100vh;
 }
 
 .marca {
@@ -125,52 +121,91 @@ img {
 
 /* Começar o centéudo da página a direita( após o login)*/
 
-.mural_right{ 
+.mural_right {
     flex-direction: column;
     display: flex;
-    padding-left: 5%;
     align-items: center;
+    justify-content: center;
+    width: 85vw;
+    height: 100vh;
 }
 
 .mural_right h1 {
+    margin-bottom: -2%;
     font-size: 3vw;
     margin-top: 0%;
     white-space: nowrap;
-    margin-left: 38%;
-    margin-bottom: -5%;
     font-weight: lighter;
 }
 
-.temperatura{
-    margin-top: 5vh;
-    padding-left: 20%;
-    height: 22%;
-    width: 94%;
+.temperatura {
+    margin-bottom: 0.5vh;
+    height: 27%;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: start;
 }
 
 .temperatura h2 {
     font-size: 1.7vw;
-    margin-top: 2%;
-    margin-bottom: -2%;
     font-weight: lighter;
+    width: 80%;
+    margin-bottom: -2.5vh;
 }
 
 .parametros_temperatura {
-    width: 120%;
+    width: 80%;
     height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
 }
+
+.umidade {
+    margin-bottom: 0.5vh;
+    height: 27%;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: start;
+}
+
+.umidade span {
+    font-size: 3vw;
+}
+
+.umidade h2 {
+    margin-bottom: -2.5vh;
+    font-size: 1.7vw;
+    width: 80%;
+    font-weight: lighter;
+}
+
+.parametros_umidade {
+    width: 80%;
+    height: 85%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
 
 .perigo_menor {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color:  #00739A;
+    background-color: #00739A;
     width: 36%;
     height: 80%;
     text-align: center;
@@ -188,7 +223,7 @@ img {
     margin: 0%;
 }
 
-.temperatura span{
+.temperatura span {
     font-size: 3vw;
 }
 
@@ -211,7 +246,7 @@ img {
     margin: 0%;
 }
 
-.ideal{
+.ideal {
     background-color: #6BB87A;
     display: flex;
     justify-content: center;
@@ -230,7 +265,7 @@ img {
     margin: 0%;
 }
 
-.alerta_maior{
+.alerta_maior {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -275,46 +310,26 @@ img {
     margin: 0%;
 }
 
-.umidade{
-    padding-left: 20%;
-    height: 22%;
-}
 
-.umidade span{
-    font-size: 3vw;
-}
 
-.umidade h2 {
-    font-size: 1.7vw;
-    margin-top: 5%;
-    margin-bottom: -2%;
-    font-weight: lighter;
-}
 
-.parametros_umidade {
-    width: 120%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
 
-.previsao{
-    padding-left: 34%;
+
+.parte_pragas {
     height: 35%;
-    width: 80%;
+    width: 70%;
 }
 
-.previsao h2 {
-    font-size: 1.3vw;
+.parte_pragas h2 {
+    font-size: 1.8vw;
     margin-top: 0%;
-    margin-bottom: 1%;
+    margin-bottom: 0%;
     font-weight: lighter;
-    margin-top: 12%;
+    width: 100%;
+    text-align: center;
 }
 
-.previsao_tempo{
+.pragas {
     height: 80%;
     width: 100%;
     display: flex;
@@ -323,66 +338,32 @@ img {
     align-items: center;
 }
 
-.info_temperatura {
-    margin-top: 0;
+.info_pragas {
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #7AB8CC;
-    width: 90%;
-    height: 100%;
-    /* margin-right: 10%; */
+    width: 25%;
+    height: 90%;
+    justify-content: center;
     text-align: center;
     border-radius: 10%;
     border: 0.2vw solid black;
 }
 
-.info_temperatura .porcentagem {
-    font-size: 1.3vw;
-    margin-top: 0%;
-    margin-bottom: 0%;
-    /* -webkit-text-stroke: 0.01vw white; */
-}
-
-.info_temperatura p {
-    margin-top: 10%;
-    margin-bottom: 0%;
+.info_pragas span {
     font-size: 1.7vw;
-    /* -webkit-text-stroke: 0.01vw white; */
+    font-weight: 900;
 }
 
-.info_temperatura span {
-    margin-top: 0%;
-    font-size: 3vw;
-}
-
-.info_umidade {
-    border-radius: 10%;
-    background-color: #7AB8CC;
-    margin-left: 10%;
+.info_pragas div {
     display: flex;
     flex-direction: column;
-    width: 90%;
-    height: 100%;
-    text-align: center;
-    border: 0.2vw solid black;
+    align-items: center;
+    justify-content: center;
 }
 
-.info_umidade .porcentagem {
-    font-size: 1.3vw;
-    margin-top: 0%;
-    margin-bottom: 0%;
-    /* -webkit-text-stroke: 0.01vw white; */
-}
-
-.info_umidade p {
-    margin-top: 10%;
-    margin-bottom: 0%;
-    font-size: 1.7vw;
-    /* -webkit-text-stroke: 0.01vw white; */
-}
-
-.info_umidade span {
-    margin-top: 0%;
-    font-size: 3vw;
+.info_pragas div span {
+    font-size: 1.25vw;
+    font-weight: 400;
 }
