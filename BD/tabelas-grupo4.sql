@@ -1,5 +1,5 @@
-CREATE DATABASE berrybite;
-USE berrybite;
+CREATE DATABASE BerryBite;
+USE BerryBite;
 
 CREATE TABLE Matriz(
     idMatriz INT PRIMARY KEY AUTO_INCREMENT,
@@ -10,7 +10,7 @@ CREATE TABLE Matriz(
 );
 
 CREATE TABLE Fazenda(
-    idFazenda INT PRIMARY KEY AUTO_INCREMENT,
+    idFazenda INT PRIMARY KEY,
     nome VARCHAR(45),
     fkMatriz INT,
     CONSTRAINT fkFazendaMatriz FOREIGN KEY (fkMatriz) REFERENCES Matriz(idMatriz)
@@ -20,8 +20,8 @@ CREATE TABLE Usuario(
     idUsuario INT AUTO_INCREMENT,
     nome VARCHAR(45),
     email VARCHAR(45),
-    cpf CHAR(11) UNIQUE,
-    telCelular CHAR(12),
+    cpf CHAR(14) UNIQUE,
+    CONSTRAINT checkCpf CHECK (cpf LIKE '___.___.___-__'),
     senha VARCHAR(15),
     fkMatriz INT,
     PRIMARY KEY (idUsuario, fkMatriz),
@@ -37,7 +37,7 @@ CREATE TABLE Endereco(
 );
 
 CREATE TABLE Estufa(
-    idEstufa INT PRIMARY KEY AUTO_INCREMENT,
+    idEstufa INT PRIMARY KEY,
     nome VARCHAR(45),
     tamanhoMetroQuadrado FLOAT,
     quantidadeMorangueiros INT,
@@ -49,7 +49,12 @@ CREATE TABLE Sensor(
     idSensor INT PRIMARY KEY AUTO_INCREMENT,
     tipo VARCHAR(45),
     fkEstufa INT,
-    fkMetrica INT
+    fkFazenda INT,
+    fkMatriz INT,
+    fkMetrica INT,
+    FOREIGN KEY (fkEstufa) REFERENCES Estufa(idEstufa),
+    FOREIGN KEY (fkFazenda) REFERENCES Fazenda(idFazenda),
+    FOREIGN KEY (fkMatriz) REFERENCES Matriz(idMatriz)
 );
 
 CREATE TABLE Metrica(
@@ -76,84 +81,69 @@ CREATE TABLE ContatoSimulador(
     mensagem VARCHAR(500)
 );
 
-CREATE TABLE ContatoDashboard(
-    idDashboard INT PRIMARY KEY AUTO_INCREMENT,
-    mensagem VARCHAR(500),
-    fkUsuario INT,
-    CONSTRAINT fkDashboardUsuario FOREIGN KEY (fkUsuario) REFERENCES Usuario(idUsuario),
-    fkFazenda INT,
-    CONSTRAINT fkDashboardFazenda FOREIGN KEY (fkFazenda) REFERENCES Fazenda(idFazenda)
-);
+
+
 
 insert into Matriz values
-(default, 'Eder Morangos', '52.555.878/0001-28','(11)9455-1050',1234),
-(default, 'Murilo Berrys', '26.166.266/0001-45','(11)9143-9544',1234),
-(default, 'Lucas Morango Ango', '90.900.899/0001-10','(21)0168-0981',1234);
+(default, 'Eder Morangos', '52.555.878/0001-28',1234),
+(default, 'Murilo Berrys', '26.166.266/0001-45',1234),
+(default, 'Lucas Morango Ango', '90.900.899/0001-10',1234);
 
 insert into Fazenda values
-(default,'Fazenda Morangos', 1, 1),
-(default,'Morangos da villa', 1, 2),
-(default,'Reino do Morangos', 1, 3);
+(1,'Fazenda Recanto Feliz', 1),
+(2,'Fazenda Recanto Contente', 1);
 
-insert into Usuario(fkFazendaUsuario,nome,email,cpf,telCelular,senha, fkMatriz) values
-(1,'Eder Souza','edersouza@gmail.com','50934958831','116598-9865','123456Eder',1),
-(2,'Murilo Henrique','murilohenrique@gmail.com','26356289725','1198764-5632','562398Mh',2),
-(3,'Lucas Felipe','lucasFelipe@gmail.com','59876453445','1198756-3245','563288lucas',3);
+insert into Usuario values
+(default,'Eder Souza','edersouza@gmail.com','509.349.588-31','123456Eder',1),
+(default,'Murilo Henrique','murilohenrique@gmail.com','263.562.897-25','562398Mh',2),
+(default,'Lucas Felipe','lucasFelipe@gmail.com','598.764.534-45','563288lucas',3);
 
-insert into Estufa(tamanhoMetroQuadrado,nome, quantidadeMorangueiros, fkFazendaEstufa) values
-(50,'Verde', 10, 1),
-(35,'Amarelo',20, 2),
-(42,'Azul', 17, 3);
-
-insert into Sensor values
-(default,'DHT11',1,1),
-(default,'DHT11',2,2),
-(default,'DHT11',3,3);
+insert into Estufa values
+(1, 'Verde', 50, 10, 1),
+(2, 'Amarelo',35,20, 1),
+(3, 'Azul',42, 17, 1);
 
 insert into Metrica values
-(default, 26, 13, 98, 75),
-(default,26, 13, 98, 75),
-(default, 26, 13, 98, 75);
+(default, 13, 26, 75, 98),
+(default, 13, 26, 75, 98),
+(default, 13, 26, 75, 98);
 
-insert into RegistroSensor(fkSensor, umidade, temperatura, dataRegistro) values
-(1, 45.00, 22.00, default),
-(2, 37.00, 27.7, default),
-(3, 40.00, 25.8, default);
+insert into Sensor values
+(default,'DHT11', 1, 1, 1, 1),
+(default,'DHT11', 1, 1, 1, 2),
+(default,'DHT11', 1, 1, 1, 3);
 
 insert into ContatoSimulador values
 (1, 'Fernanda Caramico','fernada.caramico@gmail.com','Olá, me interessei pelo o que vocês podem oferecer, poderiam me retornar?'),
 (2, 'João Pedro de Paula','JP@hotmail.com','Bom Dia!, gostei muito do que vocês estão oferecendo!'),
 (3, 'Marise Santana','marise.santana@gmail.com','Me interessei pelo projeto de vocês, favor retornar para podermos dar continuidade na negociação');
 
-SELECT concat('A empresa: ', razaoSocial, ' do CNPJ: ', cnpj) AS 'Empresa' FROM Matriz; 
+insert into endereco values 
+(default, '08725-800', 234, 'perto da praça', 1),
+(default, '08234-340', 654, 'perto do lago', 1);
 
-SELECT concat('A estufa: ', Estufa.idEstufa) AS 'Estufa',
-concat('Com o nome: ',Estufa.nome) as 'Nome da Estufa',
-concat('Pertence a fazenda: ', Fazenda.idFazenda) AS 'Fazenda',
-concat('Da empresa: ', Matriz.razaoSocial) AS 'Empresa' 
-FROM Estufa JOIN Fazenda ON Estufa.fkFazendaEstufa = Fazenda.idFazenda
-JOIN Matriz ON Matriz.idMatriz = Fazenda.fkMatriz;
-
-SELECT concat('A umidade ', RegistroSensor.umidade, '%') AS 'Umidade da Estufa',
-concat('A temperatura ', RegistroSensor.temperatura, ' ºC') AS 'Temperatuda da Estufa',
-date_format(RegistroSensor.dataRegistro, '%d/%m/%Y - %h:%m:%s %p') AS 'Data da alteração' 
-FROM RegistroSensor JOIN Estufa ON Estufa.idEstufa = RegistroSensor.fkSensor;
-
-
-select idMatriz from matriz order by idMatriz desc limit 1;
-
-select * from Matriz;
-describe Usuario;
-select * from Fazenda;
-select * from Endereco;
-
- SELECT 
-                MONTH(dataRegistro) AS mes,
-                AVG(umidade) AS media_umidade,
-                AVG(temperatura) AS media_temperatura
-            FROM RegistroSensor 
-            JOIN Sensor ON fkSensor = idSensor
-            JOIN Estufa ON fkEstufa = idEstufa
-            WHERE idEstufa = 1
-            GROUP BY MONTH(dataRegistro)
-            ORDER BY MONTH(dataRegistro);
+insert into RegistroSensor values
+(default, 53, 28, '2023-07-14 22:20:30', 1),
+(default, 60, 23, '2023-07-28 22:20:30', 1),
+(default, 64, 20, '2023-08-14 22:20:30', 1),
+(default, 62, 19, '2023-08-28 22:20:30', 1),
+(default, 71, 14, '2023-09-14 22:20:30', 1),
+(default, 63, 17, '2023-09-28 22:20:30', 1),
+(default, 74, 12, '2023-10-14 22:20:30', 1),
+(default, 79, 10, '2023-10-28 22:20:30', 1),
+(default, 58, 17, '2023-11-14 22:20:30', 1),
+(default, 66, 19, '2023-11-28 22:20:30', 1),
+(default, 69, 20, '2023-12-14 22:20:30', 1),
+(default, 62, 21, '2023-12-28 22:20:30', 1),
+(default, 62, 23, '2024-01-14 22:20:30', 1),
+(default, 69, 22, '2024-01-28 22:20:30', 1),
+(default, 64, 17, '2024-02-14 22:20:30', 1),
+(default, 67, 23, '2024-02-28 22:20:30', 1),
+(default, 72, 25, '2024-03-14 22:20:30', 1),
+(default, 51, 20, '2024-03-28 22:20:30', 1),
+(default, 68, 19, '2024-04-14 22:20:30', 1),
+(default, 74, 26, '2024-04-28 22:20:30', 1),
+(default, 57, 17, '2024-05-14 22:20:30', 1),
+(default, 81, 15, '2024-05-28 22:20:30', 1),
+(default, 66, 23, '2024-06-02 22:20:30', 1),
+(default, 63, 24, '2024-06-10 22:20:30', 1);

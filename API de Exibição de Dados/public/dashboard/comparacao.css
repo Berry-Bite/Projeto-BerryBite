@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: antiquewhite;
+    background-color: #faebd7;
     overflow-y: hidden;
     overflow-x: hidden;
     font-family: "Jost", serif;
@@ -15,11 +15,16 @@ body {
 
 .header_left {
     height: 100vh;
-    width: 15%;
+    width: 15vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-right: 2px solid black;
+    border-right: 3.5px solid black;
+}
+
+#mural_right {
+    width: 85vw;
+    height: 100vh;
 }
 
 .marca {
@@ -30,13 +35,12 @@ body {
     justify-content: center;
     gap: 1px;
     height: 25%;
-    width: 100%;
+    width: 70%;
     font-size: 150%;
-    font-weight: 400;
 }
 
 .marca span {
-    font-size: 170%;
+    font-size: 100%;
     font-weight: 400;
 }
 
@@ -67,9 +71,8 @@ img {
 }
 
 #user span {
-    font-size: 300%;
+    font-size: 200%;
     margin-top: 2%;
-    font-weight: lighter;
     font-weight: 400;
 }
 
@@ -109,7 +112,8 @@ img {
 .sair button {
     border-radius: 3px;
     border: 0.2vw solid white;
-    background-color: #BB2B45;;
+    background-color: #BB2B45;
+    ;
     color: white;
     cursor: pointer;
     width: 60%;
@@ -149,9 +153,11 @@ img {
 
 
 .grafico{
-    padding-top: 5%;
-    padding-left: 5%;
-    padding-right: 5%;
+    width: 90vw;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }   
 
 
@@ -276,4 +282,94 @@ img {
     width: 10%;
     height: 30%;
     font-size: 110%;
+}
+
+.button_fazenda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15vw;
+    height: 15vh;
+    border-radius: 20px;
+    background-color: rgb(70, 161, 100);
+    color: white;
+    text-align: center;
+    font-size: 16pt;
+    font-family: "Jost", serif;
+    cursor: pointer;
+    margin-top: 50px;
+}
+
+.button_estufa_temp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15vw;
+    height: 15vh;
+    border-radius: 20px;
+    background-color: #d66f00;
+    color: white;
+    text-align: center;
+    font-size: 16pt;
+    font-family: "Jost", serif;
+    cursor: pointer;
+    margin-top: 50px;
+}
+
+
+.button_estufa_umi {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15vw;
+    height: 15vh;
+    border-radius: 20px;
+    background-color: #00739A;
+    color: white;
+    text-align: center;
+    font-size: 16pt;
+    font-family: "Jost", serif;
+    cursor: pointer;
+    margin-top: 50px;
+}
+
+#estufas {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#fazendas {
+    display: flex;
+    flex-direction: column;
+    margin-left: 24vw;
+}
+#fazendas h2{
+    margin-left: 6vw;
+}
+
+#div_fila_estufas {
+    height: 100%;
+    gap: 20px;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#div_fila_fazendas {
+    height: 100%;
+    gap: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#titulo_estufa {
+    font-size: 2vw;
+}
+
+#titulo_fazenda {
+    font-size: 3vw;
 }

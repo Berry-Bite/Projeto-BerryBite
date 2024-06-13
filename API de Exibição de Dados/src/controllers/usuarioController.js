@@ -82,7 +82,7 @@ function autenticarUsuario(req, res) {
 }
 
 function aparecerFuncionario(req, res) {
-    var idMatriz = req.query.idMatriz;
+    var idMatriz = req.params.idMatriz;
 
     if (idMatriz == undefined) {
         res.status(400).send("Seu idMatriz está undefined!");

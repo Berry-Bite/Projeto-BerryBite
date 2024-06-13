@@ -1,8 +1,12 @@
+*{
+    font-family: "jost", serif;
+}
 body {
     margin: 0;
     padding: 0;
-    background-color: antiquewhite;
+    background-color: #faebd7;
     overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 
@@ -11,13 +15,18 @@ body {
 }
 
 
-.header-left {
+.header_left {
     height: 100vh;
-    width: 15%;
+    width: 15vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-right: 2px solid black;
+    border-right: 3.5px solid black;
+}
+
+#mural_right {
+    width: 85vw;
+    height: 100vh;
 }
 
 .marca {
@@ -28,13 +37,12 @@ body {
     justify-content: center;
     gap: 1px;
     height: 25%;
-    width: 100%;
+    width: 70%;
     font-size: 150%;
 }
 
 .marca span {
-    font-family: "Jomhuria", serif;
-    font-size: 200%;
+    font-size: 100%;
     font-weight: lighter;
 }
 
@@ -65,8 +73,7 @@ img {
 }
 
 #user span {
-    font-family: "Jomhuria", serif;
-    font-size: 300%;
+    font-size: 200%;
     margin-top: 2%;
     font-weight: lighter;
 }
@@ -108,6 +115,7 @@ img {
     border-radius: 3px;
     border: 0.2vw solid white;
     background-color: #BB2B45;
+    ;
     color: white;
     cursor: pointer;
     width: 60%;
@@ -125,8 +133,7 @@ img {
 }
 
 .mural_right h1 {
-    font-family: "Jomhuria", serif;
-    font-size: 400%;
+    font-size: 3vw;
     margin-top: 0%;
     white-space: nowrap;
     margin-left: 38%;
@@ -135,13 +142,14 @@ img {
 }
 
 .temperatura{
+    margin-top: 5vh;
     padding-left: 20%;
     height: 22%;
+    width: 94%;
 }
 
 .temperatura h2 {
-    font-family: "Jomhuria", serif;
-    font-size: 300%;
+    font-size: 1.7vw;
     margin-top: 2%;
     margin-bottom: -2%;
     font-weight: lighter;
@@ -154,16 +162,17 @@ img {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+
 }
 
 .perigo_menor {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     background-color:  #00739A;
     width: 36%;
     height: 80%;
-    font-size: 180%;
     text-align: center;
     border-top-left-radius: 10%;
     border-bottom-left-radius: 10%;
@@ -173,19 +182,22 @@ img {
 }
 
 .perigo_menor p {
-    font-family: "Jomhuria", serif;
     font-weight: 100;
-    font-size: 120%;
+    font-size: 1.2vw;
     white-space: nowrap;
     margin: 0%;
+}
+
+.temperatura span{
+    font-size: 3vw;
 }
 
 .alerta_menor {
     background-color: #5EB7D1;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     width: 36%;
-    font-size: 180%;
     height: 80%;
     text-align: center;
     border-top: 0.2vw solid black;
@@ -193,30 +205,28 @@ img {
 }
 
 .alerta_menor p {
-    font-family: "Jomhuria", serif;
     font-weight: 100;
     white-space: nowrap;
-    font-size: 120%;
+    font-size: 1.3vw;
     margin: 0%;
 }
 
 .ideal{
     background-color: #6BB87A;
     display: flex;
+    justify-content: center;
     flex-direction: column;
     width: 36%;
     height: 80%;
-    font-size: 180%;
     text-align: center;
     border-top: 0.2vw solid black;
     border-bottom: 0.2vw solid black;
 }
 
 .ideal p {
-    font-family: "Jomhuria", serif;
     font-weight: 100;
     white-space: nowrap;
-    font-size: 120%;
+    font-size: 1.3vw;
     margin: 0%;
 }
 
@@ -224,9 +234,9 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     background-color: #E6C84C;
     width: 36%;
-    font-size: 180%;
     height: 80%;
     text-align: center;
     border-top: 0.2vw solid black;
@@ -234,10 +244,9 @@ img {
 }
 
 .alerta_maior p {
-    font-family: "Jomhuria", serif;
     font-weight: 100;
     white-space: nowrap;
-    font-size: 120%;
+    font-size: 1.3vw;
     margin: 0%;
 }
 
@@ -245,9 +254,9 @@ img {
 .perigo_maior {
     display: flex;
     font-weight: 100;
-    font-size: 180%;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     background-color: #BB2B45;
     width: 36%;
     height: 80%;
@@ -260,10 +269,9 @@ img {
 }
 
 .perigo_maior p {
-    font-family: "Jomhuria", serif;
     font-weight: 100;
     white-space: nowrap;
-    font-size: 120%;
+    font-size: 1.3vw;
     margin: 0%;
 }
 
@@ -272,17 +280,20 @@ img {
     height: 22%;
 }
 
+.umidade span{
+    font-size: 3vw;
+}
+
 .umidade h2 {
-    font-family: "Jomhuria", serif;
-    font-size: 300%;
+    font-size: 1.7vw;
     margin-top: 5%;
     margin-bottom: -2%;
     font-weight: lighter;
 }
 
 .parametros_umidade {
-    height: 100%;
     width: 120%;
+    height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -296,10 +307,9 @@ img {
 }
 
 .previsao h2 {
-    font-family: "Jomhuria", serif;
-    font-size: 300%;
+    font-size: 1.3vw;
     margin-top: 0%;
-    margin-bottom: -1%;
+    margin-bottom: 1%;
     font-weight: lighter;
     margin-top: 12%;
 }
@@ -321,32 +331,29 @@ img {
     background-color: #7AB8CC;
     width: 90%;
     height: 100%;
-    margin-right: 10%;
+    /* margin-right: 10%; */
     text-align: center;
     border-radius: 10%;
     border: 0.2vw solid black;
 }
 
 .info_temperatura .porcentagem {
-    font-family: "Jomhuria", serif;
-    font-size: 340%;
+    font-size: 1.3vw;
     margin-top: 0%;
     margin-bottom: 0%;
-    -webkit-text-stroke: 0.01vw white;
+    /* -webkit-text-stroke: 0.01vw white; */
 }
 
 .info_temperatura p {
     margin-top: 10%;
     margin-bottom: 0%;
-    font-family: "Jomhuria", serif;
-    font-size: 280%;
-    -webkit-text-stroke: 0.01vw white;
+    font-size: 1.7vw;
+    /* -webkit-text-stroke: 0.01vw white; */
 }
 
 .info_temperatura span {
     margin-top: 0%;
-    font-family: "Jomhuria", serif;
-    font-size: 290%;
+    font-size: 3vw;
 }
 
 .info_umidade {
@@ -362,23 +369,20 @@ img {
 }
 
 .info_umidade .porcentagem {
-    font-family: "Jomhuria", serif;
-    font-size: 340%;
+    font-size: 1.3vw;
     margin-top: 0%;
     margin-bottom: 0%;
-    -webkit-text-stroke: 0.01vw white;
+    /* -webkit-text-stroke: 0.01vw white; */
 }
 
 .info_umidade p {
     margin-top: 10%;
     margin-bottom: 0%;
-    font-family: "Jomhuria", serif;
-    font-size: 280%;
-    -webkit-text-stroke: 0.01vw white;
+    font-size: 1.7vw;
+    /* -webkit-text-stroke: 0.01vw white; */
 }
 
 .info_umidade span {
     margin-top: 0%;
-    font-family: "Jomhuria", serif;
-    font-size: 290%;
+    font-size: 3vw;
 }

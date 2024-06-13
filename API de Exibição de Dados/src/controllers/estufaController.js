@@ -2,13 +2,9 @@ var estufaModel = require("../models/estufaModel");
 
 
 function estufaProblematica(req, res) {
-    var umidadeMinima = 40;
-    var umidadeMaxima = 80;
-    var temperaturaMinima = 13;
-    var temperaturaMaxima = 26;
     var idMatriz = req.params.idMatriz;
 
-    estufaModel.estufaProblematica(umidadeMinima, umidadeMaxima, temperaturaMinima, temperaturaMaxima, idMatriz)
+    estufaModel.estufaProblematica(idMatriz)
         .then(
             function (resultado) {
                 res.json(resultado);

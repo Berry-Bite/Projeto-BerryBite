@@ -1,26 +1,24 @@
 var database = require("../database/config")
 
-function estufaProblematica(umidadeMinima, umidadeMaxima, temperaturaMinima, temperaturaMaxima, idMatriz) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", cnpj, senha)
+function estufaProblematica(idMatriz) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function estufaProblematica(): ", idMatriz)
     var instrucaoSql = `
-        select fkEstufa, umidade, temperatura from RegistroSensor 
-            join sensor on RegistroSensor.fkSensor = Sensor.idSensor 
-            where (umidade < ${umidadeMinima} or umidade > ${umidadeMaxima} 
-            or temperatura < ${temperaturaMinima} or temperatura > ${temperaturaMaxima}) 
-            AND fkMatriz = ${idMatriz};
+        select umidade, temperatura, fkEstufa, fkFazenda, dataRegistro from RegistroSensor
+         join Sensor on RegistroSensor.fkSensor = Sensor.idSensor
+         where fkMatriz = ${idMatriz}
+         order by dataRegistro desc limit 100;
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
-function ultimosDadosEstufa(idEstufa, limite,idFazenda, idMatriz) {
+function ultimosDadosEstufa(idEstufa,idFazenda, idMatriz, limite) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function ultimosDadosEstufa(): ", idEstufa, limite)
     var instrucaoSql = `
-        select umidade, temperatura from RegistroSensor
+        select umidade, temperatura, date_format(dataRegistro, '%H:%m:%s') as momento from RegistroSensor
          join Sensor on RegistroSensor.fkSensor = Sensor.idSensor
-         join Estufa on fkEstufa = idEstufa
-         join Fazenda on fkFazenda = idFazenda
-         where fkEstufa = ${idEstufa} AND fkFazenda = ${idFazenda} AND fkMatriz = ${idMatriz} limit ${limite};
+         where fkEstufa = ${idEstufa} AND fkFazenda = ${idFazenda} AND fkMatriz = ${idMatriz}
+         order by dataRegistro desc limit ${limite};
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -47,9 +45,7 @@ function compararEstufa(idEstufa, idFazenda, idMatriz) {
             ROUND(AVG(temperatura), 2) AS media_temperatura
         FROM RegistroSensor 
         JOIN Sensor ON fkSensor = Sensor.idSensor
-        JOIN Estufa ON fkEstufa = idEstufa
-        JOIN Fazenda ON fkFazenda = idFazenda
-        WHERE idEstufa = ${idEstufa} AND fkFazenda = ${idFazenda} AND fkMatriz = ${idMatriz}
+        WHERE fkEstufa = ${idEstufa} AND fkFazenda = ${idFazenda} AND fkMatriz = ${idMatriz}
         GROUP BY MONTH(dataRegistro)
         ORDER BY MONTH(dataRegistro);
 

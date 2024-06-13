@@ -11,7 +11,7 @@ router.post("/autenticarUsuario", function (req, res) {
     usuarioController.autenticarUsuario(req, res);
 })
 
-router.get("/aparecerFuncionario", function (req, res) {
+router.get("/aparecerFuncionario/:idMatriz", function (req, res) {
     usuarioController.aparecerFuncionario(req, res);
 })
 

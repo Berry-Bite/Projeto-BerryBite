@@ -104,15 +104,6 @@
     window.location.href = "../index.html";
   }
 
-  function estufa_omega() {
-    window.location.href = "estufa-omega.html";
-  }
-
-  function estufa_violet() {
-    window.location.href = "estufa-violet.html";
-
-  }
-
   function inicio() {
     window.location.href = "./estufas.html";
   }
@@ -129,6 +120,145 @@
     window.location.href = "./cadastroFunc.html";
   }
 
+  var idMatriz = sessionStorage.ID_MATRIZ;
+  var mes = "6";
+
+
+  function verProblemas() {
+    fetch(`/estufa/estufaProblematica/${idMatriz}`, {
+      method: "GET"
+    }).then(function (resposta) {
+      if (resposta.ok) {
+        console.log(resposta);
+        resposta.json().then(json => {
+          organizarData(json);
+        });
+
+      } else {
+        resposta.text().then(texto => {
+          console.error(texto);
+        });
+      }
+    }).catch(function (erro) {
+      console.log(erro);
+    })
+  }
+
+
+  function organizarData(dados) {
+    var json = dados;
+    var dia = 0;
+    for (var i = 0; i < dados.length; i++) {
+      if (dados[i].dataRegistro[3] == "4" && dados[i].dataRegistro[6] == "6") {
+        var conta = Number(dados[i].dataRegistro[8] + dados[i].dataRegistro[9])
+        if (conta > dia) {
+          dia = conta;
+        }
+      }
+    }
+    pegarData(json, dia);
+  }
+
+  var lista_datas_certas = [];
+  function pegarData(dados, dia) {
+    for (var i = 0; i < dados.length; i++) {
+      if (dados[i].dataRegistro[3] == "4" && dados[i].dataRegistro[6] == "6" && (Number(dados[i].dataRegistro[8] + dados[i].dataRegistro[9]) == dia)) {
+        lista_datas_certas.push(dados[i])
+      }
+    }
+    organizarHora();
+  }
+
+
+
+  function organizarHora() {
+    var hora = 0;
+    for (var i = 0; i < lista_datas_certas.length; i++) {
+      var conta = Number(lista_datas_certas[i].dataRegistro[11] + lista_datas_certas[i].dataRegistro[12])
+      if (conta > hora) {
+        hora = conta;
+      }
+    }
+    pegarHora(hora);
+  }
+
+  var lista_horas_certas = [];
+  function pegarHora(hora) {
+    for (var i = 0; i < lista_datas_certas.length; i++) {
+      if (Number(lista_datas_certas[i].dataRegistro[11] + lista_datas_certas[i].dataRegistro[12]) == hora) {
+        lista_horas_certas.push(lista_datas_certas[i])
+      }
+    }
+    organizarMinuto();
+  }
+
+
+
+
+
+  function organizarMinuto() {
+    var minuto = 0;
+    for (var i = 0; i < lista_horas_certas.length; i++) {
+      var conta = Number(lista_horas_certas[i].dataRegistro[14] + lista_horas_certas[i].dataRegistro[15])
+      if (conta > minuto) {
+        minuto = conta;
+      }
+    }
+    pegarMinuto(minuto);
+  }
+
+  var lista_minutos_certos = [];
+  function pegarMinuto(minuto) {
+    for (var i = 0; i < lista_horas_certas.length; i++) {
+      if (Number(lista_horas_certas[i].dataRegistro[14] + lista_horas_certas[i].dataRegistro[15]) == minuto) {
+        lista_minutos_certos.push(lista_horas_certas[i])
+      }
+    }
+    pegarDadosErrados();
+  }
+
+
+
+
+  var lista_dados_erro = [];
+  function pegarDadosErrados() {
+    for (var i = 0; i < lista_minutos_certos.length; i++) {
+      if (lista_minutos_certos[i].umidade < 40 || lista_minutos_certos[i].umidade > 80 || lista_minutos_certos[i].temperatura < 13 || lista_minutos_certos[i].temperatura > 26) {
+        lista_dados_erro.push(lista_minutos_certos[i])
+      }
+    }
+    problemaFazendas()
+  }
+
+  var lista_id_fazendas_erro = []
+  function problemaFazendas() {
+    if (lista_dados_erro.length != 0) {
+      for (var i = 0; i < lista_dados_erro.length; i++) {
+        document.getElementById(`fazenda${lista_dados_erro[i].fkFazenda}`).style.backgroundColor = "#BB2B45";
+        lista_id_fazendas_erro.push(lista_dados_erro[i].fkFazenda);
+      }
+    }
+  }
+
+
+  function problemaEstufas() {
+    var estaFazenda = false
+    for (var i = 0; i < lista_id_fazendas_erro.length; i++) {
+      if (lista_id_fazendas_erro[i] == idFazenda) {
+        estaFazenda = true;
+      }
+    }
+    if (lista_dados_erro.length != 0 && estaFazenda) {
+      console.log(lista_dados_erro)
+      for (var i = 0; i < lista_dados_erro.length; i++) {
+        document.getElementById(`estufa${lista_dados_erro[i].fkEstufa}`).style.backgroundColor = "#BB2B45";
+      }
+    }
+  }
+
+
+
+
 
 
 
@@ -138,11 +268,6 @@
 
 
   function verFazendas() {
-    var idMatriz = sessionStorage.ID_MATRIZ;
-    // Murilo
-   console.log('Essa é a ID MATRIZ do verFazendas: ' + idMatriz)
-    // var idMatriz = 1;
-
     fetch(`/fazenda/verFazendas/${idMatriz}`, {
       method: "GET"
     }).then(function (resposta) {
@@ -164,9 +289,9 @@
 
 
   function criarFazendas(dados) {
-    // if (dados.length == 1) {
-    //   procurarEstufas(1);
-    // } else {
+    if (dados.length == 1) {
+      procurarEstufas(1);
+    } else {
       var texto = `
       <h2 id="titulo_fazenda">Suas Fazendas</h2>
       <div id="div_fila_fazendas">`;
@@ -174,23 +299,24 @@
         texto += `<button id="fazenda${i}" class="button_fazenda" onclick="procurarEstufas(this)" type="submit">
           <span>${dados[i - 1].nome}</span>
           </button>`;
-          }
-        texto += `
+      }
+      texto += `
         </div>
         `;
       fazendas.innerHTML = texto;
     }
-  // }
-
-var nome_fazenda_escolhida = "";
+    verProblemas();
+  }
+  var idFazenda;
+  var nome_fazenda_escolhida = "";
 
   function procurarEstufas(item) {
-    var idMatriz = sessionStorage.ID_MATRIZ;
     if (item == 1) {
       var indice = 1;
     } else {
       var indice = item.id[item.id.length - 1];
       nome_fazenda_escolhida = item.querySelector('span').textContent;
+      idFazenda = item.id[item.id.length - 1];
     }
     fetch(`/estufa/verEstufas/${indice}/${idMatriz}`, {
       method: "GET"
@@ -214,7 +340,7 @@ var nome_fazenda_escolhida = "";
   function abrirEstufas(dados) {
     document.getElementById("fazendas").style.display = "none";
     var texto = `
-    <h2 id="titulo_estufa">Estufas da ${nome_fazenda_escolhida}</h2>
+        <h2 id="titulo_estufa">Estufas da ${nome_fazenda_escolhida}</h2>
     <div id="div_fila_estufas">`;
     for (var i = 1; i <= dados.length; i++) {
       texto += `<button value="${dados[i - 1].nome}" id="estufa${i}" class="button_estufa" onclick="dadosEstufa(this)" type="submit">
@@ -223,11 +349,13 @@ var nome_fazenda_escolhida = "";
     }
     texto += `</div>`
     document.getElementById("estufas").innerHTML = texto;
+    problemaEstufas()
   }
 
 
 
 
+  var indice_estufas;
   function dadosEstufa(item) {
     document.getElementById("mural_right").innerHTML = `
             <div class="id_estufa">
@@ -329,16 +457,28 @@ var nome_fazenda_escolhida = "";
       <div id="div_erro"></div>
       <div id="div_bola_erro"> </div>`
 
-    var idMatriz = sessionStorage.ID_MATRIZ;
-    var indice = item.id[item.id.length - 1];
-    fetch(`/estufa/ultimosDadosEstufa/${indice}/${idFazenda}/${idMatriz} `, {
+    indice_estufas = item.id[item.id.length - 1];
+    pegarNovosDados();
+  }
+
+
+  let chartTemperatura = null;
+  let chartUmidade = null;
+
+  var lista_temperatura = [];
+  var lista_umidade = [];
+  var lista_data = [];
+
+  function pegarNovosDados() {
+    fetch(`/estufa/ultimosDadosEstufa/${indice_estufas}/${idFazenda}/${idMatriz} `, {
       method: "GET"
     }).then(function (resposta) {
       if (resposta.ok) {
         console.log(resposta);
         resposta.json().then(json => {
           json.reverse();
-          criarGraficos(json);
+          graficoUmidade(json);
+          graficoTemperatura(json);
         });
 
       } else {
@@ -352,83 +492,24 @@ var nome_fazenda_escolhida = "";
   }
 
 
-  var lista_temperatura = [];
-  var lista_umidade = [];
-  function criarGraficos(dados) {
-    for (var i = 0; i < dados.length; i++) {
-      lista_temperatura.push(dados[i].temperatura);
-      lista_umidade.push(dados[i].umidade);
-    }
-    const ctxTemperatura = document.getElementById('chart_temp');
-    const ctxUmidade = document.getElementById('chart_umi');
-    new Chart(ctxTemperatura, {
-      type: 'line',
-      data: {
-        labels: ['12:00', '12:10', '12:20', '12:30', '12:40', '12:50', '13:00'],
-        datasets: [{
-          label: 'Temperatura',
-          data: lista_temperatura,
-          borderWidth: 3,
-          borderColor: '#5EB7D1',
-          pointBackgroundColor: '#5EB7D1',
-          pointRadius: 4,
-          backgroundColor: '#5EB7D1',
-          pointHoverRadius: 10
-        },
-        {
-          label: 'Perigo Frio',
-          data: [13, 13, 13, 13, 13, 13, 13],
-          borderColor: '#000000',
-          borderWidth: 3,
-          pointBackgroundColor: '#000000',
-          backgroundColor: '#000000',
-          pointRadius: 0,
-          pointHoverRadius: 5
-        },
-        {
-          label: 'Alerta Frio',
-          data: [16, 16, 16, 16, 16, 16, 16],
-          borderWidth: 3,
-          borderColor: '#BB2B45',
-          pointBackgroundColor: '#BB2B45',
-          backgroundColor: '#BB2B45',
-          pointRadius: 0,
-          pointHoverRadius: 5
-        },
-        {
-          label: 'Alerta Calor',
-          data: [22, 22, 22, 22, 22, 22, 22],
-          borderWidth: 3,
-          borderColor: '#BB2B45',
-          pointBackgroundColor: '#BB2B45',
-          backgroundColor: '#BB2B45',
-          pointRadius: 0,
-          pointHoverRadius: 5
-        },
-        {
-          label: 'Perigo Calor',
-          data: [26, 26, 26, 26, 26, 26, 26],
-          borderColor: '#000000',
-          borderWidth: 3,
-          pointBackgroundColor: '#000000',
-          backgroundColor: '#000000',
-          pointRadius: 0,
-          pointHoverRadius: 5
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: false
-          }
-        }
-      }
-    });
+  function graficoUmidade(dados) {
+    lista_umidade.splice(0, lista_umidade.length);
+    lista_data.splice(0, lista_data.length);
 
-    new Chart(ctxUmidade, {
+    for (var i = 0; i < dados.length; i++) {
+      lista_umidade.push(dados[i].umidade);
+      lista_data.push(dados[i].momento);
+    }
+
+    const ctxUmidade = document.getElementById("chart_umi").getContext('2d');
+    if (chartUmidade) {
+      chartUmidade.destroy();
+    }
+
+    chartUmidade = new Chart(ctxUmidade, {
       type: 'line',
       data: {
-        labels: ['12:00', '12:10', '12:20', '12:30', '12:40', '12:50', '13:00'],
+        labels: lista_data,
         datasets: [{
           label: 'Umidade Atual',
           data: lista_umidade,
@@ -489,10 +570,92 @@ var nome_fazenda_escolhida = "";
         }
       }
     });
+  }
+
+  function graficoTemperatura(dados) {
+    lista_temperatura.splice(0, lista_temperatura.length);
+    lista_data.splice(0, lista_data.length);
+
+    for (var i = 0; i < dados.length; i++) {
+      lista_temperatura.push(dados[i].temperatura);
+      lista_data.push(dados[i].momento);
+    }
+    const ctxTemperatura = document.getElementById("chart_temp").getContext('2d');
+    if (chartTemperatura) {
+      chartTemperatura.destroy();
+    }
+
+    chartTemperatura = new Chart(ctxTemperatura, {
+      type: 'line',
+      data: {
+        labels: lista_data,
+        datasets: [{
+          label: 'Temperatura',
+          data: lista_temperatura,
+          borderWidth: 3,
+          borderColor: '#5EB7D1',
+          pointBackgroundColor: '#5EB7D1',
+          pointRadius: 4,
+          backgroundColor: '#5EB7D1',
+          pointHoverRadius: 10
+        },
+        {
+          label: 'Perigo Frio',
+          data: [13, 13, 13, 13, 13, 13, 13],
+          borderColor: '#000000',
+          borderWidth: 3,
+          pointBackgroundColor: '#000000',
+          backgroundColor: '#000000',
+          pointRadius: 0,
+          pointHoverRadius: 5
+        },
+        {
+          label: 'Alerta Frio',
+          data: [16, 16, 16, 16, 16, 16, 16],
+          borderWidth: 3,
+          borderColor: '#BB2B45',
+          pointBackgroundColor: '#BB2B45',
+          backgroundColor: '#BB2B45',
+          pointRadius: 0,
+          pointHoverRadius: 5
+        },
+        {
+          label: 'Alerta Calor',
+          data: [22, 22, 22, 22, 22, 22, 22],
+          borderWidth: 3,
+          borderColor: '#BB2B45',
+          pointBackgroundColor: '#BB2B45',
+          backgroundColor: '#BB2B45',
+          pointRadius: 0,
+          pointHoverRadius: 5
+        },
+        {
+          label: 'Perigo Calor',
+          data: [26, 26, 26, 26, 26, 26, 26],
+          borderColor: '#000000',
+          borderWidth: 3,
+          pointBackgroundColor: '#000000',
+          backgroundColor: '#000000',
+          pointRadius: 0,
+          pointHoverRadius: 5
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: false
+          }
+        }
+      }
+    });
     criarKpis();
   }
 
-
+  setInterval(() => {
+    if (indice_estufas != undefined) {
+      pegarNovosDados();
+    }
+  }, 5000);
 
   function criarKpis() {
     temperatura_atual.innerHTML = lista_temperatura[lista_temperatura.length - 1] + "ºC";
@@ -506,10 +669,8 @@ var nome_fazenda_escolhida = "";
       box_info_temp.style = "background-color: #E6C84C;";
     } else {
       erro_temp = true;
-      legendas_temperatura.style = "margin-top: 75%;";
-      alerta_temp.innerHTML = "&#9888;";
       box_info_temp.style = "background-color: #BB2B45;";
-      temperatura_atual.style = "color: white; margin-top: -70%; font-weight: 300; text-decoration: underline;";
+      temperatura_atual.style = "color: white; font-weight: 900; text-decoration: underline;";
     }
 
     if (lista_umidade[lista_umidade.length - 1] >= 60 && lista_umidade[lista_umidade.length - 1] <= 75) {
@@ -520,10 +681,8 @@ var nome_fazenda_escolhida = "";
       box_info_umi.style = "background-color: #E6C84C;";
     } else {
       erro_umi = true;
-      legendas_umidade.style = "margin-top: 75%;";
-      alerta_umi.innerHTML = "&#9888;";
       box_info_umi.style = "background-color: #BB2B45;";
-      umidade_atual.style = "color: white; margin-top: -70%; font-weight: 300; text-decoration: underline;";
+      umidade_atual.style = "color: white; font-weight: 900; text-decoration: none;";
     }
 
     if (erro_temp || erro_umi) {
@@ -556,48 +715,5 @@ var nome_fazenda_escolhida = "";
       div_bola_erro.innerHTML = ``;
     }
   }
-
-  // function autenticarMatriz(req, res) {
-  //   var cnpj = req.body.cnpjServer;
-  //   var senha = req.body.senhaServer;
-
-  //   if (email == undefined) {
-  //       res.status(400).send("Seu email está undefined!");
-  //   } else if (senha == undefined) {
-  //       res.status(400).send("Sua senha está indefinida!");
-  //   } else {
-
-  //       usuarioModel.autenticarMatriz(cnpj, senha)
-  //           .then(
-  //               function (resultadoAutenticar) {
-  //                   console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
-  //                   console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`);
-
-  //                   if (resultadoAutenticar.length == 1) {
-  //                       console.log(resultadoAutenticar);
-  //                       var usuario = resultadoAutenticar[0]
-  //                       res.json({
-  //                           id: usuario.idMatriz,
-  //                           cnpj: usuario.raxaoSocial,
-  //                           nome: usuario.cnpj,
-  //                           senha: usuario.senha
-  //                       });
-
-  //                   } else if (resultadoAutenticar.length == 0) {
-  //                       res.status(403).send("Email e/ou senha inválido(s)");
-  //                   } else {
-  //                       res.status(403).send("Mais de um usuário com o mesmo login e senha!");
-  //                   }
-  //               }
-  //           ).catch(
-  //               function (erro) {
-  //                   console.log(erro);
-  //                   console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
-  //                   res.status(500).json(erro.sqlMessage);
-  //               }
-  //           );
-  //   }
-
-  // }
 </script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

@@ -227,6 +227,7 @@ function cadastrarEndereco() {
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
+                window.open("mailto:berry.bite.company@gmail.com?subject=Vou cadastrar uma nova fazenda&body=Quantidade e nome das estufas:%0D%0A%0D%0A%0D%0ACaso tenha alguma dúvida entre em contato: https://berrybite.atlassian.net/servicedesk/customer/portal/1", "_blank");
                 setTimeout(function () {
                     login();
                 }, 1000); // apenas para exibir o loading
@@ -240,4 +241,5 @@ function cadastrarEndereco() {
         });
 
     return false;
-}
+    }
+ 

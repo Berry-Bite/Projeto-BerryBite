@@ -132,7 +132,7 @@ img {
 }
 
 .parametros h2 {
-    font-size: 300%;
+    font-size: 2.2vw;
     width: 100%;
     text-align: center;
     margin-top: 2%;
@@ -461,11 +461,11 @@ img {
     justify-content: center;
     width: 100%;
     height: 30%;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .id_estufa h2 {
-    font-size: 380%;
+    font-size: 200%;
 }
 
 .box_info {
@@ -526,7 +526,6 @@ img {
     border-radius: 3px;
     border: 0.2vw solid white;
     background-color: #BB2B45;
-    ;
     color: white;
     cursor: pointer;
     width: 10%;
@@ -542,14 +541,17 @@ img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     width: 100%;
     height: 100%;
     gap: 20px;
 }
 
 #div_fila_fazendas {
-
+    text-align: center;
+    justify-content: center;
     height: 100%;
+    gap: 20px;
     width: 90%;
     display: flex;
     flex-direction: row;
@@ -589,8 +591,9 @@ img {
 }
 
 #div_fila_estufas {
-
+    justify-content: center;
     height: 100%;
+    gap: 20px;
     width: 90%;
     display: flex;
     flex-direction: row;
@@ -706,12 +709,12 @@ img {
     justify-content: center;
     width: 100%;
     height: 30%;
-    font-size: 30px;
+    font-size: 20px;
     margin-bottom: -14%;
 }
 
 .id_estufa h2 {
-    font-size: 240%;
+    font-size: 220%;
     margin-top: -8%;
     margin-left: -12%;
     font-weight: lighter;
@@ -753,8 +756,13 @@ img {
     border-radius: 50%;
 }
 
+#box_info_temp p {
+    margin-top: 5%;
+    padding-top: 5%;
+}
+
 #box_info_temp h6 {
-    font-size: 220%;
+    font-size: 150%;
     margin-top: -50%;
     margin-left: -30%;
     font-weight: lighter;
@@ -766,6 +774,22 @@ img {
     margin-top: -26%;
     font-weight: lighter;
 }
+
+#parametros_temperatura{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: space-around;
+    width: 260px;
+    height: 220px;
+    padding-top: 80px;
+}
+
+#parametros_temperatura span{
+    font-size: 20px;
+}
+
 
 
 
@@ -802,7 +826,7 @@ img {
 }
 
 #legendas_temperatura span {
-    font-size: 240%;
+    font-size: 150%;
     margin-top: -30%;
 }
 
@@ -832,6 +856,9 @@ img {
 }
 
 #perigo_maior_temp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 1vw;
     background-color: black;
     color: white;
@@ -841,6 +868,9 @@ img {
 }
 
 #alerta_maior_temp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 1vw;
     background-color: #BB2B45;
     width: 100%;
@@ -850,6 +880,9 @@ img {
 }
 
 #ideal_temp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 1vw;
     width: 100%;
     height: 15%;
@@ -858,6 +891,9 @@ img {
 }
 
 #alerta_menor_temp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 1vw;
     width: 100%;
     height: 15%;
@@ -867,6 +903,9 @@ img {
 }
 
 #perigo_menor_temp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 1vw;
     width: 100%;
     font-size: 180%;
@@ -907,8 +946,8 @@ img {
 }
 
 #box_info_umi h6 {
-    font-size: 220%;
-    margin-top: -50%;
+    font-size: 150%;
+    margin-top: -40%;
     margin-left: -30%;
     font-weight: lighter;
     white-space: nowrap;
@@ -916,7 +955,8 @@ img {
 
 #umidade_atual {
     font-size: 200%;
-    margin-top: -26%;
+    margin-top: -6%;
+    padding-top: 5px;
     font-weight: lighter;
 }
 
@@ -942,7 +982,7 @@ img {
 }
 
 #legendas_umidade span {
-    font-size: 240%;
+    font-size: 150%;
     margin-top: -30%;
 }
 
@@ -958,7 +998,7 @@ img {
     border-radius: 50%;
     width: 18%;
     height: 64%;
-    margin-top: 30vw;
+    margin-top: 5px;
 
 }
 
@@ -995,56 +1035,73 @@ img {
 
 
 #parametros_umidade {
-    margin-top: 7%;
-    width: 18%;
-    font-weight: lighter;
-    height: 60%;
-    text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
+    width: 260px;
+    font-weight: lighter;
+    height: 220px;
+    padding-top: 80px;
 }
 
 #perigo_maior_umi {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 1vw;
     background-color: black;
     color: white;
-    height: 15%;
-    font-size: 180%;
+    height: 33px;
+    font-size: 135%;
     width: 100%;
 }
 
 #alerta_maior_umi {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 1vw;
     background-color: #BB2B45;
     width: 100%;
-    height: 15%;
-    font-size: 180%;
+    height: 33px;
+    font-size: 135%;
     color: white;
 }
 
 #ideal_umi {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 1vw;
     width: 100%;
-    height: 15%;
-    font-size: 180%;
+    height: 33px;
+    font-size: 135%;
     background-color: #6BB87A;
 }
 
 #alerta_menor_umi {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 1vw;
     width: 100%;
-    height: 15%;
+    height: 33px;
     background-color: #BB2B45;
-    font-size: 180%;
+    font-size: 135%;
     color: white;
 }
 
 #perigo_menor_umi {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 1vw;
     width: 100%;
-    font-size: 180%;
-    height: 15%;
+    font-size: 135%;
+    height: 33px;
     background-color: black;
     color: white;
 }
@@ -1114,4 +1171,11 @@ img {
     color: white;
     font-size: 3.5vw;
     font-weight: lighter;
+}
+
+#titulo_fazenda {
+    font-size: 3vw;
+}
+#titulo_estufa {
+    font-size: 3vw;
 }
